@@ -1,0 +1,1057 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Android多渠道打包及加固方案, Dreamweaver">
+    <meta name="description" content="前言Android多渠道打包已经是老生常谈的问题了，各个大厂也先后开源了自己的打包方案，为我们开发者带来不少便捷。今天我就来谈谈美团的Walle，我在项目中也正是用到了它，也算做个总结和备忘吧。本篇中会提及Walle的基本使用方法以及如何在">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Android多渠道打包及加固方案 | Dreamweaver</title>
+    <link rel="icon" type="image/jpeg" href="/favicon.jpg">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Dreamweaver</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Dreamweaver</div>
+        <div class="logo-desc">
+            
+            学至于行止矣
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/bokidoki" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/bokidoki" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Android多渠道打包及加固方案
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/android/" target="_blank">
+                                <span class="chip bg-color">android</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/tools/" class="post-category" target="_blank">
+                                tools
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-09-25
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        1.7k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        7 分
+                    </div>
+                    
+                
+				
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Android多渠道打包已经是老生常谈的问题了，各个大厂也先后开源了自己的打包方案，为我们开发者带来不少便捷。今天我就来谈谈美团的Walle，我在项目中也正是用到了它，也算做个总结和备忘吧。本篇中会提及Walle的基本使用方法以及如何在项目中配置加固使用，当然，最后也稍微会从源码的角度去分析一下这个方案的原理。那么，现在开始吧。</p>
+<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><p>参考Walle项目<a href="https://github.com/Meituan-Dianping/walle" target="_blank" rel="noopener">Github</a>首页，操作如下：<br>在工程目录引入</p>
+<pre class=" language-groovy"><code class="language-groovy">buildscript <span class="token punctuation">{</span>
+    dependencies <span class="token punctuation">{</span>
+        classpath <span class="token string">'com.meituan.android.walle:plugin:1.1.6'</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>在app目录下引入</p>
+<pre class=" language-groovy"><code class="language-groovy">apply plugin<span class="token punctuation">:</span> <span class="token string">'walle'</span>
+
+dependencies <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 用于读取渠道号</span>
+    compile <span class="token string">'com.meituan.android.walle:library:1.1.6'</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>配置信息呢，可以参考官方说明，我这就简单记录下(copy)了</p>
+<pre class=" language-groovy"><code class="language-groovy">walle <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 指定渠道包的输出路径</span>
+    apkOutputFolder <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"${project.buildDir}/outputs/channels"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 定制渠道包的APK的文件名称</span>
+    apkFileNameFormat <span class="token operator">=</span> <span class="token string">'${appName}-${packageName}-${channel}-${buildType}-v${versionName}-${versionCode}-${buildTime}.apk'</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 渠道配置文件 一个渠道占一行</span>
+    channelFile <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"${project.getProjectDir()}/channel"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>不要忘记获取渠道信息</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">val</span> channel <span class="token operator">=</span> WalleChannelReader<span class="token punctuation">.</span><span class="token function">getChannel</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span>
+UMConfigure<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> UMENG_APP_KEY<span class="token punctuation">,</span> channel<span class="token punctuation">,</span> UMConfigure<span class="token punctuation">.</span>DEVICE_TYPE_PHONE<span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span>
+</code></pre>
+<p>接下来只需要在gradle任务执行channelRelease或是执行</p>
+<pre class=" language-bash"><code class="language-bash">gradlew clean assembleReleaseChannels
+</code></pre>
+<p>渠道包就能生成在你指定的目录下面了。</p>
+<p>但是这样操作完之后就没问题了吗？显然不是。通常我们发布自己的应用之前，还需要进行应用加固(360或是乐固，本文用的是乐固)，加固后会清除apk的签名和渠道信息，需要重新签名然后写入渠道信息。因此，打渠道变成了如下流程：<br><img src="https://dreamweaver.img.we1code.cn/%E5%A4%9A%E6%B8%A0%E9%81%93%E6%89%93%E5%8C%85+%E5%8A%A0%E5%9B%BA%E6%B5%81%E7%A8%8B%E5%9B%BE.png" alt=" "></p>
+<p>要满足上面的操作，项目中walle的配置显然就不太合适了，幸亏walle团队也有提供命令行工具walle-cli供我们自行打包，为了方便，我自己写了个简单的脚本，自动上传到乐固加固然后进行签名写入渠道信息，具体可以参考一下<a href="https://github.com/bokidoki/autoReinforce" target="_blank" rel="noopener">autoReinforce</a>的项目说明。</p>
+<h2 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h2><p>有几个问题想问下大家。</p>
+<ol>
+<li>渠道信息写在哪里了呢？为什么写在这个位置呢？</li>
+<li>渠道信息是如何进行读写操作的呢？</li>
+</ol>
+<p>第一个问题很简单啦，文档上也说了写在了Apk中的APK Signature Block区块，如下图，之所以写在这个位置是因为v2不会对该区域进行校验。</p>
+<p><img src="https://dreamweaver.img.we1code.cn/apk%E7%AD%BE%E5%90%8D%E7%A4%BA%E4%BE%8B%E5%9B%BE.png" alt=" ">  </p>
+<p>在payload_reader可以找到写入渠道的逻辑，在讲述逻辑之前，我们首先要了解一下EOCD(End of Centtal Directory)的结构：</p>
+<table>
+<thead>
+<tr>
+<th>offset</th>
+<th>Bytes</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>4</td>
+<td>End of central directory signature = 0x06054b50</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2</td>
+<td>Number of this disk</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2</td>
+<td>Disk where central directory starts</td>
+</tr>
+<tr>
+<td>8</td>
+<td>2</td>
+<td>Number of central directory records on this disk</td>
+</tr>
+<tr>
+<td>10</td>
+<td>2</td>
+<td>Total number of central directory records</td>
+</tr>
+<tr>
+<td>12</td>
+<td>4</td>
+<td>Size of central directory (bytes)</td>
+</tr>
+<tr>
+<td>16</td>
+<td>4</td>
+<td>Offset of start of central directory, relative to start of archive</td>
+</tr>
+<tr>
+<td>20</td>
+<td>2</td>
+<td>Comment length (n)</td>
+</tr>
+<tr>
+<td>22</td>
+<td>n</td>
+<td>Comment</td>
+</tr>
+</tbody>
+</table>
+<p>由于渠道信息是写在APK Signature Block，因此只要找到Center Directory的位置，那么往前就能找到Apk Signing Block的位置。在Walle中，通过循环找到魔数0x06054b50(假设Comment为空，通过增加Comment的长度，确定EOCD block的位置)，从而确定comment的长度，再将长度与Comment length对比，只要能确认Comment的长度，就能确认APK Signature Block的位置了。APK Signature Block结构如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>offset</th>
+<th>Bytes</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@+0</td>
+<td>8</td>
+<td>block的长度(当前长度不计算在内)</td>
+</tr>
+<tr>
+<td>@+8</td>
+<td>n</td>
+<td>ID-value值</td>
+</tr>
+<tr>
+<td>@-24</td>
+<td>8</td>
+<td>block的长度</td>
+</tr>
+<tr>
+<td>@-16</td>
+<td>16</td>
+<td>魔数”APK Sig Block 42”</td>
+</tr>
+</tbody>
+</table>
+<p>walle渠道信息就是写在ID-value中，在上一步中已经拿到Center Directory的offset，再向前24bytes，取8bytes，就能拿到APK Signature Block的长度了，注意这个长度是不包括前面8个bytes的，在walle中向前多偏移了8个bytes，取首尾block长度对比进行校验，代码片段如下：</p>
+<pre class=" language-java"><code class="language-java">        <span class="token comment" spellcheck="true">// Find the APK Signing Block. The block immediately precedes the Central Directory.</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>centralDirOffset <span class="token operator">&lt;</span> APK_SIG_BLOCK_MIN_SIZE<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">SignatureNotFoundException</span><span class="token punctuation">(</span>
+                    <span class="token string">"APK too small for APK Signing Block. ZIP Central Directory offset: "</span>
+                            <span class="token operator">+</span> centralDirOffset<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">// 后面16bytes就是魔数啦 加上前面8bytes的black长度信息，24bytes</span>
+        <span class="token comment" spellcheck="true">// * 16 bytes: magic</span>
+        fileChannel<span class="token punctuation">.</span><span class="token function">position</span><span class="token punctuation">(</span>centralDirOffset <span class="token operator">-</span> <span class="token number">24</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">final</span> ByteBuffer footer <span class="token operator">=</span> ByteBuffer<span class="token punctuation">.</span><span class="token function">allocate</span><span class="token punctuation">(</span><span class="token number">24</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        fileChannel<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span>footer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        footer<span class="token punctuation">.</span><span class="token function">order</span><span class="token punctuation">(</span>ByteOrder<span class="token punctuation">.</span>LITTLE_ENDIAN<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 这里不是很清楚为什么要将魔数拆开来对比？</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>footer<span class="token punctuation">.</span><span class="token function">getLong</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span> <span class="token operator">!=</span> APK_SIG_BLOCK_MAGIC_LO<span class="token punctuation">)</span>
+                <span class="token operator">||</span> <span class="token punctuation">(</span>footer<span class="token punctuation">.</span><span class="token function">getLong</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span> <span class="token operator">!=</span> APK_SIG_BLOCK_MAGIC_HI<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">SignatureNotFoundException</span><span class="token punctuation">(</span>
+                    <span class="token string">"No APK Signing Block before ZIP Central Directory"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">// 尾部记录的block长度</span>
+        <span class="token keyword">final</span> <span class="token keyword">long</span> apkSigBlockSizeInFooter <span class="token operator">=</span> footer<span class="token punctuation">.</span><span class="token function">getLong</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>apkSigBlockSizeInFooter <span class="token operator">&lt;</span> footer<span class="token punctuation">.</span><span class="token function">capacity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token operator">||</span> <span class="token punctuation">(</span>apkSigBlockSizeInFooter <span class="token operator">></span> Integer<span class="token punctuation">.</span>MAX_VALUE <span class="token operator">-</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">SignatureNotFoundException</span><span class="token punctuation">(</span>
+                    <span class="token string">"APK Signing Block size out of range: "</span> <span class="token operator">+</span> apkSigBlockSizeInFooter<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">// 将总长度与头部记录的8bytes长度相加</span>
+        <span class="token keyword">final</span> <span class="token keyword">int</span> totalSize <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>apkSigBlockSizeInFooter <span class="token operator">+</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">final</span> <span class="token keyword">long</span> apkSigBlockOffset <span class="token operator">=</span> centralDirOffset <span class="token operator">-</span> totalSize<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>apkSigBlockOffset <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">SignatureNotFoundException</span><span class="token punctuation">(</span>
+                    <span class="token string">"APK Signing Block offset out of range: "</span> <span class="token operator">+</span> apkSigBlockOffset<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        fileChannel<span class="token punctuation">.</span><span class="token function">position</span><span class="token punctuation">(</span>apkSigBlockOffset<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">final</span> ByteBuffer apkSigBlock <span class="token operator">=</span> ByteBuffer<span class="token punctuation">.</span><span class="token function">allocate</span><span class="token punctuation">(</span>totalSize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        fileChannel<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span>apkSigBlock<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        apkSigBlock<span class="token punctuation">.</span><span class="token function">order</span><span class="token punctuation">(</span>ByteOrder<span class="token punctuation">.</span>LITTLE_ENDIAN<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 头部和尾部的长度杜比校验</span>
+        <span class="token keyword">final</span> <span class="token keyword">long</span> apkSigBlockSizeInHeader <span class="token operator">=</span> apkSigBlock<span class="token punctuation">.</span><span class="token function">getLong</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>apkSigBlockSizeInHeader <span class="token operator">!=</span> apkSigBlockSizeInFooter<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">SignatureNotFoundException</span><span class="token punctuation">(</span>
+                    <span class="token string">"APK Signing Block sizes in header and footer do not match: "</span>
+                            <span class="token operator">+</span> apkSigBlockSizeInHeader <span class="token operator">+</span> <span class="token string">" vs "</span> <span class="token operator">+</span> apkSigBlockSizeInFooter<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">// 拿到APK Signing Block了</span>
+</code></pre>
+<p>再来看看ID-value区域结构</p>
+<table>
+<thead>
+<tr>
+<th>Bytes</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8</td>
+<td>序列长度n(不包括其本身)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>序列id</td>
+</tr>
+<tr>
+<td>n-4</td>
+<td>内容</td>
+</tr>
+</tbody>
+</table>
+<p>了解了ID-value区域结构那么再贴一下获取custom ID-value的代码</p>
+<pre class=" language-java"><code class="language-java">        <span class="token comment" spellcheck="true">// APK Sig Block 中的ID-value区域</span>
+        <span class="token keyword">final</span> ByteBuffer pairs <span class="token operator">=</span> <span class="token function">sliceFromTo</span><span class="token punctuation">(</span>apkSigningBlock<span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> apkSigningBlock<span class="token punctuation">.</span><span class="token function">capacity</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">24</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">final</span> Map<span class="token operator">&lt;</span>Integer<span class="token punctuation">,</span> ByteBuffer<span class="token operator">></span> idValues <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedHashMap</span><span class="token operator">&lt;</span>Integer<span class="token punctuation">,</span> ByteBuffer<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// keep order</span>
+
+        <span class="token keyword">int</span> entryCount <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>pairs<span class="token punctuation">.</span><span class="token function">hasRemaining</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            entryCount<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>pairs<span class="token punctuation">.</span><span class="token function">remaining</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">SignatureNotFoundException</span><span class="token punctuation">(</span>
+                        <span class="token string">"Insufficient data to read size of APK Signing Block entry #"</span> <span class="token operator">+</span> entryCount<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment" spellcheck="true">// 获取总长度 8bytes</span>
+            <span class="token keyword">final</span> <span class="token keyword">long</span> lenLong <span class="token operator">=</span> pairs<span class="token punctuation">.</span><span class="token function">getLong</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>lenLong <span class="token operator">&lt;</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">(</span>lenLong <span class="token operator">></span> Integer<span class="token punctuation">.</span>MAX_VALUE<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">SignatureNotFoundException</span><span class="token punctuation">(</span>
+                        <span class="token string">"APK Signing Block entry #"</span> <span class="token operator">+</span> entryCount
+                                <span class="token operator">+</span> <span class="token string">" size out of range: "</span> <span class="token operator">+</span> lenLong<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">final</span> <span class="token keyword">int</span> len <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span> lenLong<span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// id开始的位置</span>
+            <span class="token keyword">final</span> <span class="token keyword">int</span> nextEntryPos <span class="token operator">=</span> pairs<span class="token punctuation">.</span><span class="token function">position</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> len<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>len <span class="token operator">></span> pairs<span class="token punctuation">.</span><span class="token function">remaining</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">SignatureNotFoundException</span><span class="token punctuation">(</span>
+                        <span class="token string">"APK Signing Block entry #"</span> <span class="token operator">+</span> entryCount <span class="token operator">+</span> <span class="token string">" size out of range: "</span> <span class="token operator">+</span> len
+                                <span class="token operator">+</span> <span class="token string">", available: "</span> <span class="token operator">+</span> pairs<span class="token punctuation">.</span><span class="token function">remaining</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment" spellcheck="true">// 获取id 4bytes</span>
+            <span class="token keyword">final</span> <span class="token keyword">int</span> id <span class="token operator">=</span> pairs<span class="token punctuation">.</span><span class="token function">getInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            idValues<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>id<span class="token punctuation">,</span> <span class="token function">getByteBuffer</span><span class="token punctuation">(</span>pairs<span class="token punctuation">,</span> len <span class="token operator">-</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            pairs<span class="token punctuation">.</span><span class="token function">position</span><span class="token punctuation">(</span>nextEntryPos<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+</code></pre>
+<p>至此就分析完了如何在APK中去读取插入的渠道信息，顺带了解了一下APK包的结构。最后过一下如何写入渠道信息的吧，流程如下：</p>
+<ul>
+<li>通过commentLength\centralDirStartOffset\apkSigningBlockAndOffset找到IdValues的位置</li>
+<li>在IdValues block中找到V2签名的位置，判断是否已经签名</li>
+<li>判断是否使用V3签名，如果有将长度补成4096的倍数(V3签名会校验)</li>
+<li>写入渠道</li>
+</ul>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>从多渠道打包，引申出了Apk的签名V2签名逻辑(V1类似，但是是放在EOCD的Comment中)，Apk(Zip)包的结构等问题。这里只是简单的做下自我总结，如有疑问欢迎留言，当然你也可以选择去看看官方的文档和大神们的博客。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://juejin.im/post/5ad47f466fb9a028d82c3e29" target="_blank" rel="noopener">带你了解腾讯开源的多渠道打包技术 VasDolly源码解析 by 鸿洋</a></li>
+<li><a href="https://juejin.im/post/5c6d6d6a6fb9a049f06ad97e" target="_blank" rel="noopener">APK文件结构详解</a>  </li>
+<li><a href="https://github.com/Meituan-Dianping/walle" target="_blank" rel="noopener">Meituan-Dianping/walle</a></li>
+<li><a href="https://github.com/Tencent/VasDolly/wiki/VasDolly%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86" target="_blank" rel="noopener">Tencent/VasDolly</a></li>
+</ul>
+
+            </div>
+            <hr/>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="https://we1code.cn" class="b-link-green">Dreamweaver</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2019/09/25/Android多渠道打包及加固方案/" class="b-link-green">Android多渠道打包及加固方案</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '38c613ef7ac3e6503f13',
+        clientSecret: 'e08b9c74a43f1f1011a75bd27e076d4138198ca4',
+        repo: 'blog-comment',
+        owner: 'bokidoki',
+        admin: ["bokidoki"],
+        id: '2019-09-25T15-36-28',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/09/29/Fragment原理浅析/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Fragment原理浅析">
+                        
+                        <span class="card-title">Fragment原理浅析</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">前言Fragment在日常开发中非常的常用，一版都是配合ViewPager或FrameLayout使用，我们基本不用担心操作它attachToActivity，因为FragmentManager都帮我们处理好了。那么Fragment是如何绑</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-29
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Android/" class="post-category" target="_blank">
+                                    Android
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/framework/" target="_blank">
+                        <span class="chip bg-color">framework</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/09/21/vps搭建ssr服务器/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="vps搭建ssr服务器">
+                        
+                        <span class="card-title">vps搭建ssr服务器</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">前言发现最近一些搭建ssr服务器的教程都被迫下线了，心里慌的一匹，原先都是参照教程来搭建的，没有教程我可怎么办，赶紧备份一波。
+vps服务器选择原先一直用搬瓦工，因为便宜啊，用了一年多ip被封了，花了将近10美元重置，一天不到又给我封了，遂</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ssr/" class="post-category" target="_blank">
+                                    ssr
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/其他/" target="_blank">
+                        <span class="chip bg-color">其他</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Dreamweaver<br />'
+            + '作者: snoopy<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">13.3k</span>
+            
+
+            
+			
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/bokidoki" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:yunhuiliao@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="https://leetcode-cn.com/u/snooooopy" class="tooltipped" target="_blank" data-tooltip="访问我的leetcode主页" data-position="top" data-delay="50">
+        <i class="fa fa-code"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+
+
+</body>
+</html>

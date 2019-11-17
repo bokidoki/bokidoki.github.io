@@ -447,23 +447,19 @@ $(function () {
 
     
     
-    <div class="col s12 m6" >
-        <div class="post-card" style="background-image: url('https://dreamweaver.img.we1code.cn/android-recyclerview-fastadapter-header.png')">
+    <div class="col s12" >
+        <div class="post-card" style="background-image: url('/medias/featureimages/11.jpg')">
             <div class="post-body">
                 <div class="post-categories">
                     
-                    <a href="/categories/android/" class="category" target="_blank">android</a>
+                    <a href="/categories/tools/" class="category" target="_blank">tools</a>
                     
                 </div>
-                <a href="/2019/07/08/RecyclerView源码分析/" target="_blank">
-                    <h3 class="post-title">RecyclerView源码分析</h3>
+                <a href="/2019/09/25/Android多渠道打包及加固方案/" target="_blank">
+                    <h3 class="post-title">Android多渠道打包及加固方案</h3>
                 </a>
-                <p class="post-description">
-                    
-                        前言RecyclerView想必大家都不陌生了，通过配合使用ListAdapter和LinearLayoutManager就能很容易的实现一
-                    
-                </p>
-                <a href="/2019/07/08/RecyclerView源码分析/" target="_blank"
+                <p class="post-description">前言Android多渠道打包已经是老生常谈的问题了，各个大厂也先后开源了自己的打包方案，为我们开发者带来不少便捷。今天我就来谈谈美团的Walle，我在项目中也正是用到了它</p>
+                <a href="/2019/09/25/Android多渠道打包及加固方案/" target="_blank"
                         class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                 </a>
@@ -472,7 +468,32 @@ $(function () {
     </div>
     
     
-    <div class="col s12 m6" >
+    <div class="col s12 m6" data-aos="zoom-in-up">
+        <div class="post-card" style="background-image: url('http://dreamweaver.img.we1code.cn/kotlin-base-syntax.jpg')">
+            <div class="post-body">
+                <div class="post-categories">
+                    
+                    <a href="/categories/Kotlin/" class="category" target="_blank">Kotlin</a>
+                    
+                </div>
+                <a href="/2019/03/22/Kotlin基础-作用域函数/" target="_blank">
+                    <h3 class="post-title">Kotlin作用域函数(Scope Functions)</h3>
+                </a>
+                <p class="post-description">前言Kotlin中有5种作用域函数，分别是：  
+
+let, run, with, apply, and also  
+
+它们并没有任何特性</p>
+                <a href="/2019/03/22/Kotlin基础-作用域函数/" target="_blank"
+                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)">
+                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="col s12 m6" data-aos="zoom-in-up">
         <div class="post-card" style="background-image: url('https://dreamweaver.img.we1code.cn/kotlin-extension-function.png')">
             <div class="post-body">
                 <div class="post-categories">
@@ -483,14 +504,10 @@ $(function () {
                 <a href="/2019/03/22/kotlin高级用法/" target="_blank">
                     <h3 class="post-title">Kotlin Lambda and Extension</h3>
                 </a>
-                <p class="post-description">
-                    
-                        Extension Function
-Extension Function 能在已经存在的类中添加新的方法或者属性，即使这些类来自库或者SD
-                    
-                </p>
+                <p class="post-description">Extension Function(扩展函数)
+Extension Function 能在已经存在的类中添加新的方法或者属性，即使这些类来</p>
                 <a href="/2019/03/22/kotlin高级用法/" target="_blank"
-                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)">
+                        class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #1AD6FD 0%, #1D62F0 100%)">
                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                 </a>
             </div>
@@ -516,31 +533,38 @@ Extension Function 能在已经存在的类中添加新的方法或者属性，�
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/07/08/RecyclerView源码分析/">
+                    <a href="/2019/11/07/Jetpack-livedata/">
                         <div class="card-image">
                             
-                            <img src="https://dreamweaver.img.we1code.cn/android-recyclerview-fastadapter-header.png" class="responsive-img" alt="RecyclerView源码分析">
                             
-                            <span class="card-title">RecyclerView源码分析</span>
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Android Jetpack系列其二livedata">
+                            
+                            <span class="card-title">Android Jetpack系列其二livedata</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                前言RecyclerView想必大家都不陌生了，通过配合使用ListAdapter和LinearLayoutManager就能很容易的实现一个列表的展示，本篇文章将着重分析RecyclerView的这些部件是如何各司其职的，以及它的复用机制
+                                前言livedata是被观察者的持有类，并能感应生命周期。此篇文章重在分析两点
+
+livedata如何实现观察者模式的
+livedata是如何感知数据流的变化的
+livedata是如何感知lifecycleOwner的生命周期的
+
+使用与分
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-08
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-07
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fa fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/android/" class="post-category" target="_blank">
-                                    android
+                                <a href="/categories/Android/" class="post-category" target="_blank">
+                                    Android
                                 </a>
                                 
                                 
@@ -551,8 +575,204 @@ Extension Function 能在已经存在的类中添加新的方法或者属性，�
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/library/" target="_blank">
-                            <span class="chip bg-color">library</span>
+                        <a href="/tags/jetpack/" target="_blank">
+                            <span class="chip bg-color">jetpack</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/10/24/KotlinDelegate/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Koltin委托属性">
+                            
+                            <span class="card-title">Koltin委托属性</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                委托模式在Kotlin中委托模式通过by关键字实现
+interface Base {
+    fun print()
+}
+
+class Derived(b: Base): Base by b
+
+上述表达式表示b将代理Derived去实现in
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-24
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Kotlin/" class="post-category" target="_blank">
+                                    Kotlin
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/syntax/" target="_blank">
+                            <span class="chip bg-color">syntax</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/09/29/Fragment原理浅析/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Fragment原理浅析">
+                            
+                            <span class="card-title">Fragment原理浅析</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                前言Fragment在日常开发中非常的常用，一版都是配合ViewPager或FrameLayout使用，我们基本不用担心操作它attachToActivity，因为FragmentManager都帮我们处理好了。那么Fragment是如何绑
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-29
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Android/" class="post-category" target="_blank">
+                                    Android
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/framework/" target="_blank">
+                            <span class="chip bg-color">framework</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/09/25/Android多渠道打包及加固方案/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Android多渠道打包及加固方案">
+                            
+                            <span class="card-title">Android多渠道打包及加固方案</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                前言Android多渠道打包已经是老生常谈的问题了，各个大厂也先后开源了自己的打包方案，为我们开发者带来不少便捷。今天我就来谈谈美团的Walle，我在项目中也正是用到了它，也算做个总结和备忘吧。本篇中会提及Walle的基本使用方法以及如何在
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-25
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/tools/" class="post-category" target="_blank">
+                                    tools
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/android/" target="_blank">
+                            <span class="chip bg-color">android</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/09/21/vps搭建ssr服务器/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="vps搭建ssr服务器">
+                            
+                            <span class="card-title">vps搭建ssr服务器</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                前言发现最近一些搭建ssr服务器的教程都被迫下线了，心里慌的一匹，原先都是参照教程来搭建的，没有教程我可怎么办，赶紧备份一波。
+vps服务器选择原先一直用搬瓦工，因为便宜啊，用了一年多ip被封了，花了将近10美元重置，一天不到又给我封了，遂
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-21
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/ssr/" class="post-category" target="_blank">
+                                    ssr
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/其他/" target="_blank">
+                            <span class="chip bg-color">其他</span>
                         </a>
                         
                     </div>
@@ -709,20 +929,23 @@ Kotlin的委托机制Ko
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/03/22/kotlin高级用法/">
+                    <a href="/2019/03/22/Kotlin基础-作用域函数/">
                         <div class="card-image">
                             
-                            <img src="https://dreamweaver.img.we1code.cn/kotlin-extension-function.png" class="responsive-img" alt="Kotlin Lambda and Extension">
+                            <img src="http://dreamweaver.img.we1code.cn/kotlin-base-syntax.jpg" class="responsive-img" alt="Kotlin作用域函数(Scope Functions)">
                             
-                            <span class="card-title">Kotlin Lambda and Extension</span>
+                            <span class="card-title">Kotlin作用域函数(Scope Functions)</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Extension Function
-Extension Function 能在已经存在的类中添加新的方法或者属性，即使这些类来自库或者SDK中。在函数内部，我们可以访问类的公共函数和属性而不需要任何限定符，就好像这个函数就在这个类的内部一
+                                前言Kotlin中有5种作用域函数，分别是：  
+
+let, run, with, apply, and also  
+
+它们并没有任何特性，但是使用他们可以让我们的代码更加简洁，具备更好的可读性。我们可以在这找到它们的源码。下面我将分析这
                             
                         </div>
                         <div class="publish-info">
@@ -756,71 +979,32 @@ Extension Function 能在已经存在的类中添加新的方法或者属性，�
             
             <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2018/05/29/Android代码混淆/">
+                    <a href="/2019/03/22/kotlin高级用法/">
                         <div class="card-image">
                             
+                            <img src="https://dreamweaver.img.we1code.cn/kotlin-extension-function.png" class="responsive-img" alt="Kotlin Lambda and Extension">
                             
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Android代码混淆">
-                            
-                            <span class="card-title">Android代码混淆</span>
+                            <span class="card-title">Kotlin Lambda and Extension</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                前言最近在用Kotlin撸App，准备发版了，做下代码混淆，想用原来的混淆逻辑，但是发现各种报错，头大的很，觉得是自己关于混淆的知识积累不够多，是应该系统的学习一下了！顺便在此记录下遇到的坑。那下面我们开始吧。
-代码混淆开启代码混淆只要在a
+                                Extension Function(扩展函数)
+Extension Function 能在已经存在的类中添加新的方法或者属性，即使这些类来自库或者SDK中。在函数内部，我们可以访问类的公共函数和属性而不需要任何限定符，就好像这个函数就在这
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-05-29
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-22
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fa fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Android/" class="post-category" target="_blank">
-                                    Android
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4 overflow-policy" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/04/28/jenkins自动化打包/">
-                        <div class="card-image">
-                            
-                            <img src="https://dreamweaver.img.we1code.cn/jenkins-cover.jpg" class="responsive-img" alt="Jenkins自动打包Android应用">
-                            
-                            <span class="card-title">Jenkins自动打包Android应用</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                前言已经用Jenkins做过很多Android自动化打包的配置了，无奈记性不咋地，每配一次就要查一次资料，踩同样的坑，浪费不少时间和精力，更是被一些莫名其妙的问题折磨到抓狂，于是我决定在此把Jenkins的配置流程和遇到的坑整理、记录下来（
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-04-28
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Jenkins/" class="post-category" target="_blank">
-                                    Jenkins
+                                <a href="/categories/Kotlin/" class="post-category" target="_blank">
+                                    Kotlin
                                 </a>
                                 
                                 
@@ -831,8 +1015,8 @@ Extension Function 能在已经存在的类中添加新的方法或者属性，�
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/tools/" target="_blank">
-                            <span class="chip bg-color">tools</span>
+                        <a href="/tags/syntax/" target="_blank">
+                            <span class="chip bg-color">syntax</span>
                         </a>
                         
                     </div>
@@ -846,6 +1030,30 @@ Extension Function 能在已经存在的类中添加新的方法或者属性，�
 </main>
 
 
+<div class="container paging">
+    <div class="row">
+        <div class="col s6 m4 l4">
+            
+            <a class="left btn-floating btn-large disabled">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            
+        </div>
+        <div class="page-info col m4 l4 hide-on-small-only">
+            <div class="center-align b-text-gray">1 / 2</div>
+        </div>
+        <div class="col s6 m4 l4">
+            
+            <a href="/page/2/"
+               class="right btn-floating btn-large waves-effect waves-light bg-color">
+                <i class="fa fa-angle-right"></i>
+            </a>
+            
+        </div>
+    </div>
+</div>
+
+
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">
@@ -856,7 +1064,7 @@ Extension Function 能在已经存在的类中添加新的方法或者属性，�
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">6.9k</span>
+                <span class="white-color">13.3k</span>
             
 
             

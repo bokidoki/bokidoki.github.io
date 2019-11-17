@@ -5,8 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Kotlin Lambda and Extension, Dreamweaver">
-    <meta name="description" content="Extension Function
-Extension Function 能在已经存在的类中添加新的方法或者属性，即使这些类来自库或者SDK中。在函数内部，我们可以访问类的公共函数和属性而不需要任何限定符，就好像这个函数就在这个类的内部一">
+    <meta name="description" content="Extension Function(扩展函数)
+Extension Function 能在已经存在的类中添加新的方法或者属性，即使这些类来自库或者SDK中。在函数内部，我们可以访问类的公共函数和属性而不需要任何限定符，就好像这个函数就在这">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -409,7 +409,7 @@ Extension Function 能在已经存在的类中添加新的方法或者属性，�
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        853
+                        857
                     </div>
                     
 
@@ -427,7 +427,7 @@ Extension Function 能在已经存在的类中添加新的方法或者属性，�
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="Extension-Function"><a href="#Extension-Function" class="headerlink" title="Extension Function"></a>Extension Function</h3><blockquote>
+                <h3 id="Extension-Function-扩展函数"><a href="#Extension-Function-扩展函数" class="headerlink" title="Extension Function(扩展函数)"></a>Extension Function(扩展函数)</h3><blockquote>
 <p>Extension Function 能在已经存在的类中添加新的方法或者属性，即使这些类来自库或者SDK中。在函数内部，我们可以访问类的公共函数和属性而不需要任何限定符，就好像这个函数就在这个类的内部一样。（注意：从技术上将，它并没有修改现有类，只是在声明的类中创建了static public final函数）</p>
 </blockquote>
 <p>举个栗子</p>
@@ -641,19 +641,23 @@ supportFragmentManager<span class="token punctuation">.</span><span class="token
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/03/23/kotlin语法糖Part1/">
+                <a href="/2019/03/22/Kotlin基础-作用域函数/">
                     <div class="card-image">
                         
-                        <img src="https://dreamweaver.img.we1code.cn/kotlin-sugar.jpg" class="responsive-img" alt="Kotlin语法糖 Part1">
+                        <img src="http://dreamweaver.img.we1code.cn/kotlin-base-syntax.jpg" class="responsive-img" alt="Kotlin作用域函数(Scope Functions)">
                         
-                        <span class="card-title">Kotlin语法糖 Part1</span>
+                        <span class="card-title">Kotlin作用域函数(Scope Functions)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary block-with-text">Kotlin给我们提供了大量的工具和语法糖让我们能够更为便利的去编程，让代码有更好的可读性和可扩展性。写更少的代码做更多的事，用这句话概括Kotlin和Java之间的差异一点都不为过。面对Kotlin这种能减轻我们工作量的工具，我们有什么理</div>
+                    <div class="summary block-with-text">前言Kotlin中有5种作用域函数，分别是：  
+
+let, run, with, apply, and also  
+
+它们并没有任何特性，但是使用他们可以让我们的代码更加简洁，具备更好的可读性。我们可以在这找到它们的源码。下面我将分析这</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-23
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-22
                         </span>
                         <span class="publish-author">
                             
@@ -867,7 +871,7 @@ supportFragmentManager<span class="token punctuation">.</span><span class="token
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">6.9k</span>
+                <span class="white-color">13.3k</span>
             
 
             
