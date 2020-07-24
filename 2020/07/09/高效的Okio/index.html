@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="generator" content="Hexo 4.2.0"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>高效的Okio - 东山花灯路</title><meta description="Okio is a library that complements java.io and java.nio to make it much easier to access, store, and process your data.    正如Okio官网所说，它整合了java io 和nio让它们的更容易使用。此篇深入分析一下Okio高效的原因。 implementation &amp;amp;quot"><meta property="og:type" content="blog"><meta property="og:title" content="高效的Okio"><meta property="og:url" content="https://we1code.cn/2020/07/09/%E9%AB%98%E6%95%88%E7%9A%84Okio/"><meta property="og:site_name" content="东山花灯路"><meta property="og:description" content="Okio is a library that complements java.io and java.nio to make it much easier to access, store, and process your data.    正如Okio官网所说，它整合了java io 和nio让它们的更容易使用。此篇深入分析一下Okio高效的原因。 implementation &amp;amp;quot"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://dreamweaver.img.we1code.cn/Okio.png"><meta property="og:image" content="https://dreamweaver.img.we1code.cn/segment.png"><meta property="article:published_time" content="2020-07-09T08:39:59.000Z"><meta property="article:modified_time" content="2020-07-18T05:32:16.512Z"><meta property="article:author" content="云逸清风"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://dreamweaver.img.we1code.cn/Okio.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://we1code.cn/2020/07/09/%E9%AB%98%E6%95%88%E7%9A%84Okio/"},"headline":"东山花灯路","image":["https://dreamweaver.img.we1code.cn/Okio.png","https://dreamweaver.img.we1code.cn/segment.png"],"datePublished":"2020-07-09T08:39:59.000Z","dateModified":"2020-07-18T05:32:16.512Z","author":{"@type":"Person","name":"云逸清风"},"description":"Okio is a library that complements java.io and java.nio to make it much easier to access, store, and process your data.    正如Okio官网所说，它整合了java io 和nio让它们的更容易使用。此篇深入分析一下Okio高效的原因。 implementation &amp;quot"}</script><link rel="canonical" href="https://we1code.cn/2020/07/09/%E9%AB%98%E6%95%88%E7%9A%84Okio/"><link rel="icon" href="/img/favicon.ico"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=UA-155014591-1" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'UA-155014591-1');</script><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.png" alt="东山花灯路" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/bokidoki"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><time class="level-item" dateTime="2020-07-09T08:39:59.000Z" title="2020-07-09T08:39:59.000Z">2020-07-09</time><span class="level-item"><a class="link-muted" href="/categories/Android/">Android</a></span><span class="level-item">19 分钟 读完 (大约 2800 个字)</span><span class="level-item" id="busuanzi_container_page_pv"><i class="far fa-eye"></i>&nbsp;&nbsp;<span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">高效的Okio</h1><div class="content"><blockquote>
+<p>Okio is a library that complements java.io and java.nio to make it much easier to access, store, and process your data.  </p>
+</blockquote>
+<p>正如<a href="https://square.github.io/okio/">Okio</a>官网所说，它整合了java io 和nio让它们的更容易使用。此篇深入分析一下Okio高效的原因。</p>
+<pre class=" language-groovy"><code class="language-groovy">implementation <span class="token string">"com.squareup.okio:okio:2.7.0"</span>
+</code></pre>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><a href="#目录">目录</a><ul>
+<li><a href="#okio-uml">Okio UML</a></li>
+<li><a href="#基本用法">基本用法</a></li>
+<li><a href="#buffer的角色">Buffer的角色</a></li>
+<li><a href="#segment结构与segmentpool">Segment结构与SegmentPool</a></li>
+<li><a href="#okio超时机制">Okio超时机制</a></li>
+<li><a href="#结束语">结束语</a></li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<h3 id="Okio-UML"><a href="#Okio-UML" class="headerlink" title="Okio UML"></a>Okio UML</h3><p><img src="https://dreamweaver.img.we1code.cn/Okio.png" alt="okio"></p>
+<p>sink负责写入，source负责读取</p>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><pre class=" language-kotlin"><code class="language-kotlin"><span class="token comment" spellcheck="true">// 读取文件</span>
+<span class="token keyword">val</span> readFile <span class="token operator">=</span> <span class="token function">File</span><span class="token punctuation">(</span><span class="token string">"read"</span><span class="token punctuation">)</span>
+<span class="token keyword">val</span> buffer <span class="token operator">=</span> readFile<span class="token punctuation">.</span><span class="token function">source</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">buffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+buffer<span class="token punctuation">.</span><span class="token function">readString</span><span class="token punctuation">(</span>Charset<span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// 写入文件</span>
+<span class="token keyword">val</span> writableFile <span class="token operator">=</span> <span class="token function">File</span><span class="token punctuation">(</span><span class="token string">"writable"</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>writableFile<span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    writableFile<span class="token punctuation">.</span><span class="token function">createNewFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">val</span> sink <span class="token operator">=</span> writableFile<span class="token punctuation">.</span><span class="token function">sink</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">buffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+sink<span class="token punctuation">.</span><span class="token function">writeString</span><span class="token punctuation">(</span><span class="token string">"sink write in"</span><span class="token punctuation">,</span> Charset<span class="token punctuation">.</span><span class="token function">defaultCharset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+sink<span class="token punctuation">.</span><span class="token function">flush</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+sink<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>无论是读取还是写入，都是对java字节流做了一层包装，对于InputStream包装成了InputStreamSource，对于OutputStream包装成了OutputStreamSink。（对于output/input对于内存而言，output从内存写出，input从外部写入内存）对于Reader和Writer，没有做相关的扩展方法，可能是字符流已经使用了缓冲区吧。然后Source和Sink又被包装RealBufferedSource和RealBufferedSink，这些类的主要函数都以扩展函数的形式放在internal\RealBufferedSource.kt和internal\RealBufferedSink.kt文件中，为啥不放在对应的类中呢？个人觉得可能这些逻辑主要是跟Okio的Buffer相关，抽出来放在一起看起来更直观一些。</p>
+<h3 id="Buffer的角色"><a href="#Buffer的角色" class="headerlink" title="Buffer的角色"></a>Buffer的角色</h3><p>字节流的读/写都会申请一遍内存空间用于存放读/写的数据，读写完之后再被回收，这样反复的申请内存显然是对系统性能有影响的。Buffer在Okio中起着重要的角色，它定义了一些读写的方法，并对申请的内存做了复用，节约了IO字节流反复申请内存的开销。使用Buffer之后，java字节流的读写逻辑变为先将数据放在可被回收复用的Segment中，然后等待后续处理。</p>
+<h3 id="Segment结构与SegmentPool"><a href="#Segment结构与SegmentPool" class="headerlink" title="Segment结构与SegmentPool"></a>Segment结构与SegmentPool</h3><p>Buffer内部使用<em>Segment</em>保存数据，<em>Segment</em>用于存储读/写的字节码，</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">internal</span> <span class="token keyword">class</span> Segment <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 用于存储读/写数据 长度8192</span>
+  <span class="token annotation builtin">@JvmField</span> <span class="token keyword">val</span> <span class="token keyword">data</span><span class="token operator">:</span> ByteArray
+
+  <span class="token comment" spellcheck="true">/** The next byte of application data byte to read in this segment.  */</span>
+  <span class="token comment" spellcheck="true">// 当前byteArray的读取位置</span>
+  <span class="token annotation builtin">@JvmField</span> <span class="token keyword">var</span> pos<span class="token operator">:</span> Int <span class="token operator">=</span> <span class="token number">0</span>
+
+  <span class="token comment" spellcheck="true">/** The first byte of available data ready to be written to.  */</span>
+  <span class="token comment" spellcheck="true">// 可以理解为data当前的容量</span>
+  <span class="token annotation builtin">@JvmField</span> <span class="token keyword">var</span> limit<span class="token operator">:</span> Int <span class="token operator">=</span> <span class="token number">0</span>
+
+  <span class="token comment" spellcheck="true">/** True if other segments or byte strings use the same byte array.  */</span>
+  <span class="token comment" spellcheck="true">// 与下面的owner互斥表示这个segment是共享的还是独占的</span>
+  <span class="token comment" spellcheck="true">// 可能会影响到我们写入数据时是否需要创建新的segment</span>
+  <span class="token annotation builtin">@JvmField</span> <span class="token keyword">var</span> shared<span class="token operator">:</span> Boolean <span class="token operator">=</span> <span class="token boolean">false</span>
+
+  <span class="token comment" spellcheck="true">/** True if this segment owns the byte array and can append to it, extending `limit`.  */</span>
+  <span class="token annotation builtin">@JvmField</span> <span class="token keyword">var</span> owner<span class="token operator">:</span> Boolean <span class="token operator">=</span> <span class="token boolean">false</span>
+
+  <span class="token comment" spellcheck="true">/** Next segment in a linked or circularly-linked list.  */</span>
+  <span class="token annotation builtin">@JvmField</span> <span class="token keyword">var</span> next<span class="token operator">:</span> Segment<span class="token operator">?</span> <span class="token operator">=</span> <span class="token keyword">null</span>
+
+  <span class="token comment" spellcheck="true">/** Previous segment in a circularly-linked list.  */</span>
+  <span class="token annotation builtin">@JvmField</span> <span class="token keyword">var</span> prev<span class="token operator">:</span> Segment<span class="token operator">?</span> <span class="token operator">=</span> <span class="token keyword">null</span>
+
+ <span class="token comment" spellcheck="true">// 省略...</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><img src="https://dreamweaver.img.we1code.cn/segment.png" alt="segment"></p>
+<p>Segment是环状链表结构的节点。Buffer类中定义了许多读写相关的方法，简单的看下其中commonReadInt和commonWriteInt，看看有什么共通性。</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">internal</span> <span class="token keyword">inline</span> <span class="token keyword">fun</span> Buffer<span class="token punctuation">.</span><span class="token function">commonReadInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> Int <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>size <span class="token operator">&lt;</span> <span class="token number">4L</span><span class="token punctuation">)</span> <span class="token keyword">throw</span> <span class="token function">EOFException</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+  <span class="token comment" spellcheck="true">// 从Buffer中获取head</span>
+  <span class="token keyword">val</span> segment <span class="token operator">=</span> head<span class="token operator">!!</span>
+  <span class="token comment" spellcheck="true">// pos 读取的起始位置</span>
+  <span class="token keyword">var</span> pos <span class="token operator">=</span> segment<span class="token punctuation">.</span>pos
+  <span class="token comment" spellcheck="true">// segment中字节码的长度</span>
+  <span class="token keyword">val</span> limit <span class="token operator">=</span> segment<span class="token punctuation">.</span>limit
+
+  <span class="token comment" spellcheck="true">// If the int is split across multiple segments, delegate to readByte().</span>
+  <span class="token comment" spellcheck="true">// 发现剩余的字节码的长度小于4，等于说剩余的长度不足一个int的长度啦，就直接去读byte吧</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>limit <span class="token operator">-</span> pos <span class="token operator">&lt;</span> <span class="token number">4L</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// shl 运算优先级要大于and</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token function">readByte</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">and</span> <span class="token number">0xff</span> <span class="token operator">shl</span> <span class="token number">24</span>
+      <span class="token function">or</span> <span class="token punctuation">(</span><span class="token function">readByte</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">and</span> <span class="token number">0xff</span> <span class="token operator">shl</span> <span class="token number">16</span><span class="token punctuation">)</span>
+      <span class="token function">or</span> <span class="token punctuation">(</span><span class="token function">readByte</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">and</span> <span class="token number">0xff</span> <span class="token operator">shl</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// ktlint-disable no-multi-spaces</span>
+      <span class="token function">or</span> <span class="token punctuation">(</span><span class="token function">readByte</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">and</span> <span class="token number">0xff</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">val</span> <span class="token keyword">data</span> <span class="token operator">=</span> segment<span class="token punctuation">.</span>data
+  <span class="token comment" spellcheck="true">// 这里呢，在字节码数组中读取4位表示一个Int，第一个字节表示高8位，最后一个字节低8位，将这32位bit求和就得到读取的int值啦</span>
+  <span class="token keyword">val</span> i <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">data</span><span class="token punctuation">[</span>pos<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">and</span> <span class="token number">0xff</span> <span class="token operator">shl</span> <span class="token number">24</span>
+    <span class="token function">or</span> <span class="token punctuation">(</span><span class="token keyword">data</span><span class="token punctuation">[</span>pos<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">and</span> <span class="token number">0xff</span> <span class="token operator">shl</span> <span class="token number">16</span><span class="token punctuation">)</span>
+    <span class="token function">or</span> <span class="token punctuation">(</span><span class="token keyword">data</span><span class="token punctuation">[</span>pos<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">and</span> <span class="token number">0xff</span> <span class="token operator">shl</span> <span class="token number">8</span><span class="token punctuation">)</span>
+    <span class="token function">or</span> <span class="token punctuation">(</span><span class="token keyword">data</span><span class="token punctuation">[</span>pos<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">and</span> <span class="token number">0xff</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token comment" spellcheck="true">// 读取了4个字节，长度减4咯</span>
+  size <span class="token operator">-=</span> <span class="token number">4L</span>
+
+  <span class="token comment" spellcheck="true">// 当当前读取的位置与存储的上限位置相等表示读完啦</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>pos <span class="token operator">==</span> limit<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 改变头部的指向</span>
+    head <span class="token operator">=</span> segment<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">// 将读取完的segment回收</span>
+    SegmentPool<span class="token punctuation">.</span><span class="token function">recycle</span><span class="token punctuation">(</span>segment<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 改变当前读取到的位置</span>
+    segment<span class="token punctuation">.</span>pos <span class="token operator">=</span> pos
+  <span class="token punctuation">}</span>
+
+  <span class="token comment" spellcheck="true">// 返回读取的int值</span>
+  <span class="token keyword">return</span> i
+<span class="token punctuation">}</span>
+
+<span class="token keyword">internal</span> <span class="token keyword">inline</span> <span class="token keyword">fun</span> Buffer<span class="token punctuation">.</span><span class="token function">commonWriteInt</span><span class="token punctuation">(</span>i<span class="token operator">:</span> Int<span class="token punctuation">)</span><span class="token operator">:</span> Buffer <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 拿到一个可写入的segment，4表示int的长度，影响后面是否要创建新的segment</span>
+  <span class="token keyword">val</span> tail <span class="token operator">=</span> <span class="token function">writableSegment</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
+  <span class="token keyword">val</span> <span class="token keyword">data</span> <span class="token operator">=</span> tail<span class="token punctuation">.</span>data
+  <span class="token comment" spellcheck="true">// 下面就是常规操作啦，写入一个int值并更新字节数组的长度和size的大小</span>
+  <span class="token keyword">var</span> limit <span class="token operator">=</span> tail<span class="token punctuation">.</span>limit
+  <span class="token keyword">data</span><span class="token punctuation">[</span>limit<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>i <span class="token operator">ushr</span> <span class="token number">24</span> <span class="token operator">and</span> <span class="token number">0xff</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toByte</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">data</span><span class="token punctuation">[</span>limit<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>i <span class="token operator">ushr</span> <span class="token number">16</span> <span class="token operator">and</span> <span class="token number">0xff</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toByte</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">data</span><span class="token punctuation">[</span>limit<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>i <span class="token operator">ushr</span>  <span class="token number">8</span> <span class="token operator">and</span> <span class="token number">0xff</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toByte</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// ktlint-disable no-multi-spaces</span>
+  <span class="token keyword">data</span><span class="token punctuation">[</span>limit<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>i         <span class="token operator">and</span> <span class="token number">0xff</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toByte</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// ktlint-disable no-multi-spaces</span>
+  tail<span class="token punctuation">.</span>limit <span class="token operator">=</span> limit
+  size <span class="token operator">+=</span> <span class="token number">4L</span>
+  <span class="token keyword">return</span> <span class="token keyword">this</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>从上面两个简单函数的实现上，我们可以看出，无论是读还是写，似乎都离不开segment这个结构体，并且Okio还贴心的创建了一个SegmentPool用于回收复用Segment。来看看SegmentPool的结构。</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">internal</span> actual <span class="token keyword">object</span> SegmentPool <span class="token punctuation">{</span>
+  actual <span class="token keyword">val</span> MAX_SIZE <span class="token operator">=</span> <span class="token number">64</span> <span class="token operator">*</span> <span class="token number">1024</span>
+
+  <span class="token keyword">private</span> <span class="token keyword">val</span> LOCK <span class="token operator">=</span> <span class="token function">Segment</span><span class="token punctuation">(</span><span class="token function">ByteArray</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> pos <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> limit <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> shared <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">,</span> owner <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+
+  <span class="token comment" spellcheck="true">// hash_bucket_count与处理器ALU个数有关，4舍5入保证是2的指数。这样能保证线程之间抢占cpu的可能性更低，我们创建线程池是不是也可以这么设计呢?</span>
+  <span class="token keyword">private</span> <span class="token keyword">val</span> HASH_BUCKET_COUNT <span class="token operator">=</span>
+    Integer<span class="token punctuation">.</span><span class="token function">highestOneBit</span><span class="token punctuation">(</span>Runtime<span class="token punctuation">.</span><span class="token function">getRuntime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">availableProcessors</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
+
+  <span class="token comment" spellcheck="true">/**
+   * Hash buckets each containing a singly-linked list of segments. We use multiple hash buckets so
+   * different threads don't race each other. We use thread IDs as hash keys because they're handy,
+   * and because it may increase locality.
+   *
+   * We don't use [ThreadLocal] because we don't know how many threads the host process has and we
+   * don't want to leak memory for the duration of a thread's life.
+   */</span>
+   <span class="token comment" spellcheck="true">// 对于io密集型场景，线程数 = cpu核心数 / (1 - 阻塞系数) （阻塞系数为该任务阻塞时间与（阻塞时间+计算时间）的比值）。可以简单设置为2倍cpu核心数</span>
+   <span class="token comment" spellcheck="true">// 对于计算密集型场景，线程数 = cpu核心数</span>
+   <span class="token comment" spellcheck="true">// hashBuckets的长度>=可用处理器长度，一般情况是一个线程对应一个Segment，但是也可能存在多个线程对应一个Segment的情况。</span>
+  <span class="token keyword">private</span> <span class="token keyword">val</span> hashBuckets<span class="token operator">:</span> Array<span class="token operator">&lt;</span>AtomicReference<span class="token operator">&lt;</span>Segment<span class="token operator">?</span><span class="token operator">></span><span class="token operator">></span> <span class="token operator">=</span> <span class="token function">Array</span><span class="token punctuation">(</span>HASH_BUCKET_COUNT<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    AtomicReference<span class="token operator">&lt;</span>Segment<span class="token operator">?</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token annotation builtin">@JvmStatic</span>
+  actual <span class="token keyword">fun</span> <span class="token function">take</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> Segment <span class="token punctuation">{</span>
+    <span class="token keyword">val</span> firstRef <span class="token operator">=</span> <span class="token function">firstRef</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true">// firstRef获取值并设置LOCK返回原值</span>
+    <span class="token keyword">val</span> first <span class="token operator">=</span> firstRef<span class="token punctuation">.</span><span class="token function">getAndSet</span><span class="token punctuation">(</span>LOCK<span class="token punctuation">)</span>
+    <span class="token keyword">when</span> <span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">// 如果first为LOCK，没有占有锁，不会从池中拿segment</span>
+      first <span class="token operator">===</span> LOCK <span class="token operator">-></span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// We didn't acquire the lock. Don't take a pooled segment.</span>
+        <span class="token keyword">return</span> <span class="token function">Segment</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      <span class="token comment" spellcheck="true">// first == null当前占有锁但是segment池是空的。释放锁返回一个segment</span>
+      first <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">-></span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// We acquired the lock but the pool was empty. Unlock and return a new segment.</span>
+        firstRef<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token function">Segment</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      <span class="token comment" spellcheck="true">// 其它情况，获取到了锁并且segment pool不是空的。复用当前的Segment。</span>
+      <span class="token keyword">else</span> <span class="token operator">-></span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// We acquired the lock and the pool was not empty. Pop the first element and return it.</span>
+        firstRef<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>first<span class="token punctuation">.</span>next<span class="token punctuation">)</span>
+        first<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span>
+        first<span class="token punctuation">.</span>limit <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">return</span> first
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token annotation builtin">@JvmStatic</span>
+  actual <span class="token keyword">fun</span> <span class="token function">recycle</span><span class="token punctuation">(</span>segment<span class="token operator">:</span> Segment<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">require</span><span class="token punctuation">(</span>segment<span class="token punctuation">.</span>next <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> segment<span class="token punctuation">.</span>prev <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">// 如果Segment是共享的不能被回收</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>segment<span class="token punctuation">.</span>shared<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token comment" spellcheck="true">// This segment cannot be recycled.</span>
+
+    <span class="token keyword">val</span> firstRef <span class="token operator">=</span> <span class="token function">firstRef</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">val</span> first <span class="token operator">=</span> firstRef<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">// 若当前锁被占用，不能被回收</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>first <span class="token operator">===</span> LOCK<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token comment" spellcheck="true">// A take() is currently in progress.</span>
+    <span class="token keyword">val</span> firstLimit <span class="token operator">=</span> first<span class="token operator">?</span><span class="token punctuation">.</span>limit <span class="token operator">?:</span> <span class="token number">0</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>firstLimit <span class="token operator">>=</span> MAX_SIZE<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token comment" spellcheck="true">// Pool is full.</span>
+
+    segment<span class="token punctuation">.</span>next <span class="token operator">=</span> first
+    segment<span class="token punctuation">.</span>pos <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token comment" spellcheck="true">// 更新缓存池的容量(头插法)</span>
+    segment<span class="token punctuation">.</span>limit <span class="token operator">=</span> firstLimit <span class="token operator">+</span> Segment<span class="token punctuation">.</span>SIZE
+
+    <span class="token comment" spellcheck="true">// 如果当前值 == 预期值，则以原子方式将该值设置为给定的更新值。</span>
+    <span class="token comment" spellcheck="true">// 如果成功，则返回 true。返回 false 指示实际值与预期值不相等。</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>firstRef<span class="token punctuation">.</span><span class="token function">compareAndSet</span><span class="token punctuation">(</span>first<span class="token punctuation">,</span> segment<span class="token punctuation">)</span><span class="token punctuation">)</span> segment<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span>
+    <span class="token comment" spellcheck="true">// If we raced another operation: Don't recycle this segment.</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">private</span> <span class="token keyword">fun</span> <span class="token function">firstRef</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> AtomicReference<span class="token operator">&lt;</span>Segment<span class="token operator">?</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Get a value in [0..HASH_BUCKET_COUNT).</span>
+    <span class="token keyword">val</span> hashBucket <span class="token operator">=</span> <span class="token punctuation">(</span>Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>id <span class="token function">and</span> <span class="token punctuation">(</span>HASH_BUCKET_COUNT <span class="token operator">-</span> <span class="token number">1L</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> hashBuckets<span class="token punctuation">[</span>hashBucket<span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>去掉些注释，代码量不过百来行，但确是整个框架的核心所在。早期版本的SegmentPool简单粗暴的使用synchronized将整个SegmentPool加了锁，访问效率比较低。改良后的SegmentPool是一个无锁的单链表结构，采用哨兵LOCK和CAS机制保证线程的安全性，内部的hashBuckets能保证对于每个线程都有一个独占的Segment单链表，不同的线程之间不会产生竞争。</p>
+<h3 id="Okio超时机制"><a href="#Okio超时机制" class="headerlink" title="Okio超时机制"></a>Okio超时机制</h3><p>Okio种Timeout负责管理timeout和deadline，两者的使用场景略有不同，timeout主要用于socket通信超时，deadline用于读写操作是否在规定的期限内执行。接下来看看实际中是如何使用它们的。</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">fun</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 初始化一个文件输出流</span>
+    <span class="token keyword">val</span> ops <span class="token operator">=</span> <span class="token function">FileOutputStream</span><span class="token punctuation">(</span><span class="token string">"writable"</span><span class="token punctuation">)</span>
+    <span class="token keyword">val</span> sink <span class="token operator">=</span> ops<span class="token punctuation">.</span><span class="token function">sink</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">val</span> timeout <span class="token operator">=</span> sink<span class="token punctuation">.</span><span class="token function">timeout</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">// 设置deadline为5秒</span>
+    timeout<span class="token punctuation">.</span><span class="token function">deadline</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> TimeUnit<span class="token punctuation">.</span>SECONDS<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">// 当前线程睡眠6s</span>
+    Thread<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span>6_000<span class="token punctuation">)</span>
+    <span class="token keyword">val</span> buffer <span class="token operator">=</span> sink<span class="token punctuation">.</span><span class="token function">buffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">// 执行写入操作</span>
+    buffer<span class="token punctuation">.</span><span class="token function">writeString</span><span class="token punctuation">(</span><span class="token string">"after 10 second"</span><span class="token punctuation">,</span> Charset<span class="token punctuation">.</span><span class="token function">defaultCharset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    buffer<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>执行上述代码后，发现抛出一下异常</p>
+<pre class=" language-cmd"><code class="language-cmd">Exception in thread "main" java.io.InterruptedIOException: deadline reached
+  at okio.Timeout.throwIfReached(Timeout.kt:102)
+  at okio.OutputStreamSink.write(JvmOkio.kt:50)
+  at okio.RealBufferedSink.close(RealBufferedSink.kt:260)
+  at MainKt.main(Main.kt:21)
+  at MainKt.main(Main.kt)
+</code></pre>
+<p>在设置timeout.deadline，会设置timeout中deadlineNanoTime，为当前系统时间加上deadline，调用buffer.close最终会调用到OutputStreamSink的write函数，其中的timeout.throwIfReached()判断是否到达deadline的时间点。</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token keyword">open</span> <span class="token keyword">fun</span> <span class="token function">throwIfReached</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>Thread<span class="token punctuation">.</span><span class="token function">interrupted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">interrupt</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// Retain interrupted status.</span>
+    <span class="token keyword">throw</span> <span class="token function">InterruptedIOException</span><span class="token punctuation">(</span><span class="token string">"interrupted"</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment" spellcheck="true">// deadline time 与当前系统时间的差值小于0，抛出异常</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>hasDeadline <span class="token operator">&amp;&amp;</span> deadlineNanoTime <span class="token operator">-</span> System<span class="token punctuation">.</span><span class="token function">nanoTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">throw</span> <span class="token function">InterruptedIOException</span><span class="token punctuation">(</span><span class="token string">"deadline reached"</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>再看看Socket.sink()</p>
+<pre class=" language-kotlin"><code class="language-kotlin"><span class="token comment" spellcheck="true">// SocketAsyncTimeout是AsyncTimeout子类，实际上是用它控制timeout的</span>
+<span class="token annotation builtin">@Throws</span><span class="token punctuation">(</span>IOException<span class="token operator">::</span><span class="token keyword">class</span><span class="token punctuation">)</span>
+<span class="token keyword">fun</span> Socket<span class="token punctuation">.</span><span class="token function">sink</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> Sink <span class="token punctuation">{</span>
+  <span class="token keyword">val</span> timeout <span class="token operator">=</span> <span class="token function">SocketAsyncTimeout</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>
+  <span class="token keyword">val</span> sink <span class="token operator">=</span> <span class="token function">OutputStreamSink</span><span class="token punctuation">(</span><span class="token function">getOutputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> timeout<span class="token punctuation">)</span>
+  <span class="token keyword">return</span> timeout<span class="token punctuation">.</span><span class="token function">sink</span><span class="token punctuation">(</span>sink<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">fun</span> AsyncTimeout<span class="token punctuation">.</span><span class="token function">source</span><span class="token punctuation">(</span>source<span class="token operator">:</span> Source<span class="token punctuation">)</span><span class="token operator">:</span> Source <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">object</span> <span class="token operator">:</span> Source <span class="token punctuation">{</span>
+    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">read</span><span class="token punctuation">(</span>sink<span class="token operator">:</span> Buffer<span class="token punctuation">,</span> byteCount<span class="token operator">:</span> Long<span class="token punctuation">)</span><span class="token operator">:</span> Long <span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">// source.read被withTimeout包装了一层</span>
+      <span class="token keyword">return</span> withTimeout <span class="token punctuation">{</span> source<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span>sink<span class="token punctuation">,</span> byteCount<span class="token punctuation">)</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      withTimeout <span class="token punctuation">{</span> source<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">timeout</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token label symbol">@AsyncTimeout</span>
+
+    <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">"AsyncTimeout.source(<span class="token interpolation variable">$source</span>)"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">inline</span> <span class="token keyword">fun</span> <span class="token operator">&lt;</span>T<span class="token operator">></span> <span class="token function">withTimeout</span><span class="token punctuation">(</span>block<span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-></span> T<span class="token punctuation">)</span><span class="token operator">:</span> T <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> throwOnTimeout <span class="token operator">=</span> <span class="token boolean">false</span>
+  <span class="token comment" spellcheck="true">// 超时逻辑所在</span>
+  <span class="token function">enter</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token comment" spellcheck="true">// 省略。。。</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">fun</span> <span class="token function">enter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">check</span><span class="token punctuation">(</span><span class="token operator">!</span>inQueue<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token string">"Unbalanced enter/exit"</span> <span class="token punctuation">}</span>
+  <span class="token keyword">val</span> timeoutNanos <span class="token operator">=</span> <span class="token function">timeoutNanos</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">val</span> hasDeadline <span class="token operator">=</span> <span class="token function">hasDeadline</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>timeoutNanos <span class="token operator">==</span> <span class="token number">0L</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>hasDeadline<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token comment" spellcheck="true">// No timeout and no deadline? Don't bother with the queue.</span>
+  <span class="token punctuation">}</span>
+  inQueue <span class="token operator">=</span> <span class="token boolean">true</span>
+  <span class="token comment" spellcheck="true">// 调度timeout，开启watchdog线程，watchdog会计算当前timeout节点是否超时若达到了超时时间将timeout从当前链表中移除并返回执行timeout.timeout()，当没有节点时watchdog自动挂起1分钟。</span>
+  <span class="token function">scheduleTimeout</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> timeoutNanos<span class="token punctuation">,</span> hasDeadline<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>scheduleTimeout处理AysncTimeout单链表，并会通过timeout时间与deadline时间对节点排序，scheduleTimeout启动了Watchdog线程，比对头部节点超时时间与当前系统时间，若发现超时从链表中移除当前节点执行timeout.timeout()关闭socket。</p>
+<h3 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h3><p>Okio核心思想在于Segment与SegmentPool，相比用传统方法使用io流，减少反复申请内存对系统性能的开销。SegmentPool中对多线程编程的情况做了优化，减少了线程之间的竞争。通读一遍下来，你会发现Okio结构清晰，运用了大量的设计思想，在日常的开发过程中，如果可以合理地学习利用，相信我们也能开发出高性能的应用。</p>
+</div><div class="sharethis-inline-share-buttons"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=5eae347b7d4ec20012dc0389&amp;product=inline-share-buttons&amp;cms=sop" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2020/04/01/Android%E5%AD%98%E5%82%A8/"><span class="level-item">Android存储系统</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div id="comment-container"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
+            id: '91d4a025dccdcf5aa6ee12a342810622',
+            repo: 'blog-comment',
+            owner: 'bokidoki',
+            clientID: '3beba67bd514e2528f91',
+            clientSecret: '4d1a02948bd809436979d93685fcc36199776994',
+            admin: "bokidoki",
+            createIssueManually: false,
+            distractionFreeMode: false,
+            perPage: 20,
+            pagerDirection: 'last',
+            
+            
+            enableHotKey: true
+        })
+        gitalk.render('comment-container')</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="is-rounded" src="/img/avatar.jpg" alt="云逸清风"></figure><p class="title is-size-4 is-block line-height-inherit">云逸清风</p><p class="is-size-6 is-block">Android Developer</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>广州,中国</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">18</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">5</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">7</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/bokidoki" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/bokidoki"><i class="fab fa-github"></i></a></div></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/Android/"><span class="level-start"><span class="level-item">Android</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Jenkins/"><span class="level-start"><span class="level-item">Jenkins</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Kotlin/"><span class="level-start"><span class="level-item">Kotlin</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/ssr/"><span class="level-start"><span class="level-item">ssr</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/tools/"><span class="level-start"><span class="level-item">tools</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button is-primary" type="submit" value="订阅"></div></div></form></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content size-small"><p><time dateTime="2020-07-09T08:39:59.000Z">2020-07-09</time></p><p class="title is-6"><a class="link-muted" href="/2020/07/09/%E9%AB%98%E6%95%88%E7%9A%84Okio/">高效的Okio</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Android/">Android</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2020-04-01T07:29:07.000Z">2020-04-01</time></p><p class="title is-6"><a class="link-muted" href="/2020/04/01/Android%E5%AD%98%E5%82%A8/">Android存储系统</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Android/">Android</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2019-12-08T03:40:34.000Z">2019-12-08</time></p><p class="title is-6"><a class="link-muted" href="/2019/12/08/Arouter/">Arouter 原理浅析</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Android/">Android</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2019-11-07T06:44:46.000Z">2019-11-07</time></p><p class="title is-6"><a class="link-muted" href="/2019/11/07/Jetpack-livedata/">Android Jetpack系列其二livedata</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Android/">Android</a></p></div></article><article class="media"><div class="media-content size-small"><p><time dateTime="2019-10-24T03:02:49.000Z">2019-10-24</time></p><p class="title is-6"><a class="link-muted" href="/2019/10/24/KotlinDelegate/">Koltin委托属性</a></p><p class="is-uppercase"><a class="link-muted" href="/categories/Kotlin/">Kotlin</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2020/07/"><span class="level-start"><span class="level-item">七月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2020/04/"><span class="level-start"><span class="level-item">四月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/12/"><span class="level-start"><span class="level-item">十二月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/11/"><span class="level-start"><span class="level-item">十一月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/10/"><span class="level-start"><span class="level-item">十月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/09/"><span class="level-start"><span class="level-item">九月 2019</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/04/"><span class="level-start"><span class="level-item">四月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2019/03/"><span class="level-start"><span class="level-item">三月 2019</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2018/05/"><span class="level-start"><span class="level-item">五月 2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2018/04/"><span class="level-start"><span class="level-item">四月 2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/android/"><span class="tag">android</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/framework/"><span class="tag">framework</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/jetpack/"><span class="tag">jetpack</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/library/"><span class="tag">library</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/tools/"><span class="tag">tools</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%85%B6%E4%BB%96/"><span class="tag">其他</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9F%BA%E7%A1%80/"><span class="tag">基础</span><span class="tag is-grey-lightest">10</span></a></div></div></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.png" alt="东山花灯路" height="28"></a><p class="size-small"><span>&copy; 2020 云逸清风</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            site: {
+                url: 'https://we1code.cn',
+                external_link: {"enable":true,"exclude":[]}
+            },
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
