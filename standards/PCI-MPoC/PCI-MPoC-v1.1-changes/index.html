@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+  <!-- Minima -->
+  <!-- Hexo theme created by @adisaktijrs -->
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+
+  
+  <title>PCI MPoC v1.0.1 → v1.1 完整变更分析</title>
+  
+  <link rel="sitemap" href="https://we1code.cnsitemap.xml,sitemap.txt" />
+  
+  <link rel="canonical" href="https://we1code.cn/standards/PCI-MPoC/PCI-MPoC-v1.1-changes/">
+  
+  <meta name="description" content="文档概述2024年12月，PCI安全标准委员会发布了MPoC（Mobile Payments on COTS）标准从v1.0.1到v1.1的变更摘要。本文档完整分析Summary of Changes表格中的所有变更点。    属性 详情    文档名称 PCI MPoC – Summary of ">
+  
+  
+  <meta name="keywords" content="认证,标准,PCI,EN,网络安全,MPoC">
+  
+  <meta name="author" content="标准研究组">
+  
+  
+  
+  <meta property="og:site_name" content="认证标准解读" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="PCI MPoC v1.0.1 → v1.1 完整变更分析" />
+  
+  <meta property="og:description" content="文档概述2024年12月，PCI安全标准委员会发布了MPoC（Mobile Payments on COTS）标准从v1.0.1到v1.1的变更摘要。本文档完整分析Summary of Changes表格中的所有变更点。    属性 详情    文档名称 PCI MPoC – Summary of ">
+  
+  <meta property="og:url" content="https://we1code.cn/standards/PCI-MPoC/PCI-MPoC-v1.1-changes/" />
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PCI MPoC v1.0.1 → v1.1 完整变更分析">
+  
+  <meta name="twitter:description" content="文档概述2024年12月，PCI安全标准委员会发布了MPoC（Mobile Payments on COTS）标准从v1.0.1到v1.1的变更摘要。本文档完整分析Summary of Changes表格中的所有变更点。    属性 详情    文档名称 PCI MPoC – Summary of ">
+  
+  
+  
+  
+  <meta name="twitter:url" content="https://we1code.cn/standards/PCI-MPoC/PCI-MPoC-v1.1-changes/" />
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Preload fonts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="preload" href="/fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+<link rel="stylesheet" href="/css/normalize.css">
+
+  
+<link rel="stylesheet" href="/css/skeleton.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+<link rel="stylesheet" href="/css/prism-dark.css">
+
+  
+<link rel="stylesheet" href="/css/prism-line-numbers.css">
+
+  <!-- User css -->
+  
+  
+<link rel="stylesheet" href="/css/user.css">
+
+  
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+
+  <!-- Custom Theme Color Style
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <style>
+  a:not(.icon) {
+    text-decoration-color: #0FA0CE;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 50%,
+      #0FA0CE 50%
+    );
+  }
+  blockquote {
+    border-left: 8px solid #0FA0CE;
+  }
+  .nanobar .bar {
+    background: #0FA0CE;
+  }
+  .button.button-primary:hover,
+  button.button-primary:hover,
+  input[type="submit"].button-primary:hover,
+  input[type="reset"].button-primary:hover,
+  input[type="button"].button-primary:hover,
+  .button.button-primary:focus,
+  button.button-primary:focus,
+  input[type="submit"].button-primary:focus,
+  input[type="reset"].button-primary:focus,
+  input[type="button"].button-primary:focus {
+    background-color: #0FA0CE;
+    border-color: #0FA0CE;
+  }
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  input[type="search"]:focus,
+  input[type="text"]:focus,
+  input[type="tel"]:focus,
+  input[type="url"]:focus,
+  input[type="password"]:focus,
+  textarea:focus,
+  select:focus {
+    border: 1px solid #0FA0CE;
+  }
+</style>
+
+  <!-- Google Analytics (With Privacy Settings On)
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+
+  
+  <script src="/js/pic.min.js" defer></script>
+  
+
+  
+
+<meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="认证标准解读" type="application/atom+xml">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div>
+
+        <div class="row">
+  <div class="two columns" style="max-width: 50px">
+    <h1 class="mt-2 mode">
+      <div onclick=setDarkMode(true) id="darkBtn">🌑</div>
+      <div onclick=setDarkMode(false) id="lightBtn" class=hidden>☀️</div>
+      <script >
+        if (localStorage.getItem('preferredTheme') == 'dark') {
+          setDarkMode(true)
+        }
+        function setDarkMode(isDark) {
+          var darkBtn = document.getElementById('darkBtn')
+          var lightBtn = document.getElementById('lightBtn')
+          if (isDark) {
+            lightBtn.style.display = "block"
+            darkBtn.style.display = "none"
+            localStorage.setItem('preferredTheme', 'dark');
+          } else {
+            lightBtn.style.display = "none"
+            darkBtn.style.display = "block"
+            localStorage.removeItem('preferredTheme');
+          }
+          document.body.classList.toggle("darkmode");
+        }
+      </script>
+    </h1>
+  </div>
+
+  <div class="six columns ml-1">
+    <h1 class="mt-2">
+      认证标准解读
+    </h1>
+  </div>
+
+  <div class="twelve columns">
+    <div class="row">
+      <div class="nine columns left">
+        <a href="/">Home</a>
+        
+          
+          <a href="/" class="ml">首页</a>
+          
+        
+          
+          <a href="/archives" class="ml">归档</a>
+          
+        
+          
+          <a href="/tags" class="ml">标签</a>
+          
+        
+        
+          
+            <a href="mailto:contact@we1code.cn" target="_blank" class="ml">Email</a>
+          
+        
+      </div>
+    </div>
+    <hr style="margin-bottom: 2.6rem">
+  </div>
+</div>
+
+        <div class="trans">
+            <h2>PCI MPoC v1.0.1 → v1.1 完整变更分析</h2>
+
+  <h2 id="文档概述"><a href="#文档概述" class="headerlink" title="文档概述"></a>文档概述</h2><p>2024年12月，PCI安全标准委员会发布了MPoC（Mobile Payments on COTS）标准从v1.0.1到v1.1的变更摘要。本文档完整分析Summary of Changes表格中的所有变更点。</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>文档名称</td>
+<td>PCI MPoC – Summary of Changes from Version 1.0.1 to 1.1</td>
+</tr>
+<tr>
+<td>发布日期</td>
+<td>December 2024</td>
+</tr>
+<tr>
+<td>发布机构</td>
+<td>PCI Security Standards Council, LLC</td>
+</tr>
+<tr>
+<td>变更总数</td>
+<td>约80+项</td>
+</tr>
+</tbody></table>
+<h2 id="变更类型定义"><a href="#变更类型定义" class="headerlink" title="变更类型定义"></a>变更类型定义</h2><table>
+<thead>
+<tr>
+<th>变更类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Clarification or guidance</td>
+<td>更新措辞、解释、定义、额外指导</td>
+</tr>
+<tr>
+<td>Evolving requirement</td>
+<td>确保标准与新兴威胁和技术保持同步</td>
+</tr>
+<tr>
+<td>Structure or format</td>
+<td>内容重组，包括合并、分离和重新编号</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="一、General-通用变更"><a href="#一、General-通用变更" class="headerlink" title="一、General 通用变更"></a>一、General 通用变更</h2><table>
+<thead>
+<tr>
+<th>#</th>
+<th>变更内容</th>
+<th>变更类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Attestation and Monitoring Service MPoC Product → 更通用的”MPoC Service” Product</td>
+<td>Structure or format</td>
+</tr>
+<tr>
+<td>2</td>
+<td>PCI PTS POI SCRP引用 → 更通用的PCI PTS POI（部分安全需求相应调整）</td>
+<td>Structure or format</td>
+</tr>
+<tr>
+<td>3</td>
+<td>引入’COTS-based MPoC Software’术语，统一指代MPoC SDK或MPoC Application</td>
+<td>Structure or format</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>新增能力</strong>：MPoC SDK可集成另一个MPoC SDK（最多一个）</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>5</td>
+<td>移除PCI DSS DESV引用（部分安全需求相应调整）</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>6</td>
+<td>修改COTS devices定义及文档前言部分</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>7</td>
+<td>更新适用性矩阵以反映标准和程序的变更</td>
+<td>Structure or format</td>
+</tr>
+<tr>
+<td>8</td>
+<td>所有安全需求措辞移除’must’，改为陈述句式</td>
+<td>Structure or format</td>
+</tr>
+<tr>
+<td>9</td>
+<td>全文更新指导说明</td>
+<td>Clarification or guidance</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="二、Module-1A-变更（软件安全架构）"><a href="#二、Module-1A-变更（软件安全架构）" class="headerlink" title="二、Module 1A 变更（软件安全架构）"></a>二、Module 1A 变更（软件安全架构）</h2><h3 id="2-1-漏洞评估与验证"><a href="#2-1-漏洞评估与验证" class="headerlink" title="2.1 漏洞评估与验证"></a>2.1 漏洞评估与验证</h3><table>
+<thead>
+<tr>
+<th>需求编号</th>
+<th>变更内容</th>
+<th>变更类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SR 1A-1.3</td>
+<td>更新需求措辞和指导，允许不同类型的漏洞评估</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SR 1A-1.4</td>
+<td><strong>移除</strong>A&amp;M后端软件的Secure Software验证要求，由原1A-1.5取代</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SR 1A-1.5</td>
+<td><strong>新增</strong>：验证MPoC SDK不向其他MPoC SDK或MPoC Application传递敏感资产</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SR 1A-1.6</td>
+<td><strong>新增</strong>：覆盖MPoC SDK集成另一MPoC SDK的验证场景</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SR 1A-1.7</td>
+<td><strong>新增</strong>：验证所有基于卡的支付功能已纳入MPoC评估范围</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SR 1A-1.8</td>
+<td><strong>新增</strong>：确保MPoC SDK提供版本号验证机制</td>
+<td>Evolving requirement</td>
+</tr>
+</tbody></table>
+<h3 id="2-2-随机数与熵"><a href="#2-2-随机数与熵" class="headerlink" title="2.2 随机数与熵"></a>2.2 随机数与熵</h3><table>
+<thead>
+<tr>
+<th>需求编号</th>
+<th>变更内容</th>
+<th>变更类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SR 1A-2.3</td>
+<td>澄清无法保证真RNG时的适用性</td>
+<td>Clarification or guidance</td>
+</tr>
+<tr>
+<td>SR 1A-2.5</td>
+<td>澄清COTS设备需提供至少一个可信熵源（更新自MPoC FAQ）</td>
+<td>Clarification or guidance</td>
+</tr>
+<tr>
+<td>SR 1A-2.6</td>
+<td>澄清确保充足熵的意图，新增指导</td>
+<td>Clarification or guidance</td>
+</tr>
+</tbody></table>
+<h3 id="2-3-加密与密钥管理"><a href="#2-3-加密与密钥管理" class="headerlink" title="2.3 加密与密钥管理"></a>2.3 加密与密钥管理</h3><table>
+<thead>
+<tr>
+<th>需求编号</th>
+<th>变更内容</th>
+<th>变更类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SR 1A-3.2</td>
+<td><strong>新增指导</strong>：若COTS平台阻止使用更大RSA密钥，可使用RSA 2048位加载AES密钥</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SR 1A-3.3</td>
+<td>澄清适用性为证书被用于安全服务之前</td>
+<td>Clarification or guidance</td>
+</tr>
+<tr>
+<td>SR 1A-4.6</td>
+<td><strong>变更</strong>：允许某些后端密钥在HSM外使用，新增测试步骤和指导</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SR 1A-4.8</td>
+<td>澄清RSA2048位使用（与SR 1A-3.2对齐）；新增指导说明较弱KEK可使用，前提是最弱密钥至少提供128位有效强度</td>
+<td>Requirement Change</td>
+</tr>
+<tr>
+<td>SR 1A-4.9 – 1A-4.12</td>
+<td>从v1.0.1的1D-1.3 – 1D-1.6移动至此</td>
+<td>Structure or format</td>
+</tr>
+<tr>
+<td>SR 1A-4.11</td>
+<td><strong>新增注释</strong>：每次安装仅使用一次的密钥（如初始配置密钥）不在本需求范围内</td>
+<td>Evolving requirement</td>
+</tr>
+</tbody></table>
+<h3 id="2-4-安全通道"><a href="#2-4-安全通道" class="headerlink" title="2.4 安全通道"></a>2.4 安全通道</h3><table>
+<thead>
+<tr>
+<th>需求编号</th>
+<th>变更内容</th>
+<th>变更类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1A-5 Preamble</td>
+<td>澄清集成MPoC SDK的MPoC Application可配置或实现Secure Channels的某些方面</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SR 1A-5.2 &#x2F; 1A-5.5</td>
+<td>变更措辞要求不同逻辑元素之间的连接使用安全通道</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SR 1A-5.6</td>
+<td>澄清适用于MPoC Software支持的安全通道</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SR 1A-5.7</td>
+<td><strong>新增澄清</strong>：本需求不适用于基于平台的证明</td>
+<td>Evolving requirement</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="三、Module-1B-变更（敏感资产管理）"><a href="#三、Module-1B-变更（敏感资产管理）" class="headerlink" title="三、Module 1B 变更（敏感资产管理）"></a>三、Module 1B 变更（敏感资产管理）</h2><table>
+<thead>
+<tr>
+<th>需求编号</th>
+<th>变更内容</th>
+<th>变更类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1B-1 Preamble</td>
+<td>澄清适用于COTS设备上执行的MPoC代码，不适用于后端系统或代码</td>
+<td>Clarification or guidance</td>
+</tr>
+<tr>
+<td>SR 1B-1.4</td>
+<td>澄清不适用于COTS-based MPoC Software无法访问的内存区域或COTS子系统（如COTS密钥库）</td>
+<td>Clarification or guidance</td>
+</tr>
+<tr>
+<td>SR 1B-1.5</td>
+<td>扩大范围至MPoC SDK管理的敏感资产；注明未提供的功能必须在攻击成本计算中考虑</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SR 1B-1.7</td>
+<td>澄清意图是防止使用可能影响敏感资产安全的受损平台</td>
+<td>Clarification or guidance</td>
+</tr>
+<tr>
+<td>SR 1B-1.11</td>
+<td><strong>新增</strong>：确认在REE外执行的COTS-based MPoC Software部分在执行前需经过认证</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SR 1B-1.12</td>
+<td><strong>新增</strong>：捕获测试以确定MPoC SDK是隔离型还是非隔离型</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SR 1B-1.13</td>
+<td><strong>新增</strong>：确保支付交易数据在传输到支付后端后从COTS设备安全删除</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>1B-2 Preamble</td>
+<td>澄清本节不适用于后端系统</td>
+<td>Clarification or guidance</td>
+</tr>
+<tr>
+<td>SR 1B-2.4</td>
+<td>澄清适用于使用软件保护加密保护嵌入COTS-based MPoC Software的秘密或私钥时</td>
+<td>Clarification or guidance</td>
+</tr>
+<tr>
+<td>SR 1B-2.5</td>
+<td>澄清仅在实现密钥生成时才需要安全密钥生成</td>
+<td>Clarification or guidance</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="四、Module-1C-变更（证明与监控）"><a href="#四、Module-1C-变更（证明与监控）" class="headerlink" title="四、Module 1C 变更（证明与监控）"></a>四、Module 1C 变更（证明与监控）</h2><table>
+<thead>
+<tr>
+<th>需求编号</th>
+<th>变更内容</th>
+<th>变更类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SR 1C-2.3</td>
+<td>澄清意图是确保A&amp;M数据的新鲜性和真实性</td>
+<td>Clarification or guidance</td>
+</tr>
+<tr>
+<td>SR 1C-3.6</td>
+<td>澄清意图是防止支付终止消息被篡改</td>
+<td>Clarification or guidance</td>
+</tr>
+<tr>
+<td>SR 1C-4.2</td>
+<td><strong>移除</strong>（与需求1A-5.7重复），但意图保留</td>
+<td>Structure or format</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="五、Module-1D-变更（外部设备）"><a href="#五、Module-1D-变更（外部设备）" class="headerlink" title="五、Module 1D 变更（外部设备）"></a>五、Module 1D 变更（外部设备）</h2><h3 id="5-1-账户数据保护"><a href="#5-1-账户数据保护" class="headerlink" title="5.1 账户数据保护"></a>5.1 账户数据保护</h3><table>
+<thead>
+<tr>
+<th>需求编号</th>
+<th>变更内容</th>
+<th>变更类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1D-1 Preamble</td>
+<td><strong>新增注释</strong>：按相关PCI DSS FAQ截断的PAN不在本需求范围内</td>
+<td>Clarification or guidance</td>
+</tr>
+<tr>
+<td>SR 1D-1.2 &#x2F; 1D-1.3</td>
+<td>拆分1D-1.2为两个需求；新增指导说明非SCRP的PCI PTS POI如何验证所有账户数据已加密</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SRs 1D-1.3 – 1D-1.6</td>
+<td>移动至Section 1A-4.x（见上文）</td>
+<td>Structure or format</td>
+</tr>
+<tr>
+<td>SR 1D-1.5</td>
+<td>新增指导：某些PCI PTS POI设备可能输出明文账户数据，MPoC Software应能检测和响应</td>
+<td>Clarification or guidance</td>
+</tr>
+<tr>
+<td>SR 1D-1.6</td>
+<td>澄清账户数据删除仅在当前交易流程完成后才需要</td>
+<td>Clarification or guidance</td>
+</tr>
+</tbody></table>
+<h3 id="5-2-POI设备支持"><a href="#5-2-POI设备支持" class="headerlink" title="5.2 POI设备支持"></a>5.2 POI设备支持</h3><table>
+<thead>
+<tr>
+<th>需求编号</th>
+<th>变更内容</th>
+<th>变更类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SR 1D-2.1</td>
+<td>变更措辞要求安全指导文档包含MPoC Software支持的所有外部读卡器详情</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SR 1D-2.2</td>
+<td>澄清测试步骤：用于芯片受理的POI设备必须验证支持芯片受理</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SR 1D-2.3</td>
+<td><strong>变更</strong>：支持非SCRP的PCI PTS POI设备；新增测试项验证POI设备输出数据已加密</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SR 1D-2.4</td>
+<td><strong>移除</strong>enablement tokens使用要求</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SR 1D-2.4</td>
+<td><strong>新增</strong>：外部POI设备白名单使用要求</td>
+<td>Evolving requirement</td>
+</tr>
+</tbody></table>
+<h3 id="5-3-MSR与摄像头"><a href="#5-3-MSR与摄像头" class="headerlink" title="5.3 MSR与摄像头"></a>5.3 MSR与摄像头</h3><table>
+<thead>
+<tr>
+<th>需求编号</th>
+<th>变更内容</th>
+<th>变更类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SR 1D-3.1</td>
+<td>澄清安全指导文档必须包含MPoC Software支持的所有外部读卡器详情</td>
+<td>Clarification or guidance</td>
+</tr>
+<tr>
+<td>SR 1D-3.3</td>
+<td>澄清MSR设备验证仅在固件和硬件版本适用时才包括这些值</td>
+<td>Clarification or guidance</td>
+</tr>
+<tr>
+<td>SR 1D-4.3</td>
+<td>澄清仅当卡片展示可能被COTS摄像头捕获时才适用</td>
+<td>Clarification or guidance</td>
+</tr>
+<tr>
+<td>SR 1D-4.4</td>
+<td><strong>移除</strong>非接触内核功能批准验证要求</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SR 1D-4.4</td>
+<td>从v1.0.1的1D-4.5重新编号；澄清范围包括Domain 4和Domain 5相关章节验证</td>
+<td>Structure or format</td>
+</tr>
+</tbody></table>
+<h3 id="5-4-手动输入"><a href="#5-4-手动输入" class="headerlink" title="5.4 手动输入"></a>5.4 手动输入</h3><table>
+<thead>
+<tr>
+<th>需求编号</th>
+<th>变更内容</th>
+<th>变更类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1D-5 Preamble</td>
+<td><strong>新增注释</strong>：按相关PCI DSS FAQ截断的PAN不在本需求范围内</td>
+<td>Clarification or guidance</td>
+</tr>
+<tr>
+<td>SR 1D-5.4</td>
+<td>澄清意图是当存在可能影响手动输入流程安全的事件时</td>
+<td>Clarification or guidance</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="六、Module-1E-变更（PIN输入）"><a href="#六、Module-1E-变更（PIN输入）" class="headerlink" title="六、Module 1E 变更（PIN输入）"></a>六、Module 1E 变更（PIN输入）</h2><table>
+<thead>
+<tr>
+<th>需求编号</th>
+<th>变更内容</th>
+<th>变更类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1E Preamble</td>
+<td>新增澄清：外部POI用于PIN输入，以及PIN输入期间实现可访问性功能</td>
+<td>Clarification or guidance</td>
+</tr>
+<tr>
+<td>SR 1E-1.1</td>
+<td>新增测试步骤确认任何可访问PIN输入功能已文档化</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SR 1E-1.3</td>
+<td>新增指导：使用乱序键盘不是必需的（但可能有助于满足需求）</td>
+<td>Clarification or guidance</td>
+</tr>
+<tr>
+<td>SR 1E-1.4</td>
+<td>新增测试步骤确认外部键盘用于PIN输入时，它是经过验证的PCI PTS POI设备的一部分</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SR 1E-1.5</td>
+<td>澄清意图是PIN在从COTS设备导出前加密为Format 4 PIN block</td>
+<td>Clarification or guidance</td>
+</tr>
+<tr>
+<td>SR 1E-1.5</td>
+<td>新增指导：非SCRP批准类的PCI PTS POI设备不可用于PIN转换功能</td>
+<td>Clarification or guidance</td>
+</tr>
+<tr>
+<td>SR 1E-1.7</td>
+<td>澄清意图是当存在可能影响PIN输入流程安全的事件时，潜在的覆盖攻击必须通知后端A&amp;M系统</td>
+<td>Clarification or guidance</td>
+</tr>
+<tr>
+<td>SR 1E-1.9</td>
+<td><strong>变更</strong>：允许支持非SCRP的PCI PTS POI设备，澄清设备必须验证支持离线PIN输入</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SR 1E-1.10</td>
+<td><strong>新增</strong>：可访问PIN输入功能测试</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SR 1E-1.11</td>
+<td><strong>新增</strong>：通过附加PCI PTS POI实现PIN输入的测试</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SR 1E-1.12</td>
+<td><strong>新增</strong>：PAN令牌测试（如实现）</td>
+<td>Evolving requirement</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="七、Module-1F-变更（离线交易）"><a href="#七、Module-1F-变更（离线交易）" class="headerlink" title="七、Module 1F 变更（离线交易）"></a>七、Module 1F 变更（离线交易）</h2><table>
+<thead>
+<tr>
+<th>需求编号</th>
+<th>变更内容</th>
+<th>变更类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SR 1F-1.2 &#x2F; 1F-1.3</td>
+<td><strong>移除需求</strong></td>
+<td>Structure or format</td>
+</tr>
+<tr>
+<td>SR 1F-1.3</td>
+<td>新增指导：不禁止通过其他”调用”应用传输加密离线交易数据</td>
+<td>Clarification or guidance</td>
+</tr>
+<tr>
+<td>SR 1F-1.3 &#x2F; 1F-2.3</td>
+<td>新增指导澄清这些需求的范围和解释</td>
+<td>Clarification or guidance</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="八、Module-1G-变更（安全指导与集成）"><a href="#八、Module-1G-变更（安全指导与集成）" class="headerlink" title="八、Module 1G 变更（安全指导与集成）"></a>八、Module 1G 变更（安全指导与集成）</h2><table>
+<thead>
+<tr>
+<th>需求编号</th>
+<th>变更内容</th>
+<th>变更类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Module 1G Title</td>
+<td>更改为”MPoC Software Security Guidance and Integration”以适应供应商SDK测试新需求；新增指导说明可向整体MPoC Solution中的不同实体提供不同级别的指导</td>
+<td>Structure or format</td>
+</tr>
+<tr>
+<td>SR 1G-1.1</td>
+<td>变更措辞要求安全指导文档对潜在集成商和评估实验室可用</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SR 1G-1.7</td>
+<td>变更措辞确认指导足以将MPoC SDK安全集成到其他COTS-based MPoC Software</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SR 1G-1.8</td>
+<td><strong>新增</strong>：覆盖MPoC SDK允许其他COTS-based MPoC Software管理或实现安全通道时的指导验证</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SR 1G-1.9</td>
+<td>变更措辞将外部读卡器纳入范围</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SR 1G-1.12</td>
+<td><strong>新增</strong>：允许MPoC Software供应商对其isolating SDK集成到其他COTS-based MPoC Software执行供应商验证</td>
+<td>Evolving requirement</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="九、Module-2A-变更（解决方案架构）"><a href="#九、Module-2A-变更（解决方案架构）" class="headerlink" title="九、Module 2A 变更（解决方案架构）"></a>九、Module 2A 变更（解决方案架构）</h2><table>
+<thead>
+<tr>
+<th>需求编号</th>
+<th>变更内容</th>
+<th>变更类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Module 2A Preamble</td>
+<td>新增指导澄清本模块范围</td>
+<td>Clarification or guidance</td>
+</tr>
+<tr>
+<td>SR 2A-1.3</td>
+<td>澄清所有基于卡的支付功能必须由MPoC SDK提供</td>
+<td>Clarification or guidance</td>
+</tr>
+<tr>
+<td>SR 2A-1.11</td>
+<td><strong>新增</strong>：覆盖实现或管理自身安全通道的COTS-based MPoC Software测试</td>
+<td>Evolving requirement</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="十、Domain-3-变更"><a href="#十、Domain-3-变更" class="headerlink" title="十、Domain 3 变更"></a>十、Domain 3 变更</h2><table>
+<thead>
+<tr>
+<th>需求编号</th>
+<th>变更内容</th>
+<th>变更类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Section 3B-1</td>
+<td>v1.0.1中的大部分需求移动至Domain 4</td>
+<td>Structure or format</td>
+</tr>
+<tr>
+<td>SR 3B-1.4</td>
+<td>从v1.0.1的Section 3B-1移动（如上所述）</td>
+<td>Structure or format</td>
+</tr>
+<tr>
+<td>SR 3C-1.1</td>
+<td>澄清适用性</td>
+<td>Clarification or guidance</td>
+</tr>
+<tr>
+<td>SR 3D-1.1</td>
+<td><strong>移除</strong>PCI DSS DESV验证要求；PCI DSS验证要求保留为需求4A-4.1</td>
+<td>Evolving requirement</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="十一、Domain-4-变更"><a href="#十一、Domain-4-变更" class="headerlink" title="十一、Domain 4 变更"></a>十一、Domain 4 变更</h2><table>
+<thead>
+<tr>
+<th>需求编号</th>
+<th>变更内容</th>
+<th>变更类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SR 4A-1.5</td>
+<td>澄清分发方法可依赖为MPoC Application提供真实性</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>SR 4A-2.2</td>
+<td>与SR 1A-4.6变更对齐；澄清PIN相关密钥绝不能以明文形式出现在HSM外；允许在受控环境中使用FIPS140-2&#x2F;3 Level 2 HSM（按ISO13491定义）</td>
+<td>Evolving requirement</td>
+</tr>
+<tr>
+<td>4A-3 Title and Objective</td>
+<td>更改以反映从Domain 3移动的新项目</td>
+<td>Structure or format</td>
+</tr>
+<tr>
+<td>SR 4A-3.3 – 4A-3.4</td>
+<td>从v1.0.1的Section 3B移动</td>
+<td>Structure or format</td>
+</tr>
+<tr>
+<td>Section 4A-4</td>
+<td>从v1.0.1的Domain 5移动</td>
+<td>Structure or format</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="十二、Domain-5-变更"><a href="#十二、Domain-5-变更" class="headerlink" title="十二、Domain 5 变更"></a>十二、Domain 5 变更</h2><table>
+<thead>
+<tr>
+<th>需求编号</th>
+<th>变更内容</th>
+<th>变更类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SR 5A-1.3</td>
+<td>新增澄清：本需求可能适用于代表商户管理商户系统的实体</td>
+<td>Evolving requirement</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="十三、Appendix-变更"><a href="#十三、Appendix-变更" class="headerlink" title="十三、Appendix 变更"></a>十三、Appendix 变更</h2><table>
+<thead>
+<tr>
+<th>附录</th>
+<th>变更内容</th>
+<th>变更类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Appendix B ‘Scalability’</td>
+<td>修正错误：’instance specific’从18点改为正确的12点</td>
+<td>Structure or format</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="十四、变更统计汇总"><a href="#十四、变更统计汇总" class="headerlink" title="十四、变更统计汇总"></a>十四、变更统计汇总</h2><h3 id="14-1-按变更类型统计"><a href="#14-1-按变更类型统计" class="headerlink" title="14.1 按变更类型统计"></a>14.1 按变更类型统计</h3><table>
+<thead>
+<tr>
+<th>变更类型</th>
+<th>数量</th>
+<th>占比</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Evolving requirement</td>
+<td>约35项</td>
+<td>44%</td>
+</tr>
+<tr>
+<td>Clarification or guidance</td>
+<td>约30项</td>
+<td>38%</td>
+</tr>
+<tr>
+<td>Structure or format</td>
+<td>约15项</td>
+<td>18%</td>
+</tr>
+<tr>
+<td><strong>总计</strong></td>
+<td><strong>约80项</strong></td>
+<td>100%</td>
+</tr>
+</tbody></table>
+<h3 id="14-2-按模块统计"><a href="#14-2-按模块统计" class="headerlink" title="14.2 按模块统计"></a>14.2 按模块统计</h3><table>
+<thead>
+<tr>
+<th>模块</th>
+<th>变更数量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>General</td>
+<td>9项</td>
+</tr>
+<tr>
+<td>Module 1A</td>
+<td>约20项</td>
+</tr>
+<tr>
+<td>Module 1B</td>
+<td>10项</td>
+</tr>
+<tr>
+<td>Module 1C</td>
+<td>3项</td>
+</tr>
+<tr>
+<td>Module 1D</td>
+<td>约15项</td>
+</tr>
+<tr>
+<td>Module 1E</td>
+<td>11项</td>
+</tr>
+<tr>
+<td>Module 1F</td>
+<td>3项</td>
+</tr>
+<tr>
+<td>Module 1G</td>
+<td>6项</td>
+</tr>
+<tr>
+<td>Module 2A</td>
+<td>3项</td>
+</tr>
+<tr>
+<td>Domain 3</td>
+<td>4项</td>
+</tr>
+<tr>
+<td>Domain 4</td>
+<td>5项</td>
+</tr>
+<tr>
+<td>Domain 5</td>
+<td>1项</td>
+</tr>
+<tr>
+<td>Appendix</td>
+<td>1项</td>
+</tr>
+</tbody></table>
+<h3 id="14-3-新增需求汇总"><a href="#14-3-新增需求汇总" class="headerlink" title="14.3 新增需求汇总"></a>14.3 新增需求汇总</h3><table>
+<thead>
+<tr>
+<th>需求编号</th>
+<th>内容摘要</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SR 1A-1.5</td>
+<td>MPoC SDK不传递敏感资产</td>
+</tr>
+<tr>
+<td>SR 1A-1.6</td>
+<td>MPoC SDK集成验证场景</td>
+</tr>
+<tr>
+<td>SR 1A-1.7</td>
+<td>卡支付功能评估范围</td>
+</tr>
+<tr>
+<td>SR 1A-1.8</td>
+<td>版本号验证机制</td>
+</tr>
+<tr>
+<td>SR 1B-1.11</td>
+<td>REE外代码执行认证</td>
+</tr>
+<tr>
+<td>SR 1B-1.12</td>
+<td>SDK隔离型&#x2F;非隔离型测试</td>
+</tr>
+<tr>
+<td>SR 1B-1.13</td>
+<td>支付数据安全删除</td>
+</tr>
+<tr>
+<td>SR 1D-2.4</td>
+<td>外部POI白名单</td>
+</tr>
+<tr>
+<td>SR 1E-1.10</td>
+<td>可访问PIN输入测试</td>
+</tr>
+<tr>
+<td>SR 1E-1.11</td>
+<td>附加POI PIN输入测试</td>
+</tr>
+<tr>
+<td>SR 1E-1.12</td>
+<td>PAN令牌测试</td>
+</tr>
+<tr>
+<td>SR 1G-1.8</td>
+<td>安全通道管理指导验证</td>
+</tr>
+<tr>
+<td>SR 1G-1.12</td>
+<td>供应商SDK验证</td>
+</tr>
+<tr>
+<td>SR 2A-1.11</td>
+<td>自管理安全通道测试</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="十五、关键影响分析"><a href="#十五、关键影响分析" class="headerlink" title="十五、关键影响分析"></a>十五、关键影响分析</h2><h3 id="15-1-架构层面变更"><a href="#15-1-架构层面变更" class="headerlink" title="15.1 架构层面变更"></a>15.1 架构层面变更</h3><table>
+<thead>
+<tr>
+<th>变更</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MPoC SDK可集成其他MPoC SDK</td>
+<td>增强模块化能力，但需验证敏感资产隔离</td>
+</tr>
+<tr>
+<td>非SCRP的PCI PTS POI支持</td>
+<td>扩大设备选择范围</td>
+</tr>
+<tr>
+<td>Vendor Verification机制</td>
+<td>简化SDK集成评估流程</td>
+</tr>
+</tbody></table>
+<h3 id="15-2-安全要求增强"><a href="#15-2-安全要求增强" class="headerlink" title="15.2 安全要求增强"></a>15.2 安全要求增强</h3><table>
+<thead>
+<tr>
+<th>变更</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>版本号验证机制</td>
+<td>增强软件完整性验证</td>
+</tr>
+<tr>
+<td>支付数据安全删除</td>
+<td>减少数据残留风险</td>
+</tr>
+<tr>
+<td>可访问PIN输入测试</td>
+<td>确保无障碍功能安全性</td>
+</tr>
+</tbody></table>
+<h3 id="15-3-合规简化"><a href="#15-3-合规简化" class="headerlink" title="15.3 合规简化"></a>15.3 合规简化</h3><table>
+<thead>
+<tr>
+<th>变更</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>移除PCI DSS DESV</td>
+<td>减少合规验证负担</td>
+</tr>
+<tr>
+<td>RSA 2048位使用放宽</td>
+<td>适应COTS平台限制</td>
+</tr>
+<tr>
+<td>后端密钥HSM要求放宽</td>
+<td>增加密钥管理灵活性</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="相关资源"><a href="#相关资源" class="headerlink" title="相关资源"></a>相关资源</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.pcisecuritystandards.org/document_library/">PCI Security Standards Document Library</a></li>
+<li>PCI MPoC Standard v1.1</li>
+<li>PCI MPoC Standard v1.0.1</li>
+<li>PCI MPoC Summary of Changes v1.0.1 to v1.1</li>
+</ul>
+
+  <p><a class="classtest-link" href="/tags/PCI-MPoC/" rel="tag">PCI-MPoC</a>, <a class="classtest-link" href="/tags/%E5%AE%89%E5%85%A8%E6%A0%87%E5%87%86/" rel="tag">安全标准</a>, <a class="classtest-link" href="/tags/%E7%A7%BB%E5%8A%A8%E6%94%AF%E4%BB%98/" rel="tag">移动支付</a> — 2026年3月14日</p>
+  
+
+
+        </div>
+        <div class="row mt-2">
+  <h3>Search</h3>
+  <div><input id="search-text" title="search" class="search-text" type="text" placeholder="search......"></div>
+  <div style="margin-top: 1.5rem;">
+    <ul id="result"></ul>
+  </div>
+</div>
+        <div class="row mt-2">
+  
+    <div class="eight columns">
+      <p id="madewith">Made with ❤ and
+        <a class="footer-link icon" href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer" aria-label="Hexo.io">
+        <svg class="hexo svg-hov" width="14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
+        </a>
+        
+        at <a href="https://we1code.cn" target="_blank" rel="noreferrer">we1code.cn</a>.</p>
+        
+    </div>
+
+    <!-- Sepcial thanks to https://simpleicons.org/ for the icons -->
+    <div class="four columns mb-3 posisi" >
+      
+      <a class="ml-0 footer-link icon" href="https://github.com/bokidoki" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="GitHub">
+        <svg class="github svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      
+
+      
+
+      
+
+      
+
+      
+
+    </div>
+  
+</div>
+
+      </div>
+
+    </div>
+
+  </div>
+  <script src="/js/nanobar.min.js"></script>
+
+  <script>
+    var options = {
+      classname: 'nanobar',
+      id: 'myNanobar'
+    };
+    var nanobar = new Nanobar(options);
+    nanobar.go(30);
+    nanobar.go(76);
+    nanobar.go(100);
+  </script>
+
+</body>
+
+</html>
