@@ -179,31 +179,11 @@
             <a href="mailto:contact@we1code.cn" target="_blank" class="ml">Email</a>
           
         
-        <button onclick="toggleDarkMode()" id="darkModeBtn" style="margin-left: 1rem; padding: 0.3rem 0.6rem; border: 1px solid #ccc; border-radius: 4px; background: transparent; cursor: pointer; font-size: 1.4rem;">🌙</button>
       </div>
     </div>
     <hr style="margin-bottom: 2.6rem">
   </div>
 </div>
-
-<script>
-  function toggleDarkMode() {
-    document.body.classList.toggle('darkmode');
-    var btn = document.getElementById('darkModeBtn');
-    if (document.body.classList.contains('darkmode')) {
-      btn.textContent = '☀️';
-      localStorage.setItem('preferredTheme', 'dark');
-    } else {
-      btn.textContent = '🌙';
-      localStorage.removeItem('preferredTheme');
-    }
-  }
-  // Check saved preference on load
-  if (localStorage.getItem('preferredTheme') === 'dark') {
-    document.body.classList.add('darkmode');
-    document.getElementById('darkModeBtn').textContent = '☀️';
-  }
-</script>
 
         <div class="trans">
           <h3>所有标签</h3>
