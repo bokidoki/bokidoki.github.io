@@ -149,27 +149,9 @@
         <div class="row">
   <div class="two columns" style="max-width: 50px">
     <h1 class="mt-2 mode">
-      <div onclick=setDarkMode(true) id="darkBtn">🌑</div>
-      <div onclick=setDarkMode(false) id="lightBtn" class=hidden>☀️</div>
-      <script >
-        if (localStorage.getItem('preferredTheme') == 'dark') {
-          setDarkMode(true)
-        }
-        function setDarkMode(isDark) {
-          var darkBtn = document.getElementById('darkBtn')
-          var lightBtn = document.getElementById('lightBtn')
-          if (isDark) {
-            lightBtn.style.display = "block"
-            darkBtn.style.display = "none"
-            localStorage.setItem('preferredTheme', 'dark');
-          } else {
-            lightBtn.style.display = "none"
-            darkBtn.style.display = "block"
-            localStorage.removeItem('preferredTheme');
-          }
-          document.body.classList.toggle("darkmode");
-        }
-      </script>
+      <a href="/" style="text-decoration: none;">
+        <img src="/images/favicon.svg" alt="Logo" style="width: 32px; height: 32px;">
+      </a>
     </h1>
   </div>
 
@@ -201,11 +183,35 @@
             <a href="mailto:contact@we1code.cn" target="_blank" class="ml">Email</a>
           
         
+        <span class="ml" style="cursor: pointer;" onclick="document.body.classList.toggle('darkmode');">
+          <span id="darkModeToggle">🌙</span>
+        </span>
       </div>
     </div>
     <hr style="margin-bottom: 2.6rem">
   </div>
 </div>
+
+<script>
+  if (localStorage.getItem('preferredTheme') == 'dark') {
+    document.body.classList.add('darkmode');
+  }
+  document.body.addEventListener('classChange', function() {
+    var toggle = document.getElementById('darkModeToggle');
+    if (document.body.classList.contains('darkmode')) {
+      toggle.textContent = '☀️';
+      localStorage.setItem('preferredTheme', 'dark');
+    } else {
+      toggle.textContent = '🌙';
+      localStorage.removeItem('preferredTheme');
+    }
+  });
+  // Initial state
+  var toggle = document.getElementById('darkModeToggle');
+  if (document.body.classList.contains('darkmode')) {
+    toggle.textContent = '☀️';
+  }
+</script>
 
         <div class="trans">
           
@@ -214,23 +220,25 @@
    <h3>Posts Related to — 漏洞管理</h3>
 
 
+  
 
-  <article>
-    <div class="row">
+    <article>
+      <div class="row">
 
-      <div class="three columns left lit">
-        <p class="bottom">2026年3月13日</p>
+        <div class="three columns left lit">
+          <p class="bottom">2026年3月13日</p>
+        </div>
+        <div class="nine columns left mb-3">
+          <a href="/standards/EN-pr40000/prEN-40000-4/">
+            
+              EN pr40000-4 漏洞处理标准解读
+            
+          </a>
+        </div>
       </div>
-      <div class="nine columns left mb-3">
-        <a href="/standards/EN-pr40000/prEN-40000-4/">
-          
-            EN pr40000-4 漏洞处理标准解读
-          
-        </a>
-      </div>
-    </div>
-  </article>
+    </article>
 
+  
 
 <div class="pagination-bar">
   <ul class="pagination">
