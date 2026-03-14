@@ -179,9 +179,7 @@
             <a href="mailto:contact@we1code.cn" target="_blank" class="ml">Email</a>
           
         
-        <span class="ml" style="cursor: pointer;" onclick="document.body.classList.toggle('darkmode');">
-          <span id="darkModeToggle">🌙</span>
-        </span>
+        <button onclick="toggleDarkMode()" id="darkModeBtn" style="margin-left: 1rem; padding: 0.3rem 0.6rem; border: 1px solid #ccc; border-radius: 4px; background: transparent; cursor: pointer; font-size: 1.4rem;">🌙</button>
       </div>
     </div>
     <hr style="margin-bottom: 2.6rem">
@@ -189,23 +187,21 @@
 </div>
 
 <script>
-  if (localStorage.getItem('preferredTheme') == 'dark') {
-    document.body.classList.add('darkmode');
-  }
-  document.body.addEventListener('classChange', function() {
-    var toggle = document.getElementById('darkModeToggle');
+  function toggleDarkMode() {
+    document.body.classList.toggle('darkmode');
+    var btn = document.getElementById('darkModeBtn');
     if (document.body.classList.contains('darkmode')) {
-      toggle.textContent = '☀️';
+      btn.textContent = '☀️';
       localStorage.setItem('preferredTheme', 'dark');
     } else {
-      toggle.textContent = '🌙';
+      btn.textContent = '🌙';
       localStorage.removeItem('preferredTheme');
     }
-  });
-  // Initial state
-  var toggle = document.getElementById('darkModeToggle');
-  if (document.body.classList.contains('darkmode')) {
-    toggle.textContent = '☀️';
+  }
+  // Check saved preference on load
+  if (localStorage.getItem('preferredTheme') === 'dark') {
+    document.body.classList.add('darkmode');
+    document.getElementById('darkModeBtn').textContent = '☀️';
   }
 </script>
 
