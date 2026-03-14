@@ -47,7 +47,7 @@
   </url>
   
   <url>
-    <loc>https://bokidoki.github.io/standards/EN-pr40000/prEN-40000-3/</loc>
+    <loc>https://bokidoki.github.io/standards/EN-pr40000/prEN-40000-1-2/</loc>
     
     <lastmod>2026-03-13</lastmod>
     
@@ -56,7 +56,7 @@
   </url>
   
   <url>
-    <loc>https://bokidoki.github.io/standards/EN-pr40000/prEN-40000-1-2/</loc>
+    <loc>https://bokidoki.github.io/standards/EN-pr40000/prEN-40000-2/</loc>
     
     <lastmod>2026-03-13</lastmod>
     
@@ -74,7 +74,7 @@
   </url>
   
   <url>
-    <loc>https://bokidoki.github.io/standards/EN-pr40000/prEN-40000-2/</loc>
+    <loc>https://bokidoki.github.io/standards/EN-pr40000/prEN-40000-3/</loc>
     
     <lastmod>2026-03-13</lastmod>
     
@@ -121,27 +121,6 @@
   
   <url>
     <loc>https://bokidoki.github.io/tags/%E7%AC%A6%E5%90%88%E6%80%A7%E8%AF%84%E4%BC%B0/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bokidoki.github.io/tags/PCI-MPoC/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bokidoki.github.io/tags/%E7%A7%BB%E5%8A%A8%E6%94%AF%E4%BB%98/</loc>
-    <lastmod>2026-03-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bokidoki.github.io/tags/%E5%AE%89%E5%85%A8%E6%A0%87%E5%87%86/</loc>
     <lastmod>2026-03-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -203,6 +182,27 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://bokidoki.github.io/tags/PCI-MPoC/</loc>
+    <lastmod>2026-03-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bokidoki.github.io/tags/%E7%A7%BB%E5%8A%A8%E6%94%AF%E4%BB%98/</loc>
+    <lastmod>2026-03-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bokidoki.github.io/tags/%E5%AE%89%E5%85%A8%E6%A0%87%E5%87%86/</loc>
+    <lastmod>2026-03-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -213,14 +213,14 @@
   </url>
   
   <url>
-    <loc>https://bokidoki.github.io/categories/PCI-MPoC/</loc>
+    <loc>https://bokidoki.github.io/categories/EN-pr40000/</loc>
     <lastmod>2026-03-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://bokidoki.github.io/categories/EN-pr40000/</loc>
+    <loc>https://bokidoki.github.io/categories/PCI-MPoC/</loc>
     <lastmod>2026-03-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

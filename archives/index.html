@@ -25,6 +25,8 @@
   <meta name="author" content="标准研究组">
   
   
+  <meta property="og:image" content="https://bokidoki.github.io/images/thumbnail.jpg">
+  
   
   <meta property="og:site_name" content="认证标准解读" />
   <meta property="og:type" content="article" />
@@ -40,6 +42,8 @@
   <meta name="twitter:description" content="专注认证行业标准化研究，解读国内外认证政策与技术规范">
   
   
+  
+  <meta name="twitter:image" content="https://bokidoki.github.io/images/thumbnail.jpg">
   
   
   <meta name="twitter:url" content="https://bokidoki.github.io/archives/" />
@@ -72,27 +76,31 @@
 
   <!-- User css -->
   
+  
+<link rel="stylesheet" href="/css/user.css">
+
+  
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/svg+xml" href="">
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
   <!-- Custom Theme Color Style
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <style>
   a:not(.icon) {
-    text-decoration-color: #;
+    text-decoration-color: #0FA0CE;
     background-image: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0) 50%,
-      # 50%
+      #0FA0CE 50%
     );
   }
   blockquote {
-    border-left: 8px solid #;
+    border-left: 8px solid #0FA0CE;
   }
   .nanobar .bar {
-    background: #;
+    background: #0FA0CE;
   }
   .button.button-primary:hover,
   button.button-primary:hover,
@@ -104,8 +112,8 @@
   input[type="submit"].button-primary:focus,
   input[type="reset"].button-primary:focus,
   input[type="button"].button-primary:focus {
-    background-color: #;
-    border-color: #;
+    background-color: #0FA0CE;
+    border-color: #0FA0CE;
   }
   input[type="email"]:focus,
   input[type="number"]:focus,
@@ -116,7 +124,7 @@
   input[type="password"]:focus,
   textarea:focus,
   select:focus {
-    border: 1px solid #;
+    border: 1px solid #0FA0CE;
   }
 </style>
 
@@ -124,6 +132,8 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   
 
+  
+  <script src="/js/pic.min.js" defer></script>
   
 
   
@@ -147,7 +157,7 @@
 
   <div class="six columns ml-1">
     <h1 class="mt-2">
-      
+      认证标准解读
     </h1>
   </div>
 
@@ -156,6 +166,22 @@
       <div class="nine columns left">
         <a href="/">Home</a>
         
+          
+          <a href="/" class="ml">首页</a>
+          
+        
+          
+          <a href="/archives" class="ml">归档</a>
+          
+        
+          
+          <a href="/tags" class="ml">标签</a>
+          
+        
+        
+          
+            <a href="mailto:280327097@qq.com" target="_blank" class="ml">Email</a>
+          
         
       </div>
     </div>
@@ -314,9 +340,52 @@
 </div>
         <div class="row mt-2">
   
+    <div class="eight columns">
+      <p id="madewith">Made with ❤ and
+        <a class="footer-link icon" href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer" aria-label="Hexo.io">
+        <svg class="hexo svg-hov" width="14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
+        </a>
+        
+        at <a href="https://bokidoki.github.io" target="_blank" rel="noreferrer">Lynd</a>.</p>
+        
+      
+      <p style="margin-top: 0.3rem;">
+        📧 <a href="mailto:280327097@qq.com" style="color: inherit;">280327097@qq.com</a>
+      </p>
+      
+      <!-- Busuanzi Visitor Count -->
+      
+      <p id="busuanzi">
+        <span id="busuanzi_container_site_pv">
+          本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+        </span>
+        <span style="margin: 0 0.5rem;">|</span>
+        <span id="busuanzi_container_site_uv">
+          访客数 <span id="busuanzi_value_site_uv"></span> 人次
+        </span>
+      </p>
+      
+    </div>
+
+    <!-- Sepcial thanks to https://simpleicons.org/ for the icons -->
+    <div class="four columns mb-3 posisi" >
+      
+
+      
+
+      
+
+      
+
+      
+
+    </div>
+  
 </div>
 
 <!-- Busuanzi JS -->
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
       </div>
@@ -324,7 +393,7 @@
     </div>
 
   </div>
-  <script src=""></script>
+  <script src="/js/nanobar.min.js"></script>
 
   <script>
     var options = {
