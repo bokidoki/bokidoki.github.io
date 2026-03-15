@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+  <!-- Minima -->
+  <!-- Hexo theme created by @adisaktijrs -->
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+
+  
+  <title>Cyber Resilience Act 标准化请求 M/606 解读</title>
+  
+  <link rel="sitemap" href="https://bokidoki.github.iositemap.xml,sitemap.txt" />
+  
+  <link rel="canonical" href="https://bokidoki.github.io/standards/CRA/CRA-M606%E6%A0%87%E5%87%86%E5%8C%96%E8%AF%B7%E6%B1%82%E8%A7%A3%E8%AF%BB/">
+  
+  <meta name="description" content="概述M&amp;#x2F;606 是欧盟委员会于 2025 年发布的标准化请求，包含 41 项标准，旨在支持 Cyber Resilience Act (CRA) 的实施。该请求由欧洲标准化组织（CEN、CENELEC、ETSI）主导开发，与行业代表密切合作。  标准化在 CRA 中的作用协调标准与符合性推">
+  
+  
+  <meta name="keywords" content="认证,标准,PCI,EN,网络安全,MPoC">
+  
+  <meta name="author" content="标准研究组">
+  
+  
+  
+  <meta property="og:site_name" content="认证标准解读" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Cyber Resilience Act 标准化请求 M/606 解读" />
+  
+  <meta property="og:description" content="概述M&amp;#x2F;606 是欧盟委员会于 2025 年发布的标准化请求，包含 41 项标准，旨在支持 Cyber Resilience Act (CRA) 的实施。该请求由欧洲标准化组织（CEN、CENELEC、ETSI）主导开发，与行业代表密切合作。  标准化在 CRA 中的作用协调标准与符合性推">
+  
+  <meta property="og:url" content="https://bokidoki.github.io/standards/CRA/CRA-M606%E6%A0%87%E5%87%86%E5%8C%96%E8%AF%B7%E6%B1%82%E8%A7%A3%E8%AF%BB/" />
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cyber Resilience Act 标准化请求 M/606 解读">
+  
+  <meta name="twitter:description" content="概述M&amp;#x2F;606 是欧盟委员会于 2025 年发布的标准化请求，包含 41 项标准，旨在支持 Cyber Resilience Act (CRA) 的实施。该请求由欧洲标准化组织（CEN、CENELEC、ETSI）主导开发，与行业代表密切合作。  标准化在 CRA 中的作用协调标准与符合性推">
+  
+  
+  
+  
+  <meta name="twitter:url" content="https://bokidoki.github.io/standards/CRA/CRA-M606%E6%A0%87%E5%87%86%E5%8C%96%E8%AF%B7%E6%B1%82%E8%A7%A3%E8%AF%BB/" />
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Preload fonts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="preload" href="/fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+<link rel="stylesheet" href="/css/normalize.css">
+
+  
+<link rel="stylesheet" href="/css/skeleton.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+<link rel="stylesheet" href="/css/prism-dark.css">
+
+  
+<link rel="stylesheet" href="/css/prism-line-numbers.css">
+
+  <!-- User css -->
+  
+  
+<link rel="stylesheet" href="/css/user.css">
+
+  
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="专注认证行业标准化研究，解读国内外认证政策与技术规范">
+  <meta name="keywords" content="CRA, Cyber Resilience Act, M/606, 标准化, harmonised standards">
+  <meta name="author" content="标准研究组">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://bokidoki.github.io/standards/CRA/CRA-M606标准化请求解读/index.html">
+  
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+    "@type": "Article",
+    "headline": "Cyber Resilience Act 标准化请求 M/606 解读",
+    "description": "专注认证行业标准化研究，解读国内外认证政策与技术规范",
+    "author": {
+      "@type": "Person",
+      "name": "标准研究组"
+    },
+    "datePublished": "2026-03-15",
+    
+    "dateModified": "2026-03-15",
+    
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://bokidoki.github.io/standards/CRA/CRA-M606标准化请求解读/index.html"
+    },
+    
+    "keywords": "CRA, Cyber Resilience Act, M/606, 标准化, harmonised standards",
+    
+    
+    "publisher": {
+      "@type": "Organization",
+      "name": "认证标准解读",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://bokidoki.github.io/images/favicon.svg"
+      }
+    },
+    "url": "https://bokidoki.github.io/standards/CRA/CRA-M606标准化请求解读/index.html"
+  }
+  </script>
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bokidoki.github.io/standards/CRA/CRA-M606标准化请求解读/index.html">
+  <meta property="og:title" content="Cyber Resilience Act 标准化请求 M/606 解读">
+  <meta property="og:description" content="专注认证行业标准化研究，解读国内外认证政策与技术规范">
+  <meta property="og:site_name" content="认证标准解读">
+  <meta property="og:locale" content="zh_CN">
+  
+  <meta property="og:image" content="https://bokidoki.github.io/images/thumbnail.jpg">
+  
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cyber Resilience Act 标准化请求 M/606 解读">
+  <meta name="twitter:description" content="专注认证行业标准化研究，解读国内外认证政策与技术规范">
+  
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+
+  <!-- Custom Theme Color Style
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <style>
+  a:not(.icon) {
+    text-decoration-color: #0FA0CE;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 50%,
+      #0FA0CE 50%
+    );
+  }
+  blockquote {
+    border-left: 8px solid #0FA0CE;
+  }
+  .nanobar .bar {
+    background: #0FA0CE;
+  }
+  .button.button-primary:hover,
+  button.button-primary:hover,
+  input[type="submit"].button-primary:hover,
+  input[type="reset"].button-primary:hover,
+  input[type="button"].button-primary:hover,
+  .button.button-primary:focus,
+  button.button-primary:focus,
+  input[type="submit"].button-primary:focus,
+  input[type="reset"].button-primary:focus,
+  input[type="button"].button-primary:focus {
+    background-color: #0FA0CE;
+    border-color: #0FA0CE;
+  }
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  input[type="search"]:focus,
+  input[type="text"]:focus,
+  input[type="tel"]:focus,
+  input[type="url"]:focus,
+  input[type="password"]:focus,
+  textarea:focus,
+  select:focus {
+    border: 1px solid #0FA0CE;
+  }
+</style>
+
+  <!-- Google Analytics (With Privacy Settings On)
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+
+  
+  <script src="/js/pic.min.js" defer></script>
+  
+
+  
+
+<meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="认证标准解读" type="application/atom+xml">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div>
+
+        <div class="row">
+  <div class="two columns" style="max-width: 50px">
+    <h1 class="mt-2 mode">
+      <a href="/" style="text-decoration: none;">
+        <img src="/images/favicon.svg" alt="Logo" style="width: 32px; height: 32px;">
+      </a>
+    </h1>
+  </div>
+
+  <div class="six columns ml-1">
+    <h1 class="mt-2">
+      认证标准解读
+    </h1>
+  </div>
+
+  <div class="twelve columns">
+    <div class="row">
+      <div class="nine columns left">
+        <a href="/">Home</a>
+        
+          
+          <a href="/" class="ml">首页</a>
+          
+        
+          
+          <a href="/archives" class="ml">归档</a>
+          
+        
+          
+          <a href="/tags" class="ml">标签</a>
+          
+        
+        
+          
+            <a href="mailto:280327097@qq.com" target="_blank" class="ml">Email</a>
+          
+        
+      </div>
+    </div>
+    <hr style="margin-bottom: 2.6rem">
+  </div>
+</div>
+
+        <div class="trans">
+            <h2>Cyber Resilience Act 标准化请求 M/606 解读</h2>
+
+  <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><strong>M&#x2F;606</strong> 是欧盟委员会于 2025 年发布的标准化请求，包含 <strong>41 项标准</strong>，旨在支持 Cyber Resilience Act (CRA) 的实施。该请求由欧洲标准化组织（CEN、CENELEC、ETSI）主导开发，与行业代表密切合作。</p>
+<hr>
+<h2 id="标准化在-CRA-中的作用"><a href="#标准化在-CRA-中的作用" class="headerlink" title="标准化在 CRA 中的作用"></a>标准化在 CRA 中的作用</h2><h3 id="协调标准与符合性推定"><a href="#协调标准与符合性推定" class="headerlink" title="协调标准与符合性推定"></a>协调标准与符合性推定</h3><p>根据 CRA 法规，符合协调标准（Harmonised Standards）的数字产品将被<strong>推定符合</strong> CRA 的基本网络安全要求。这意味着：</p>
+<ul>
+<li>制造商可以通过采用协调标准来证明产品合规</li>
+<li>协调标准将 CRA 的基本要求转化为详细的技术规范</li>
+<li>标准化过程遵循《标准化法规》(Regulation (EU) No 1025&#x2F;2012)</li>
+</ul>
+<h3 id="利益相关方参与"><a href="#利益相关方参与" class="headerlink" title="利益相关方参与"></a>利益相关方参与</h3><p>标准化过程确保利益平衡，包括：</p>
+<ul>
+<li>消费者组织</li>
+<li>开源组织</li>
+<li>行业代表</li>
+<li>民间社会利益相关方</li>
+</ul>
+<hr>
+<h2 id="M-606-标准体系结构"><a href="#M-606-标准体系结构" class="headerlink" title="M&#x2F;606 标准体系结构"></a>M&#x2F;606 标准体系结构</h2><h3 id="横向标准（Horizontal-Standards）"><a href="#横向标准（Horizontal-Standards）" class="headerlink" title="横向标准（Horizontal Standards）"></a>横向标准（Horizontal Standards）</h3><p>横向标准提供通用框架，促进一致性，为 CRA 合规提供横向流程：</p>
+<table>
+<thead>
+<tr>
+<th>领域</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>漏洞处理</strong></td>
+<td>漏洞管理流程和要求</td>
+</tr>
+<tr>
+<td><strong>风险管理</strong></td>
+<td>网络安全风险评估方法论</td>
+</tr>
+<tr>
+<td><strong>技术文档</strong></td>
+<td>技术文档编制要求</td>
+</tr>
+<tr>
+<td><strong>符合性评估</strong></td>
+<td>符合性评估程序指南</td>
+</tr>
+</tbody></table>
+<h3 id="垂直标准（Vertical-Standards）"><a href="#垂直标准（Vertical-Standards）" class="headerlink" title="垂直标准（Vertical Standards）"></a>垂直标准（Vertical Standards）</h3><p>垂直标准（也称产品特定标准）针对特定产品类型，考虑其预期用途和可预见使用风险：</p>
+<table>
+<thead>
+<tr>
+<th>产品类别</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>重要产品 Class I</strong></td>
+<td>Annex III Class I 产品</td>
+</tr>
+<tr>
+<td><strong>重要产品 Class II</strong></td>
+<td>Annex III Class II 产品</td>
+</tr>
+<tr>
+<td><strong>关键产品</strong></td>
+<td>Annex IV 产品</td>
+</tr>
+</tbody></table>
+<h3 id="支持性交付物"><a href="#支持性交付物" class="headerlink" title="支持性交付物"></a>支持性交付物</h3><p>除标准外，欧洲标准化组织还在开发以下支持性交付物：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>术语</strong></td>
+<td>统一的术语和定义</td>
+</tr>
+<tr>
+<td><strong>风险评估方法论</strong></td>
+<td>行业风险评估方法</td>
+</tr>
+<tr>
+<td><strong>威胁目录</strong></td>
+<td>通用威胁清单</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="优先开发领域"><a href="#优先开发领域" class="headerlink" title="优先开发领域"></a>优先开发领域</h2><p>M&#x2F;606 标准化请求优先开发覆盖以下产品类别的标准：</p>
+<h3 id="重要产品（Annex-III）"><a href="#重要产品（Annex-III）" class="headerlink" title="重要产品（Annex III）"></a>重要产品（Annex III）</h3><ul>
+<li><strong>Class I</strong>: 操作系统、路由器、密码管理器、智能家居产品等</li>
+<li><strong>Class II</strong>: 管理程序、防火墙、防篡改芯片等</li>
+</ul>
+<h3 id="关键产品（Annex-IV）"><a href="#关键产品（Annex-IV）" class="headerlink" title="关键产品（Annex IV）"></a>关键产品（Annex IV）</h3><ul>
+<li>安全硬件设备</li>
+<li>智能电表网关</li>
+<li>智能卡和安全元件</li>
+</ul>
+<hr>
+<h2 id="如何参与-CRA-标准化"><a href="#如何参与-CRA-标准化" class="headerlink" title="如何参与 CRA 标准化"></a>如何参与 CRA 标准化</h2><h3 id="参与途径"><a href="#参与途径" class="headerlink" title="参与途径"></a>参与途径</h3><ol>
+<li><p><strong>确定感兴趣的领域</strong></p>
+<ul>
+<li>访问 <a target="_blank" rel="noopener" href="https://www.stan4cra.eu/">STAN4CRA</a> 了解标准开发活动</li>
+<li>识别相关的技术委员会（TC）</li>
+</ul>
+</li>
+<li><p><strong>联系国家标准化机构</strong></p>
+<ul>
+<li>联系所在国家的国家标准化机构或委员会</li>
+<li>表达参与意向</li>
+</ul>
+</li>
+<li><p><strong>完成注册和入职</strong></p>
+<ul>
+<li>按照指引完成注册流程</li>
+</ul>
+</li>
+</ol>
+<h3 id="资金支持"><a href="#资金支持" class="headerlink" title="资金支持"></a>资金支持</h3><p><a target="_blank" rel="noopener" href="https://cyberstand.eu/">CYBERSTAND.eu</a> 为利益相关方参与 CRA 标准化提供资金支持，特别面向：</p>
+<ul>
+<li>开源社区</li>
+<li>消费者协会</li>
+<li>网络安全专家和实验室</li>
+<li>学术机构</li>
+</ul>
+<hr>
+<h2 id="利益相关方分类"><a href="#利益相关方分类" class="headerlink" title="利益相关方分类"></a>利益相关方分类</h2><h3 id="行业"><a href="#行业" class="headerlink" title="行业"></a>行业</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>产品制造商</td>
+<td>包含数字元素的产品制造商</td>
+</tr>
+<tr>
+<td>服务提供商</td>
+<td>数字服务提供商</td>
+</tr>
+<tr>
+<td>中小企业</td>
+<td>SMEs</td>
+</tr>
+<tr>
+<td>进口商和分销商</td>
+<td>产品进口商和分销商</td>
+</tr>
+</tbody></table>
+<h3 id="市场监督"><a href="#市场监督" class="headerlink" title="市场监督"></a>市场监督</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>欧盟委员会和机构</td>
+<td>ENISA、JRC 等</td>
+</tr>
+<tr>
+<td>国家市场监督机构</td>
+<td>各国市场监督部门</td>
+</tr>
+<tr>
+<td>公告机构</td>
+<td>Notified Bodies</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="标准开发时间线"><a href="#标准开发时间线" class="headerlink" title="标准开发时间线"></a>标准开发时间线</h2><table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>2025 Q1</strong></td>
+<td>M&#x2F;606 发布，标准化工作启动</td>
+</tr>
+<tr>
+<td><strong>2025-2026</strong></td>
+<td>标准开发阶段</td>
+</tr>
+<tr>
+<td><strong>2026 Q4</strong></td>
+<td>首批标准预期发布</td>
+</tr>
+<tr>
+<td><strong>2027 Q4</strong></td>
+<td>CRA 全面适用前完成主要标准</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><strong>官方资源：</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://digital-strategy.ec.europa.eu/en/policies/cra-standardisation">CRA 标准化页面</a></li>
+<li><a target="_blank" rel="noopener" href="https://ec.europa.eu/transparency/documents-register/detail?ref=C(2025)618&lang=en">M&#x2F;606 文档注册</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.stan4cra.eu/">STAN4CRA</a> - CRA 标准开发活动信息</li>
+</ul>
+<p><strong>参与支持：</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://cyberstand.eu/">CYBERSTAND.eu</a> - 利益相关方参与支持平台</li>
+</ul>
+<p><strong>相关法规：</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://eur-lex.europa.eu/eli/reg/2012/1025/oj/eng">Regulation (EU) No 1025&#x2F;2012</a> - 标准化法规</li>
+<li><a target="_blank" rel="noopener" href="https://eur-lex.europa.eu/eli/reg/2024/2847/oj">Regulation (EU) 2024&#x2F;2847</a> - Cyber Resilience Act</li>
+</ul>
+
+  <p><a class="classtest-link" href="/tags/CRA/" rel="tag">CRA</a>, <a class="classtest-link" href="/tags/Cyber-Resilience-Act/" rel="tag">Cyber Resilience Act</a>, <a class="classtest-link" href="/tags/M-606/" rel="tag">M/606</a>, <a class="classtest-link" href="/tags/harmonised-standards/" rel="tag">harmonised standards</a>, <a class="classtest-link" href="/tags/%E6%A0%87%E5%87%86%E5%8C%96/" rel="tag">标准化</a> — 2026年3月15日</p>
+  
+  
+  <p id="busuanzi_page" style="color: #888; font-size: 0.9rem;">
+    <span id="busuanzi_container_page_pv">
+      本文阅读量 <span id="busuanzi_value_page_pv"></span> 次
+    </span>
+  </p>
+  
+  
+  
+
+
+  <hr>
+  <section id="comments" class="mt-2 mb-3">
+    <h3>评论</h3>
+    <script src="https://giscus.app/client.js"
+      data-repo="bokidoki/bokidoki.github.io"
+      data-repo-id="MDEwOlJlcG9zaXRvcnkzODA4NzAyODg="
+      data-category="Announcements"
+      data-category-id="DIC_kwDOFrOekM4C4W5W"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="light"
+      data-lang="zh-CN"
+      data-loading="lazy"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </section>
+
+
+
+        </div>
+        <div class="row mt-2">
+  <h3>Search</h3>
+  <div><input id="search-text" title="search" class="search-text" type="text" placeholder="search......"></div>
+  <div style="margin-top: 1.5rem;">
+    <ul id="result"></ul>
+  </div>
+</div>
+        <div class="row mt-2">
+  
+    <div class="eight columns">
+      <p id="madewith">Made with ❤ and
+        <a class="footer-link icon" href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer" aria-label="Hexo.io">
+        <svg class="hexo svg-hov" width="14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
+        </a>
+        
+        at <a href="https://bokidoki.github.io" target="_blank" rel="noreferrer">Lynd</a> · 280327097@qq.com.</p>
+        
+      <!-- Busuanzi Visitor Count -->
+      
+      <p id="busuanzi">
+        <span id="busuanzi_container_site_pv">
+          本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+        </span>
+        <span style="margin: 0 0.5rem;">|</span>
+        <span id="busuanzi_container_site_uv">
+          访客数 <span id="busuanzi_value_site_uv"></span> 人次
+        </span>
+      </p>
+      
+    </div>
+
+    <!-- Sepcial thanks to https://simpleicons.org/ for the icons -->
+    <div class="four columns mb-3 posisi" >
+      
+
+      
+
+      
+
+      
+
+      
+
+    </div>
+  
+</div>
+
+<!-- Busuanzi JS -->
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+      </div>
+
+    </div>
+
+  </div>
+  <script src="/js/nanobar.min.js"></script>
+
+  <script>
+    var options = {
+      classname: 'nanobar',
+      id: 'myNanobar'
+    };
+    var nanobar = new Nanobar(options);
+    nanobar.go(30);
+    nanobar.go(76);
+    nanobar.go(100);
+  </script>
+
+</body>
+
+</html>
