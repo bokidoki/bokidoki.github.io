@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+  <!-- Minima -->
+  <!-- Hexo theme created by @adisaktijrs -->
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+
+  
+  <title>MPoC SDK集成另一MPoC SDK详解 - PCI MPoC v1.1新能力</title>
+  
+  <link rel="sitemap" href="https://bokidoki.github.iositemap.xml,sitemap.txt" />
+  
+  <link rel="canonical" href="https://bokidoki.github.io/standards/PCI-MPoC/MPoC-SDK-Integration/">
+  
+  <meta name="description" content="概述PCI MPoC v1.1版本新增了一项重要能力：允许一个MPoC SDK集成另一个MPoC SDK。此功能为模块化支付解决方案提供了更大的灵活性，但同时带来了严格的安全限制。  本文是对 PCI MPoC v1.0.1 → v1.1 完整变更分析 中”新增能力：MPoC SDK可集成另一个MP">
+  
+  
+  <meta name="keywords" content="认证,标准,PCI,EN,网络安全,MPoC">
+  
+  <meta name="author" content="标准研究组">
+  
+  
+  
+  <meta property="og:site_name" content="认证标准解读" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="MPoC SDK集成另一MPoC SDK详解 - PCI MPoC v1.1新能力" />
+  
+  <meta property="og:description" content="概述PCI MPoC v1.1版本新增了一项重要能力：允许一个MPoC SDK集成另一个MPoC SDK。此功能为模块化支付解决方案提供了更大的灵活性，但同时带来了严格的安全限制。  本文是对 PCI MPoC v1.0.1 → v1.1 完整变更分析 中”新增能力：MPoC SDK可集成另一个MP">
+  
+  <meta property="og:url" content="https://bokidoki.github.io/standards/PCI-MPoC/MPoC-SDK-Integration/" />
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MPoC SDK集成另一MPoC SDK详解 - PCI MPoC v1.1新能力">
+  
+  <meta name="twitter:description" content="概述PCI MPoC v1.1版本新增了一项重要能力：允许一个MPoC SDK集成另一个MPoC SDK。此功能为模块化支付解决方案提供了更大的灵活性，但同时带来了严格的安全限制。  本文是对 PCI MPoC v1.0.1 → v1.1 完整变更分析 中”新增能力：MPoC SDK可集成另一个MP">
+  
+  
+  
+  
+  <meta name="twitter:url" content="https://bokidoki.github.io/standards/PCI-MPoC/MPoC-SDK-Integration/" />
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Preload fonts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="preload" href="/fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+<link rel="stylesheet" href="/css/normalize.css">
+
+  
+<link rel="stylesheet" href="/css/skeleton.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+<link rel="stylesheet" href="/css/prism-dark.css">
+
+  
+<link rel="stylesheet" href="/css/prism-line-numbers.css">
+
+  <!-- User css -->
+  
+  
+<link rel="stylesheet" href="/css/user.css">
+
+  
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="专注认证行业标准化研究，解读国内外认证政策与技术规范">
+  <meta name="keywords" content="PCI-MPoC, 移动支付, SDK集成">
+  <meta name="author" content="标准研究组">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://bokidoki.github.io/standards/PCI-MPoC/MPoC-SDK-Integration/index.html">
+  
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+    "@type": "Article",
+    "headline": "MPoC SDK集成另一MPoC SDK详解 - PCI MPoC v1.1新能力",
+    "description": "专注认证行业标准化研究，解读国内外认证政策与技术规范",
+    "author": {
+      "@type": "Person",
+      "name": "标准研究组"
+    },
+    "datePublished": "2026-03-16",
+    
+    "dateModified": "2026-03-16",
+    
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://bokidoki.github.io/standards/PCI-MPoC/MPoC-SDK-Integration/index.html"
+    },
+    
+    "keywords": "PCI-MPoC, 移动支付, SDK集成",
+    
+    
+    "publisher": {
+      "@type": "Organization",
+      "name": "认证标准解读",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://bokidoki.github.io/images/favicon.svg"
+      }
+    },
+    "url": "https://bokidoki.github.io/standards/PCI-MPoC/MPoC-SDK-Integration/index.html"
+  }
+  </script>
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bokidoki.github.io/standards/PCI-MPoC/MPoC-SDK-Integration/index.html">
+  <meta property="og:title" content="MPoC SDK集成另一MPoC SDK详解 - PCI MPoC v1.1新能力">
+  <meta property="og:description" content="专注认证行业标准化研究，解读国内外认证政策与技术规范">
+  <meta property="og:site_name" content="认证标准解读">
+  <meta property="og:locale" content="zh_CN">
+  
+  <meta property="og:image" content="https://bokidoki.github.io/images/thumbnail.jpg">
+  
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MPoC SDK集成另一MPoC SDK详解 - PCI MPoC v1.1新能力">
+  <meta name="twitter:description" content="专注认证行业标准化研究，解读国内外认证政策与技术规范">
+  
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+
+  <!-- Custom Theme Color Style
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <style>
+  a:not(.icon) {
+    text-decoration-color: #0FA0CE;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 50%,
+      #0FA0CE 50%
+    );
+  }
+  blockquote {
+    border-left: 8px solid #0FA0CE;
+  }
+  .nanobar .bar {
+    background: #0FA0CE;
+  }
+  .button.button-primary:hover,
+  button.button-primary:hover,
+  input[type="submit"].button-primary:hover,
+  input[type="reset"].button-primary:hover,
+  input[type="button"].button-primary:hover,
+  .button.button-primary:focus,
+  button.button-primary:focus,
+  input[type="submit"].button-primary:focus,
+  input[type="reset"].button-primary:focus,
+  input[type="button"].button-primary:focus {
+    background-color: #0FA0CE;
+    border-color: #0FA0CE;
+  }
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  input[type="search"]:focus,
+  input[type="text"]:focus,
+  input[type="tel"]:focus,
+  input[type="url"]:focus,
+  input[type="password"]:focus,
+  textarea:focus,
+  select:focus {
+    border: 1px solid #0FA0CE;
+  }
+</style>
+
+  <!-- Google Analytics (With Privacy Settings On)
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+
+  
+  <script src="/js/pic.min.js" defer></script>
+  
+
+  
+
+<meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="认证标准解读" type="application/atom+xml">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div>
+
+        <div class="row">
+  <div class="two columns" style="max-width: 50px">
+    <h1 class="mt-2 mode">
+      <a href="/" style="text-decoration: none;">
+        <img src="/images/favicon.svg" alt="Logo" style="width: 32px; height: 32px;">
+      </a>
+    </h1>
+  </div>
+
+  <div class="six columns ml-1">
+    <h1 class="mt-2">
+      认证标准解读
+    </h1>
+  </div>
+
+  <div class="twelve columns">
+    <div class="row">
+      <div class="nine columns left">
+        <a href="/">Home</a>
+        
+          
+          <a href="/" class="ml">首页</a>
+          
+        
+          
+          <a href="/archives" class="ml">归档</a>
+          
+        
+          
+          <a href="/tags" class="ml">标签</a>
+          
+        
+        
+          
+            <a href="mailto:280327097@qq.com" target="_blank" class="ml">Email</a>
+          
+        
+      </div>
+    </div>
+    <hr style="margin-bottom: 2.6rem">
+  </div>
+</div>
+
+        <div class="trans">
+            <h2>MPoC SDK集成另一MPoC SDK详解 - PCI MPoC v1.1新能力</h2>
+
+  <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>PCI MPoC v1.1版本新增了一项重要能力：<strong>允许一个MPoC SDK集成另一个MPoC SDK</strong>。此功能为模块化支付解决方案提供了更大的灵活性，但同时带来了严格的安全限制。</p>
+<blockquote>
+<p>本文是对 <a href="./PCI-MPoC-v1.1-changes">PCI MPoC v1.0.1 → v1.1 完整变更分析</a> 中”新增能力：MPoC SDK可集成另一个MPoC SDK”的详细展开说明。</p>
+</blockquote>
+<hr>
+<h2 id="一、能力定义与使用场景"><a href="#一、能力定义与使用场景" class="headerlink" title="一、能力定义与使用场景"></a>一、能力定义与使用场景</h2><h3 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1.1 定义"></a>1.1 定义</h3><p>一个MPoC SDK（集成方）可以将另一个MPoC SDK（被集成方）作为组件使用。</p>
+<h3 id="1-2-典型使用场景"><a href="#1-2-典型使用场景" class="headerlink" title="1.2 典型使用场景"></a>1.2 典型使用场景</h3><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>扩展支付功能</td>
+<td>添加额外的支付能力，如支持外部读卡器</td>
+</tr>
+<tr>
+<td>消息处理</td>
+<td>添加支付消息处理功能</td>
+</tr>
+<tr>
+<td>非支付功能</td>
+<td>添加如交通卡读取等非支付功能</td>
+</tr>
+</tbody></table>
+<h3 id="1-3-示例"><a href="#1-3-示例" class="headerlink" title="1.3 示例"></a>1.3 示例</h3><p>一个支持COTS原生NFC支付的MPoC SDK可以集成另一个支持通过PCI PTS POI设备进行支付的MPoC SDK，因为它们使用不同的支付通道资源。</p>
+<hr>
+<h2 id="二、核心限制条件"><a href="#二、核心限制条件" class="headerlink" title="二、核心限制条件"></a>二、核心限制条件</h2><table>
+<thead>
+<tr>
+<th>限制</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>被集成SDK资格</strong></td>
+<td>必须是已批准并列入清单的 <strong>Isolating SDK</strong>，且满足所有相关MPoC要求</td>
+</tr>
+<tr>
+<td><strong>集成链终止</strong></td>
+<td>被集成的MPoC SDK <strong>不能自身再集成任何其他MPoC SDK</strong>（最多两层：SDK1 → SDK2）</td>
+</tr>
+<tr>
+<td><strong>资源不共享</strong></td>
+<td>两个MPoC SDK <strong>不能共享支付通道资源</strong>（如COTS原生NFC接口或外部读卡器连接）</td>
+</tr>
+<tr>
+<td><strong>敏感资产不共享</strong></td>
+<td>两个MPoC SDK <strong>不能以明文形式共享敏感资产</strong></td>
+</tr>
+<tr>
+<td><strong>安全无负面影响</strong></td>
+<td>集成不能对任一MPoC SDK的安全性产生负面影响</td>
+</tr>
+<tr>
+<td><strong>集成指导</strong></td>
+<td>被集成SDK必须提供清晰的安全集成指导，且该指导必须包含在MPoC Application的集成指导中</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="三、安全需求详解（SR-1A-1-6）"><a href="#三、安全需求详解（SR-1A-1-6）" class="headerlink" title="三、安全需求详解（SR 1A-1.6）"></a>三、安全需求详解（SR 1A-1.6）</h2><p><strong>Security Requirements 1A-1.6</strong> 规定，当一个MPoC SDK集成另一个MPoC SDK时，必须满足以下条件：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1. 两个MPoC SDK不共享支付受理通道资源</span><br><span class="line">   - 如：COTS原生NFC接口、外部读卡器连接</span><br><span class="line">   </span><br><span class="line">2. 两个MPoC SDK不以明文形式共享敏感资产</span><br><span class="line">   - 一个SDK收集的资产不能在另一个SDK中以明文形式暴露</span><br><span class="line">   </span><br><span class="line">3. 被集成的MPoC SDK不能自身再集成任何其他MPoC SDK</span><br><span class="line">   </span><br><span class="line">4. 被集成的MPoC SDK必须是已批准的Isolating SDK</span><br><span class="line">   - 满足所有相关MPoC要求</span><br><span class="line">   </span><br><span class="line">5. 被集成的MPoC SDK必须提供安全集成指导</span><br><span class="line">   </span><br><span class="line">6. MPoC Application的集成指导必须完整</span><br><span class="line">   - 包含所有MPoC SDK的安全相关细节</span><br><span class="line">   </span><br><span class="line">7. 集成不能对任一MPoC SDK的安全性产生负面影响</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="四、验证测试要求（Test-Requirements-1A-1-6-a）"><a href="#四、验证测试要求（Test-Requirements-1A-1-6-a）" class="headerlink" title="四、验证测试要求（Test Requirements 1A-1.6.a）"></a>四、验证测试要求（Test Requirements 1A-1.6.a）</h2><p>测试人员必须通过检查和观察确认以下内容：</p>
+<table>
+<thead>
+<tr>
+<th>验证项</th>
+<th>验证方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>支付通道资源不共享</td>
+<td>检查两个SDK是否使用独立的支付通道资源</td>
+</tr>
+<tr>
+<td>明文敏感资产不共享</td>
+<td>验证敏感资产在SDK间传递时保持加密状态</td>
+</tr>
+<tr>
+<td>集成链限制</td>
+<td>确认被集成SDK未集成其他MPoC SDK</td>
+</tr>
+<tr>
+<td>Isolating SDK资质</td>
+<td>查验被集成SDK是否在批准清单中</td>
+</tr>
+<tr>
+<td>集成指导完整性</td>
+<td>审核安全集成指导文档的完整性</td>
+</tr>
+<tr>
+<td>安全性无负面影响</td>
+<td>进行安全性评估测试</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="五、敏感资产管理要点"><a href="#五、敏感资产管理要点" class="headerlink" title="五、敏感资产管理要点"></a>五、敏感资产管理要点</h2><h3 id="5-1-敏感资产定义（Table-4）"><a href="#5-1-敏感资产定义（Table-4）" class="headerlink" title="5.1 敏感资产定义（Table 4）"></a>5.1 敏感资产定义（Table 4）</h3><table>
+<thead>
+<tr>
+<th>资产类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>账户数据</td>
+<td>PAN、有效期、服务代码等</td>
+</tr>
+<tr>
+<td>PIN</td>
+<td>个人识别码</td>
+</tr>
+<tr>
+<td>密钥</td>
+<td>加密密钥、解密密钥</td>
+</tr>
+<tr>
+<td>配置数据</td>
+<td>安全相关配置</td>
+</tr>
+<tr>
+<td>源代码</td>
+<td>需保密性和完整性保护的代码</td>
+</tr>
+</tbody></table>
+<h3 id="5-2-核心原则"><a href="#5-2-核心原则" class="headerlink" title="5.2 核心原则"></a>5.2 核心原则</h3><ol>
+<li><strong>明文隔离</strong>：两个集成的MPoC SDK不得共享明文形式的敏感资产</li>
+<li><strong>传递保护</strong>：敏感资产在SDK间传递时必须保持加密状态</li>
+<li><strong>密钥隔离</strong>：解密密钥不应在两个SDK间共享或暴露</li>
+<li><strong>Isolating SDK保障</strong>：被集成SDK必须是Isolating SDK，其设计本身防止外部访问其内存中的明文敏感资产</li>
+</ol>
+<hr>
+<h2 id="六、合规建议"><a href="#六、合规建议" class="headerlink" title="六、合规建议"></a>六、合规建议</h2><table>
+<thead>
+<tr>
+<th>建议项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>架构设计阶段</td>
+<td>明确两个SDK的职责边界，确保支付通道资源独立</td>
+</tr>
+<tr>
+<td>集成指导文档</td>
+<td>被集成SDK需提供完整的安全集成指导</td>
+</tr>
+<tr>
+<td>敏感资产审计</td>
+<td>确保敏感资产在SDK间传递时保持加密状态</td>
+</tr>
+<tr>
+<td>测试验证</td>
+<td>进行完整的安全性评估测试</td>
+</tr>
+<tr>
+<td>持续监控</td>
+<td>集成后持续监控安全性，确保无负面影响</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="七、相关需求关联"><a href="#七、相关需求关联" class="headerlink" title="七、相关需求关联"></a>七、相关需求关联</h2><table>
+<thead>
+<tr>
+<th>需求编号</th>
+<th>关联说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SR 1A-1.5</td>
+<td>验证MPoC SDK不向其他MPoC SDK或MPoC Application传递敏感资产</td>
+</tr>
+<tr>
+<td>SR 1A-1.6</td>
+<td>核心需求，详见上文第三章、第四章</td>
+</tr>
+<tr>
+<td>SR 1G-1.7</td>
+<td>指导足以将MPoC SDK安全集成到其他COTS-based MPoC Software</td>
+</tr>
+<tr>
+<td>SR 1G-1.8</td>
+<td>覆盖MPoC SDK允许其他COTS-based MPoC Software管理或实现安全通道时的指导验证</td>
+</tr>
+<tr>
+<td>SR 1G-1.12</td>
+<td>允许MPoC Software供应商对其isolating SDK集成到其他COTS-based MPoC Software执行供应商验证</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="相关资源"><a href="#相关资源" class="headerlink" title="相关资源"></a>相关资源</h2><ul>
+<li><a href="./PCI-MPoC-v1.1-changes">PCI MPoC v1.0.1 → v1.1 完整变更分析</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.pcisecuritystandards.org/document_library/">PCI Security Standards Document Library</a></li>
+<li>PCI MPoC Standard v1.1</li>
+<li>PCI MPoC Standard v1.0.1</li>
+<li>PCI MPoC Summary of Changes v1.0.1 to v1.1</li>
+</ul>
+
+  <p><a class="classtest-link" href="/tags/PCI-MPoC/" rel="tag">PCI-MPoC</a>, <a class="classtest-link" href="/tags/SDK%E9%9B%86%E6%88%90/" rel="tag">SDK集成</a>, <a class="classtest-link" href="/tags/%E7%A7%BB%E5%8A%A8%E6%94%AF%E4%BB%98/" rel="tag">移动支付</a> — 2026年3月16日</p>
+  
+  
+  <p id="busuanzi_page" style="color: #888; font-size: 0.9rem;">
+    <span id="busuanzi_container_page_pv">
+      本文阅读量 <span id="busuanzi_value_page_pv"></span> 次
+    </span>
+  </p>
+  
+  
+  
+
+
+  <hr>
+  <section id="comments" class="mt-2 mb-3">
+    <h3>评论</h3>
+    <script src="https://giscus.app/client.js"
+      data-repo="bokidoki/bokidoki.github.io"
+      data-repo-id="MDEwOlJlcG9zaXRvcnkzODA4NzAyODg="
+      data-category="Announcements"
+      data-category-id="DIC_kwDOFrOekM4C4W5W"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="light"
+      data-lang="zh-CN"
+      data-loading="lazy"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </section>
+
+
+
+        </div>
+        <div class="row mt-2">
+  <h3>Search</h3>
+  <div><input id="search-text" title="search" class="search-text" type="text" placeholder="search......"></div>
+  <div style="margin-top: 1.5rem;">
+    <ul id="result"></ul>
+  </div>
+</div>
+        <div class="row mt-2">
+  
+    <div class="eight columns">
+      <p id="madewith">Made with ❤ and
+        <a class="footer-link icon" href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer" aria-label="Hexo.io">
+        <svg class="hexo svg-hov" width="14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
+        </a>
+        
+        at <a href="https://bokidoki.github.io" target="_blank" rel="noreferrer">Lynd</a> · 280327097@qq.com.</p>
+        
+      <!-- Busuanzi Visitor Count -->
+      
+      <p id="busuanzi">
+        <span id="busuanzi_container_site_pv">
+          本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+        </span>
+        <span style="margin: 0 0.5rem;">|</span>
+        <span id="busuanzi_container_site_uv">
+          访客数 <span id="busuanzi_value_site_uv"></span> 人次
+        </span>
+      </p>
+      
+    </div>
+
+    <!-- Sepcial thanks to https://simpleicons.org/ for the icons -->
+    <div class="four columns mb-3 posisi" >
+      
+
+      
+
+      
+
+      
+
+      
+
+    </div>
+  
+</div>
+
+<!-- Busuanzi JS -->
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+      </div>
+
+    </div>
+
+  </div>
+  <script src="/js/nanobar.min.js"></script>
+
+  <script>
+    var options = {
+      classname: 'nanobar',
+      id: 'myNanobar'
+    };
+    var nanobar = new Nanobar(options);
+    nanobar.go(30);
+    nanobar.go(76);
+    nanobar.go(100);
+  </script>
+
+</body>
+
+</html>
