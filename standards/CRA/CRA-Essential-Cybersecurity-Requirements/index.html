@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+  <!-- Minima -->
+  <!-- Hexo theme created by @adisaktijrs -->
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+
+  
+  <title>Cyber Resilience Act 核心要求详解 - Article 10 与 Annex I</title>
+  
+  <link rel="sitemap" href="https://bokidoki.github.iositemap.xml,sitemap.txt" />
+  
+  <link rel="canonical" href="https://bokidoki.github.io/standards/CRA/CRA-Essential-Cybersecurity-Requirements/">
+  
+  <meta name="description" content="概述Regulation (EU) 2024&amp;#x2F;2847（Cyber Resilience Act）Article 10 定义了数字产品的基本网络安全要求（Essential Cybersecurity Requirements），这些要求在 Annex I 中详细列出。本文解读这些核心要求">
+  
+  
+  <meta name="keywords" content="认证,标准,PCI,EN,网络安全,MPoC">
+  
+  <meta name="author" content="标准研究组">
+  
+  
+  
+  <meta property="og:site_name" content="认证标准解读" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Cyber Resilience Act 核心要求详解 - Article 10 与 Annex I" />
+  
+  <meta property="og:description" content="概述Regulation (EU) 2024&amp;#x2F;2847（Cyber Resilience Act）Article 10 定义了数字产品的基本网络安全要求（Essential Cybersecurity Requirements），这些要求在 Annex I 中详细列出。本文解读这些核心要求">
+  
+  <meta property="og:url" content="https://bokidoki.github.io/standards/CRA/CRA-Essential-Cybersecurity-Requirements/" />
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cyber Resilience Act 核心要求详解 - Article 10 与 Annex I">
+  
+  <meta name="twitter:description" content="概述Regulation (EU) 2024&amp;#x2F;2847（Cyber Resilience Act）Article 10 定义了数字产品的基本网络安全要求（Essential Cybersecurity Requirements），这些要求在 Annex I 中详细列出。本文解读这些核心要求">
+  
+  
+  
+  
+  <meta name="twitter:url" content="https://bokidoki.github.io/standards/CRA/CRA-Essential-Cybersecurity-Requirements/" />
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Preload fonts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="preload" href="/fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+<link rel="stylesheet" href="/css/normalize.css">
+
+  
+<link rel="stylesheet" href="/css/skeleton.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+<link rel="stylesheet" href="/css/prism-dark.css">
+
+  
+<link rel="stylesheet" href="/css/prism-line-numbers.css">
+
+  <!-- User css -->
+  
+  
+<link rel="stylesheet" href="/css/user.css">
+
+  
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="专注认证行业标准化研究，解读国内外认证政策与技术规范">
+  <meta name="keywords" content="CRA, Cyber Resilience Act, 网络弹性法案, 基本网络安全要求, Article 10, Annex I">
+  <meta name="author" content="标准研究组">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://bokidoki.github.io/standards/CRA/CRA-Essential-Cybersecurity-Requirements/index.html">
+  
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+    "@type": "Article",
+    "headline": "Cyber Resilience Act 核心要求详解 - Article 10 与 Annex I",
+    "description": "专注认证行业标准化研究，解读国内外认证政策与技术规范",
+    "author": {
+      "@type": "Person",
+      "name": "标准研究组"
+    },
+    "datePublished": "2026-03-19",
+    
+    "dateModified": "2026-03-19",
+    
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://bokidoki.github.io/standards/CRA/CRA-Essential-Cybersecurity-Requirements/index.html"
+    },
+    
+    "keywords": "CRA, Cyber Resilience Act, 网络弹性法案, 基本网络安全要求, Article 10, Annex I",
+    
+    
+    "publisher": {
+      "@type": "Organization",
+      "name": "认证标准解读",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://bokidoki.github.io/images/favicon.svg"
+      }
+    },
+    "url": "https://bokidoki.github.io/standards/CRA/CRA-Essential-Cybersecurity-Requirements/index.html"
+  }
+  </script>
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bokidoki.github.io/standards/CRA/CRA-Essential-Cybersecurity-Requirements/index.html">
+  <meta property="og:title" content="Cyber Resilience Act 核心要求详解 - Article 10 与 Annex I">
+  <meta property="og:description" content="专注认证行业标准化研究，解读国内外认证政策与技术规范">
+  <meta property="og:site_name" content="认证标准解读">
+  <meta property="og:locale" content="zh_CN">
+  
+  <meta property="og:image" content="https://bokidoki.github.io/images/thumbnail.jpg">
+  
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cyber Resilience Act 核心要求详解 - Article 10 与 Annex I">
+  <meta name="twitter:description" content="专注认证行业标准化研究，解读国内外认证政策与技术规范">
+  
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+
+  <!-- Custom Theme Color Style
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <style>
+  a:not(.icon) {
+    text-decoration-color: #0FA0CE;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 50%,
+      #0FA0CE 50%
+    );
+  }
+  blockquote {
+    border-left: 8px solid #0FA0CE;
+  }
+  .nanobar .bar {
+    background: #0FA0CE;
+  }
+  .button.button-primary:hover,
+  button.button-primary:hover,
+  input[type="submit"].button-primary:hover,
+  input[type="reset"].button-primary:hover,
+  input[type="button"].button-primary:hover,
+  .button.button-primary:focus,
+  button.button-primary:focus,
+  input[type="submit"].button-primary:focus,
+  input[type="reset"].button-primary:focus,
+  input[type="button"].button-primary:focus {
+    background-color: #0FA0CE;
+    border-color: #0FA0CE;
+  }
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  input[type="search"]:focus,
+  input[type="text"]:focus,
+  input[type="tel"]:focus,
+  input[type="url"]:focus,
+  input[type="password"]:focus,
+  textarea:focus,
+  select:focus {
+    border: 1px solid #0FA0CE;
+  }
+</style>
+
+  <!-- Google Analytics (With Privacy Settings On)
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+
+  
+  <script src="/js/pic.min.js" defer></script>
+  
+
+  
+
+<meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="认证标准解读" type="application/atom+xml">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div>
+
+        <div class="row">
+  <div class="two columns" style="max-width: 50px">
+    <h1 class="mt-2 mode">
+      <a href="/" style="text-decoration: none;">
+        <img src="/images/favicon.svg" alt="Logo" style="width: 32px; height: 32px;">
+      </a>
+    </h1>
+  </div>
+
+  <div class="six columns ml-1">
+    <h1 class="mt-2">
+      认证标准解读
+    </h1>
+  </div>
+
+  <div class="twelve columns">
+    <div class="row">
+      <div class="nine columns left">
+        <a href="/">Home</a>
+        
+          
+          <a href="/" class="ml">首页</a>
+          
+        
+          
+          <a href="/archives" class="ml">归档</a>
+          
+        
+          
+          <a href="/tags" class="ml">标签</a>
+          
+        
+        
+          
+            <a href="mailto:280327097@qq.com" target="_blank" class="ml">Email</a>
+          
+        
+      </div>
+    </div>
+    <hr style="margin-bottom: 2.6rem">
+  </div>
+</div>
+
+        <div class="trans">
+            <h2>Cyber Resilience Act 核心要求详解 - Article 10 与 Annex I</h2>
+
+  <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><strong>Regulation (EU) 2024&#x2F;2847</strong>（Cyber Resilience Act）Article 10 定义了数字产品的<strong>基本网络安全要求</strong>（Essential Cybersecurity Requirements），这些要求在 <strong>Annex I</strong> 中详细列出。本文解读这些核心要求的含义和实施要点。</p>
+<hr>
+<h2 id="Article-10-基本网络安全要求"><a href="#Article-10-基本网络安全要求" class="headerlink" title="Article 10 基本网络安全要求"></a>Article 10 基本网络安全要求</h2><h3 id="法规原文（Article-10-1-）"><a href="#法规原文（Article-10-1-）" class="headerlink" title="法规原文（Article 10(1)）"></a>法规原文（Article 10(1)）</h3><blockquote>
+<p>Products with digital elements shall be designed, developed and produced in such a way that they ensure an appropriate level of cybersecurity based on the risks.</p>
+</blockquote>
+<h3 id="核心原则"><a href="#核心原则" class="headerlink" title="核心原则"></a>核心原则</h3><table>
+<thead>
+<tr>
+<th>原则</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>基于风险</strong></td>
+<td>安全要求与产品风险等级相匹配</td>
+</tr>
+<tr>
+<td><strong>全生命周期</strong></td>
+<td>覆盖设计、开发、生产、运营全过程</td>
+</tr>
+<tr>
+<td><strong>适度安全</strong></td>
+<td>“appropriate level” 非绝对安全</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="Annex-I-详细要求"><a href="#Annex-I-详细要求" class="headerlink" title="Annex I 详细要求"></a>Annex I 详细要求</h2><p>Annex I 分为两部分：</p>
+<ul>
+<li><strong>Part I</strong>：基本网络安全要求（适用于所有产品）</li>
+<li><strong>Part II</strong>：漏洞管理要求</li>
+</ul>
+<h3 id="Part-I：基本网络安全要求"><a href="#Part-I：基本网络安全要求" class="headerlink" title="Part I：基本网络安全要求"></a>Part I：基本网络安全要求</h3><h4 id="1-安全设计与默认配置（Security-by-Design-and-Default）"><a href="#1-安全设计与默认配置（Security-by-Design-and-Default）" class="headerlink" title="1. 安全设计与默认配置（Security by Design and Default）"></a>1. 安全设计与默认配置（Security by Design and Default）</h4><table>
+<thead>
+<tr>
+<th>要求</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>1.1</strong></td>
+<td>产品应以安全方式设计、开发和生产，确保在预期使用条件下网络安全风险得到适当处理</td>
+</tr>
+<tr>
+<td><strong>1.2</strong></td>
+<td>产品应以安全默认配置提供，确保用户无需手动配置即可获得基本安全保护</td>
+</tr>
+<tr>
+<td><strong>1.3</strong></td>
+<td>产品应确保默认配置下，仅启用必要的服务和功能</td>
+</tr>
+</tbody></table>
+<h4 id="2-风险评估"><a href="#2-风险评估" class="headerlink" title="2. 风险评估"></a>2. 风险评估</h4><table>
+<thead>
+<tr>
+<th>要求</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>2.1</strong></td>
+<td>制造商应进行风险评估，识别产品在其整个生命周期内可能面临的网络安全风险</td>
+</tr>
+<tr>
+<td><strong>2.2</strong></td>
+<td>风险评估应考虑产品的预期用途和可预见的误用</td>
+</tr>
+</tbody></table>
+<h4 id="3-安全功能要求"><a href="#3-安全功能要求" class="headerlink" title="3. 安全功能要求"></a>3. 安全功能要求</h4><table>
+<thead>
+<tr>
+<th>要求</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>3.1</strong></td>
+<td>产品应提供防止未经授权访问的安全机制</td>
+</tr>
+<tr>
+<td><strong>3.2</strong></td>
+<td>产品应提供身份验证和访问控制机制</td>
+</tr>
+<tr>
+<td><strong>3.3</strong></td>
+<td>产品应确保数据保密性、完整性和可用性</td>
+</tr>
+<tr>
+<td><strong>3.4</strong></td>
+<td>产品应提供安全日志记录功能</td>
+</tr>
+</tbody></table>
+<h4 id="4-加密要求"><a href="#4-加密要求" class="headerlink" title="4. 加密要求"></a>4. 加密要求</h4><table>
+<thead>
+<tr>
+<th>要求</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>4.1</strong></td>
+<td>数据传输应使用适当的加密保护</td>
+</tr>
+<tr>
+<td><strong>4.2</strong></td>
+<td>敏感数据存储应使用适当的加密保护</td>
+</tr>
+<tr>
+<td><strong>4.3</strong></td>
+<td>加密算法应符合现行标准</td>
+</tr>
+</tbody></table>
+<h4 id="5-第三方组件"><a href="#5-第三方组件" class="headerlink" title="5. 第三方组件"></a>5. 第三方组件</h4><table>
+<thead>
+<tr>
+<th>要求</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>5.1</strong></td>
+<td>制造商应确保第三方组件满足相关安全要求</td>
+</tr>
+<tr>
+<td><strong>5.2</strong></td>
+<td>制造商应维护第三方组件清单</td>
+</tr>
+</tbody></table>
+<h4 id="6-安全更新"><a href="#6-安全更新" class="headerlink" title="6. 安全更新"></a>6. 安全更新</h4><table>
+<thead>
+<tr>
+<th>要求</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>6.1</strong></td>
+<td>产品应支持安全更新机制</td>
+</tr>
+<tr>
+<td><strong>6.2</strong></td>
+<td>安全更新应及时提供</td>
+</tr>
+<tr>
+<td><strong>6.3</strong></td>
+<td>安全更新应经过验证，确保不引入新的安全风险</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="Part-II：漏洞管理要求"><a href="#Part-II：漏洞管理要求" class="headerlink" title="Part II：漏洞管理要求"></a>Part II：漏洞管理要求</h3><h4 id="1-漏洞报告流程"><a href="#1-漏洞报告流程" class="headerlink" title="1. 漏洞报告流程"></a>1. 漏洞报告流程</h4><table>
+<thead>
+<tr>
+<th>要求</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>1.1</strong></td>
+<td>制造商应建立漏洞报告流程</td>
+</tr>
+<tr>
+<td><strong>1.2</strong></td>
+<td>制造商应指定漏洞报告联系方式</td>
+</tr>
+<tr>
+<td><strong>1.3</strong></td>
+<td>制造商应及时确认和处理收到的漏洞报告</td>
+</tr>
+</tbody></table>
+<h4 id="2-漏洞修复"><a href="#2-漏洞修复" class="headerlink" title="2. 漏洞修复"></a>2. 漏洞修复</h4><table>
+<thead>
+<tr>
+<th>要求</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>2.1</strong></td>
+<td>制造商应及时修复已知漏洞</td>
+</tr>
+<tr>
+<td><strong>2.2</strong></td>
+<td>制造商应发布安全更新</td>
+</tr>
+<tr>
+<td><strong>2.3</strong></td>
+<td>制造商应通知用户安全更新</td>
+</tr>
+</tbody></table>
+<h4 id="3-用户通知"><a href="#3-用户通知" class="headerlink" title="3. 用户通知"></a>3. 用户通知</h4><table>
+<thead>
+<tr>
+<th>要求</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>3.1</strong></td>
+<td>制造商应通知用户已修复的漏洞</td>
+</tr>
+<tr>
+<td><strong>3.2</strong></td>
+<td>制造商应提供漏洞影响评估信息</td>
+</tr>
+<tr>
+<td><strong>3.3</strong></td>
+<td>制造商应指导用户如何更新</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="实施要点"><a href="#实施要点" class="headerlink" title="实施要点"></a>实施要点</h2><h3 id="制造商责任清单"><a href="#制造商责任清单" class="headerlink" title="制造商责任清单"></a>制造商责任清单</h3><table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>责任</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>设计阶段</strong></td>
+<td>安全设计原则、威胁建模、安全架构设计</td>
+</tr>
+<tr>
+<td><strong>开发阶段</strong></td>
+<td>安全编码、代码审查、安全测试</td>
+</tr>
+<tr>
+<td><strong>生产阶段</strong></td>
+<td>安全配置、供应链安全、质量保证</td>
+</tr>
+<tr>
+<td><strong>运营阶段</strong></td>
+<td>漏洞管理、安全更新、用户支持</td>
+</tr>
+<tr>
+<td><strong>报废阶段</strong></td>
+<td>数据清理、安全退役</td>
+</tr>
+</tbody></table>
+<h3 id="技术文档要求"><a href="#技术文档要求" class="headerlink" title="技术文档要求"></a>技术文档要求</h3><p>根据 Article 13 和 Annex VII，技术文档应包括：</p>
+<ol>
+<li><p><strong>产品描述</strong></p>
+<ul>
+<li>产品标识和版本信息</li>
+<li>预期用途和使用场景</li>
+<li>技术架构说明</li>
+</ul>
+</li>
+<li><p><strong>风险评估</strong></p>
+<ul>
+<li>威胁建模结果</li>
+<li>风险评估方法</li>
+<li>风险处理措施</li>
+</ul>
+</li>
+<li><p><strong>安全措施</strong></p>
+<ul>
+<li>安全设计文档</li>
+<li>安全功能说明</li>
+<li>加密机制说明</li>
+</ul>
+</li>
+<li><p><strong>测试报告</strong></p>
+<ul>
+<li>安全测试结果</li>
+<li>渗透测试报告</li>
+<li>漏洞扫描结果</li>
+</ul>
+</li>
+<li><p><strong>标准引用</strong></p>
+<ul>
+<li>引用的协调标准</li>
+<li>引用的欧洲网络安全认证</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="与其他法规的关系"><a href="#与其他法规的关系" class="headerlink" title="与其他法规的关系"></a>与其他法规的关系</h2><table>
+<thead>
+<tr>
+<th>法规</th>
+<th>关系</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>NIS2 Directive</strong></td>
+<td>CRA 专注于产品安全，NIS2 专注于实体安全</td>
+</tr>
+<tr>
+<td><strong>Cybersecurity Act</strong></td>
+<td>CRA 可引用欧洲网络安全认证作为符合性评估方式</td>
+</tr>
+<tr>
+<td><strong>GDPR</strong></td>
+<td>CRA 的数据保护要求与 GDPR 协同</td>
+</tr>
+<tr>
+<td><strong>Product Liability Directive</strong></td>
+<td>CRA 合规可作为产品安全责任抗辩依据</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="时间线"><a href="#时间线" class="headerlink" title="时间线"></a>时间线</h2><table>
+<thead>
+<tr>
+<th>日期</th>
+<th>里程碑</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2024-12-10</td>
+<td>法规生效</td>
+</tr>
+<tr>
+<td>2026-09-11</td>
+<td>报告义务生效</td>
+</tr>
+<tr>
+<td>2027-12-11</td>
+<td>法规全面适用</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://eur-lex.europa.eu/eli/reg/2024/2847/oj">Regulation (EU) 2024&#x2F;2847 - Full Text</a></li>
+<li><a target="_blank" rel="noopener" href="https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act">CRA 官方页面</a></li>
+<li><a target="_blank" rel="noopener" href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02024R2847-20241120#anx_I">Annex I 详细内容</a></li>
+</ul>
+<hr>
+<h2 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h2><ul>
+<li><a href="/CRA/CRA-%E4%BA%A7%E5%93%81%E5%88%86%E7%B1%BB%E4%BD%93%E7%B3%BB%E8%AF%A6%E8%A7%A3/">CRA 产品分类体系详解</a></li>
+<li><a href="/CRA/CRA-%E5%AE%9E%E6%96%BD%E6%97%B6%E9%97%B4%E7%BA%BF%E4%B8%8E%E5%90%88%E8%A7%84%E8%B7%AF%E7%BA%BF%E5%9B%BE/">CRA 实施时间线与合规路线图</a></li>
+<li><a href="/CRA/CRA-M606%E6%A0%87%E5%87%86%E5%8C%96%E8%AF%B7%E6%B1%82%E8%A7%A3%E8%AF%BB/">CRA M606 标准化请求解读</a></li>
+</ul>
+
+  <p><a class="classtest-link" href="/tags/Annex-I/" rel="tag">Annex I</a>, <a class="classtest-link" href="/tags/Article-10/" rel="tag">Article 10</a>, <a class="classtest-link" href="/tags/CRA/" rel="tag">CRA</a>, <a class="classtest-link" href="/tags/Cyber-Resilience-Act/" rel="tag">Cyber Resilience Act</a>, <a class="classtest-link" href="/tags/%E5%9F%BA%E6%9C%AC%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E8%A6%81%E6%B1%82/" rel="tag">基本网络安全要求</a>, <a class="classtest-link" href="/tags/%E7%BD%91%E7%BB%9C%E5%BC%B9%E6%80%A7%E6%B3%95%E6%A1%88/" rel="tag">网络弹性法案</a> — 2026年3月19日</p>
+  
+  
+  <p id="busuanzi_page" style="color: #888; font-size: 0.9rem;">
+    <span id="busuanzi_container_page_pv">
+      本文阅读量 <span id="busuanzi_value_page_pv"></span> 次
+    </span>
+  </p>
+  
+  
+  
+
+
+  <hr>
+  <section id="comments" class="mt-2 mb-3">
+    <h3>评论</h3>
+    <script src="https://giscus.app/client.js"
+      data-repo="bokidoki/bokidoki.github.io"
+      data-repo-id="MDEwOlJlcG9zaXRvcnkzODA4NzAyODg="
+      data-category="Announcements"
+      data-category-id="DIC_kwDOFrOekM4C4W5W"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="light"
+      data-lang="zh-CN"
+      data-loading="lazy"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </section>
+
+
+
+        </div>
+        <div class="row mt-2">
+  <h3>Search</h3>
+  <div><input id="search-text" title="search" class="search-text" type="text" placeholder="search......"></div>
+  <div style="margin-top: 1.5rem;">
+    <ul id="result"></ul>
+  </div>
+</div>
+        <div class="row mt-2">
+  
+    <div class="eight columns">
+      <p id="madewith">Made with ❤ and
+        <a class="footer-link icon" href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer" aria-label="Hexo.io">
+        <svg class="hexo svg-hov" width="14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
+        </a>
+        
+        at <a href="https://bokidoki.github.io" target="_blank" rel="noreferrer">Lynd</a> · 280327097@qq.com.</p>
+        
+      <!-- Busuanzi Visitor Count -->
+      
+      <p id="busuanzi">
+        <span id="busuanzi_container_site_pv">
+          本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+        </span>
+        <span style="margin: 0 0.5rem;">|</span>
+        <span id="busuanzi_container_site_uv">
+          访客数 <span id="busuanzi_value_site_uv"></span> 人次
+        </span>
+      </p>
+      
+    </div>
+
+    <!-- Sepcial thanks to https://simpleicons.org/ for the icons -->
+    <div class="four columns mb-3 posisi" >
+      
+
+      
+
+      
+
+      
+
+      
+
+    </div>
+  
+</div>
+
+<!-- Busuanzi JS -->
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+      </div>
+
+    </div>
+
+  </div>
+  <script src="/js/nanobar.min.js"></script>
+
+  <script>
+    var options = {
+      classname: 'nanobar',
+      id: 'myNanobar'
+    };
+    var nanobar = new Nanobar(options);
+    nanobar.go(30);
+    nanobar.go(76);
+    nanobar.go(100);
+  </script>
+
+</body>
+
+</html>
