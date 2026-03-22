@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+  <!-- Minima -->
+  <!-- Hexo theme created by @adisaktijrs -->
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+
+  
+  <title>PSTI执法机制与合规验证详解</title>
+  
+  <link rel="sitemap" href="https://bokidoki.github.iositemap.xml,sitemap.txt" />
+  
+  <link rel="canonical" href="https://bokidoki.github.io/standards/PSTI/03-psti-enforcement-and-faq/">
+  
+  <meta name="description" content="概述PSTI 法案建立了完整的执法框架，赋予执法机构广泛的调查和处罚权力。本文详细解读 PSTI 法案的执法机制、ETSI EN 303 645 标准框架，以及常见问题解答，帮助企业了解违规后果和合规验证方法。  一、执法机构与权力1.1 执法主体主要执法机构：Secretary of State（">
+  
+  
+  <meta name="keywords" content="认证,标准,PCI,EN,网络安全,MPoC">
+  
+  <meta name="author" content="标准研究组">
+  
+  
+  
+  <meta property="og:site_name" content="认证标准解读" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="PSTI执法机制与合规验证详解" />
+  
+  <meta property="og:description" content="概述PSTI 法案建立了完整的执法框架，赋予执法机构广泛的调查和处罚权力。本文详细解读 PSTI 法案的执法机制、ETSI EN 303 645 标准框架，以及常见问题解答，帮助企业了解违规后果和合规验证方法。  一、执法机构与权力1.1 执法主体主要执法机构：Secretary of State（">
+  
+  <meta property="og:url" content="https://bokidoki.github.io/standards/PSTI/03-psti-enforcement-and-faq/" />
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PSTI执法机制与合规验证详解">
+  
+  <meta name="twitter:description" content="概述PSTI 法案建立了完整的执法框架，赋予执法机构广泛的调查和处罚权力。本文详细解读 PSTI 法案的执法机制、ETSI EN 303 645 标准框架，以及常见问题解答，帮助企业了解违规后果和合规验证方法。  一、执法机构与权力1.1 执法主体主要执法机构：Secretary of State（">
+  
+  
+  
+  
+  <meta name="twitter:url" content="https://bokidoki.github.io/standards/PSTI/03-psti-enforcement-and-faq/" />
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Preload fonts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="preload" href="/fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+<link rel="stylesheet" href="/css/normalize.css">
+
+  
+<link rel="stylesheet" href="/css/skeleton.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+<link rel="stylesheet" href="/css/prism-dark.css">
+
+  
+<link rel="stylesheet" href="/css/prism-line-numbers.css">
+
+  <!-- User css -->
+  
+  
+<link rel="stylesheet" href="/css/user.css">
+
+  
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="专注认证行业标准化研究，解读国内外认证政策与技术规范">
+  <meta name="keywords" content="PSTI, 执法机制, 合规验证, ETSI EN 303 645">
+  <meta name="author" content="标准研究组">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://bokidoki.github.io/standards/PSTI/03-psti-enforcement-and-faq/index.html">
+  
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+    "@type": "Article",
+    "headline": "PSTI执法机制与合规验证详解",
+    "description": "专注认证行业标准化研究，解读国内外认证政策与技术规范",
+    "author": {
+      "@type": "Person",
+      "name": "标准研究组"
+    },
+    "datePublished": "2026-03-22",
+    
+    "dateModified": "2026-03-22",
+    
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://bokidoki.github.io/standards/PSTI/03-psti-enforcement-and-faq/index.html"
+    },
+    
+    "keywords": "PSTI, 执法机制, 合规验证, ETSI EN 303 645",
+    
+    
+    "publisher": {
+      "@type": "Organization",
+      "name": "认证标准解读",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://bokidoki.github.io/images/favicon.svg"
+      }
+    },
+    "url": "https://bokidoki.github.io/standards/PSTI/03-psti-enforcement-and-faq/index.html"
+  }
+  </script>
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bokidoki.github.io/standards/PSTI/03-psti-enforcement-and-faq/index.html">
+  <meta property="og:title" content="PSTI执法机制与合规验证详解">
+  <meta property="og:description" content="专注认证行业标准化研究，解读国内外认证政策与技术规范">
+  <meta property="og:site_name" content="认证标准解读">
+  <meta property="og:locale" content="zh_CN">
+  
+  <meta property="og:image" content="https://bokidoki.github.io/images/thumbnail.jpg">
+  
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PSTI执法机制与合规验证详解">
+  <meta name="twitter:description" content="专注认证行业标准化研究，解读国内外认证政策与技术规范">
+  
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+
+  <!-- Custom Theme Color Style
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <style>
+  a:not(.icon) {
+    text-decoration-color: #0FA0CE;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 50%,
+      #0FA0CE 50%
+    );
+  }
+  blockquote {
+    border-left: 8px solid #0FA0CE;
+  }
+  .nanobar .bar {
+    background: #0FA0CE;
+  }
+  .button.button-primary:hover,
+  button.button-primary:hover,
+  input[type="submit"].button-primary:hover,
+  input[type="reset"].button-primary:hover,
+  input[type="button"].button-primary:hover,
+  .button.button-primary:focus,
+  button.button-primary:focus,
+  input[type="submit"].button-primary:focus,
+  input[type="reset"].button-primary:focus,
+  input[type="button"].button-primary:focus {
+    background-color: #0FA0CE;
+    border-color: #0FA0CE;
+  }
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  input[type="search"]:focus,
+  input[type="text"]:focus,
+  input[type="tel"]:focus,
+  input[type="url"]:focus,
+  input[type="password"]:focus,
+  textarea:focus,
+  select:focus {
+    border: 1px solid #0FA0CE;
+  }
+</style>
+
+  <!-- Google Analytics (With Privacy Settings On)
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+
+  
+  <script src="/js/pic.min.js" defer></script>
+  
+
+  
+
+<meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="认证标准解读" type="application/atom+xml">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div>
+
+        <div class="row">
+  <div class="two columns" style="max-width: 50px">
+    <h1 class="mt-2 mode">
+      <a href="/" style="text-decoration: none;">
+        <img src="/images/favicon.svg" alt="Logo" style="width: 32px; height: 32px;">
+      </a>
+    </h1>
+  </div>
+
+  <div class="six columns ml-1">
+    <h1 class="mt-2">
+      认证标准解读
+    </h1>
+  </div>
+
+  <div class="twelve columns">
+    <div class="row">
+      <div class="nine columns left">
+        <a href="/">Home</a>
+        
+          
+          <a href="/" class="ml">首页</a>
+          
+        
+          
+          <a href="/archives" class="ml">归档</a>
+          
+        
+          
+          <a href="/tags" class="ml">标签</a>
+          
+        
+        
+          
+            <a href="mailto:280327097@qq.com" target="_blank" class="ml">Email</a>
+          
+        
+      </div>
+    </div>
+    <hr style="margin-bottom: 2.6rem">
+  </div>
+</div>
+
+        <div class="trans">
+            <h2>PSTI执法机制与合规验证详解</h2>
+
+  <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>PSTI 法案建立了完整的执法框架，赋予执法机构广泛的调查和处罚权力。本文详细解读 PSTI 法案的执法机制、ETSI EN 303 645 标准框架，以及常见问题解答，帮助企业了解违规后果和合规验证方法。</p>
+<hr>
+<h2 id="一、执法机构与权力"><a href="#一、执法机构与权力" class="headerlink" title="一、执法机构与权力"></a>一、执法机构与权力</h2><h3 id="1-1-执法主体"><a href="#1-1-执法主体" class="headerlink" title="1.1 执法主体"></a>1.1 执法主体</h3><p><strong>主要执法机构</strong>：Secretary of State（国务大臣）</p>
+<p><strong>实际执行部门</strong>：Department for Digital, Culture, Media and Sport (DCMS)</p>
+<p><strong>职权来源</strong>：Section 26</p>
+<h3 id="1-2-调查权力"><a href="#1-2-调查权力" class="headerlink" title="1.2 调查权力"></a>1.2 调查权力</h3><p>执法机构的调查权力来源于：</p>
+<ul>
+<li><strong>Consumer Rights Act 2015, Schedule 5</strong>（消费者权利法2015年附表5）</li>
+<li><strong>PSTI Act 2022, Section 26</strong>（PSTI法案第26条）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>权力类型</th>
+<th>具体内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>信息收集</td>
+<td>要求提供信息、文件、记录</td>
+</tr>
+<tr>
+<td>进入检查</td>
+<td>进入经营场所进行检查</td>
+</tr>
+<tr>
+<td>产品检查</td>
+<td>检查、测试产品</td>
+</tr>
+<tr>
+<td>样本提取</td>
+<td>提取产品样本进行检测</td>
+</tr>
+<tr>
+<td>记录复制</td>
+<td>复制相关记录文件</td>
+</tr>
+</tbody></table>
+<h3 id="1-3-信息提供义务"><a href="#1-3-信息提供义务" class="headerlink" title="1.3 信息提供义务"></a>1.3 信息提供义务</h3><p>根据 Section 26(4)，执法机构可要求企业提供信息：</p>
+<ul>
+<li><strong>无需怀疑违规</strong>：即使没有违规嫌疑，也可要求提供信息</li>
+<li><strong>广泛用途</strong>：用于确定是否存在合规失败、评估风险等</li>
+<li><strong>财务信息</strong>：可要求提供财务信息以确定罚款计算基数</li>
+</ul>
+<hr>
+<h2 id="二、执法通知类型"><a href="#二、执法通知类型" class="headerlink" title="二、执法通知类型"></a>二、执法通知类型</h2><h3 id="2-1-三类通知对照"><a href="#2-1-三类通知对照" class="headerlink" title="2.1 三类通知对照"></a>2.1 三类通知对照</h3><table>
+<thead>
+<tr>
+<th>通知类型</th>
+<th>英文</th>
+<th>主要用途</th>
+<th>严重程度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>合规通知</td>
+<td>Compliance Notice</td>
+<td>要求限期整改</td>
+<td>中</td>
+</tr>
+<tr>
+<td>停止通知</td>
+<td>Stop Notice</td>
+<td>要求停止销售</td>
+<td>高</td>
+</tr>
+<tr>
+<td>召回通知</td>
+<td>Recall Notice</td>
+<td>要求召回产品</td>
+<td>最高</td>
+</tr>
+</tbody></table>
+<h3 id="2-2-通知层级关系"><a href="#2-2-通知层级关系" class="headerlink" title="2.2 通知层级关系"></a>2.2 通知层级关系</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">执法通知层级：</span><br><span class="line"></span><br><span class="line">合规通知</span><br><span class="line">    │</span><br><span class="line">    ├── 整改成功 → 通知撤销</span><br><span class="line">    │</span><br><span class="line">    └── 整改失败 → 停止通知</span><br><span class="line">                        │</span><br><span class="line">                        ├── 停止销售成功 → 通知撤销</span><br><span class="line">                        │</span><br><span class="line">                        └── 已售产品风险 → 召回通知</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="三、合规通知-Compliance-Notice"><a href="#三、合规通知-Compliance-Notice" class="headerlink" title="三、合规通知 (Compliance Notice)"></a>三、合规通知 (Compliance Notice)</h2><h3 id="3-1-法律依据"><a href="#3-1-法律依据" class="headerlink" title="3.1 法律依据"></a>3.1 法律依据</h3><p><strong>Section 28</strong> 规定执法机构可发出合规通知。</p>
+<h3 id="3-2-适用情形"><a href="#3-2-适用情形" class="headerlink" title="3.2 适用情形"></a>3.2 适用情形</h3><table>
+<thead>
+<tr>
+<th>条件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>合理理由</td>
+<td>执法机构有合理理由认为存在合规失败</td>
+</tr>
+<tr>
+<td>需整改</td>
+<td>合规失败可通过整改纠正</td>
+</tr>
+</tbody></table>
+<h3 id="3-3-通知内容"><a href="#3-3-通知内容" class="headerlink" title="3.3 通知内容"></a>3.3 通知内容</h3><table>
+<thead>
+<tr>
+<th>要素</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>违规说明</td>
+<td>详细说明合规失败情况</td>
+</tr>
+<tr>
+<td>整改要求</td>
+<td>要求采取的整改措施</td>
+</tr>
+<tr>
+<td>整改期限</td>
+<td>完成整改的期限</td>
+</tr>
+<tr>
+<td>后果告知</td>
+<td>不履行的法律后果</td>
+</tr>
+<tr>
+<td>申诉权利</td>
+<td>申诉途径和期限</td>
+</tr>
+</tbody></table>
+<h3 id="3-4-程序要求"><a href="#3-4-程序要求" class="headerlink" title="3.4 程序要求"></a>3.4 程序要求</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">合规通知发出流程：</span><br><span class="line"></span><br><span class="line">1. 执法机构发现或被告知合规失败</span><br><span class="line">   │</span><br><span class="line">   ▼</span><br><span class="line">2. 执法机构发出预警通知</span><br><span class="line">   │</span><br><span class="line">   ▼</span><br><span class="line">3. 当事人陈述意见机会（至少10日）</span><br><span class="line">   │</span><br><span class="line">   ▼</span><br><span class="line">4. 执法机构决定是否发出合规通知</span><br><span class="line">   │</span><br><span class="line">   ▼</span><br><span class="line">5. 正式发出合规通知</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="四、停止通知-Stop-Notice"><a href="#四、停止通知-Stop-Notice" class="headerlink" title="四、停止通知 (Stop Notice)"></a>四、停止通知 (Stop Notice)</h2><h3 id="4-1-法律依据"><a href="#4-1-法律依据" class="headerlink" title="4.1 法律依据"></a>4.1 法律依据</h3><p><strong>Section 29</strong> 规定执法机构可发出停止通知。</p>
+<h3 id="4-2-适用情形"><a href="#4-2-适用情形" class="headerlink" title="4.2 适用情形"></a>4.2 适用情形</h3><table>
+<thead>
+<tr>
+<th>条件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>正在进行或可能进行违规活动</td>
+<td>存在或可能存在违反义务的行为</td>
+</tr>
+<tr>
+<td>风险较高</td>
+<td>合规通知不足以消除风险</td>
+</tr>
+</tbody></table>
+<h3 id="4-3-通知内容"><a href="#4-3-通知内容" class="headerlink" title="4.3 通知内容"></a>4.3 通知内容</h3><table>
+<thead>
+<tr>
+<th>要素</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>停止要求</td>
+<td>要求停止的特定活动</td>
+</tr>
+<tr>
+<td>通知客户</td>
+<td>可能要求通知客户风险</td>
+</tr>
+<tr>
+<td>期限</td>
+<td>停止活动的期限</td>
+</tr>
+</tbody></table>
+<h3 id="4-4-紧急程序"><a href="#4-4-紧急程序" class="headerlink" title="4.4 紧急程序"></a>4.4 紧急程序</h3><p><strong>Section 29(5)</strong> 规定紧急情况下可省略事前通知程序，立即发出停止通知。</p>
+<p><strong>紧急情况包括</strong>：</p>
+<ul>
+<li>对用户安全造成紧迫风险</li>
+<li>可能导致严重损害</li>
+<li>需要立即采取行动</li>
+</ul>
+<hr>
+<h2 id="五、召回通知-Recall-Notice"><a href="#五、召回通知-Recall-Notice" class="headerlink" title="五、召回通知 (Recall Notice)"></a>五、召回通知 (Recall Notice)</h2><h3 id="5-1-法律依据"><a href="#5-1-法律依据" class="headerlink" title="5.1 法律依据"></a>5.1 法律依据</h3><p><strong>Section 30</strong> 规定执法机构可发出召回通知。</p>
+<h3 id="5-2-适用情形"><a href="#5-2-适用情形" class="headerlink" title="5.2 适用情形"></a>5.2 适用情形</h3><table>
+<thead>
+<tr>
+<th>条件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>合规失败存在</td>
+<td>已售产品存在合规失败</td>
+</tr>
+<tr>
+<td>现有措施不足</td>
+<td>当事人采取的措施不足以应对风险</td>
+</tr>
+<tr>
+<td>其他措施不足</td>
+<td>合规通知、停止通知均不足以消除风险</td>
+</tr>
+</tbody></table>
+<h3 id="5-3-通知内容"><a href="#5-3-通知内容" class="headerlink" title="5.3 通知内容"></a>5.3 通知内容</h3><table>
+<thead>
+<tr>
+<th>要素</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>召回安排</td>
+<td>要求制定的召回方案</td>
+</tr>
+<tr>
+<td>客户通知</td>
+<td>通知客户召回原因和方式</td>
+</tr>
+<tr>
+<td>回收安排</td>
+<td>产品回收和处置方式</td>
+</tr>
+<tr>
+<td>时间要求</td>
+<td>召回完成期限</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="六、货币罚款"><a href="#六、货币罚款" class="headerlink" title="六、货币罚款"></a>六、货币罚款</h2><h3 id="6-1-罚款权力"><a href="#6-1-罚款权力" class="headerlink" title="6.1 罚款权力"></a>6.1 罚款权力</h3><p><strong>法律依据</strong>：Section 36</p>
+<p><strong>核心规定</strong>：</p>
+<blockquote>
+<p>The Secretary of State may give a monetary penalty notice to a person if the Secretary of State has reasonable grounds to believe that a compliance failure has occurred.</p>
+</blockquote>
+<h3 id="6-2-罚款金额上限"><a href="#6-2-罚款金额上限" class="headerlink" title="6.2 罚款金额上限"></a>6.2 罚款金额上限</h3><table>
+<thead>
+<tr>
+<th>情形</th>
+<th>罚款上限</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>一般违规</strong></td>
+<td><strong>1000万英镑</strong> 或 <strong>全球营业额4%</strong>（取较高者）</td>
+</tr>
+<tr>
+<td><strong>持续违规</strong></td>
+<td>每日最高 <strong>2万英镑</strong></td>
+</tr>
+</tbody></table>
+<h3 id="6-3-罚款金额示例"><a href="#6-3-罚款金额示例" class="headerlink" title="6.3 罚款金额示例"></a>6.3 罚款金额示例</h3><table>
+<thead>
+<tr>
+<th>企业全球营业额</th>
+<th>4%计算</th>
+<th>实际罚款上限</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>5000万英镑</td>
+<td>200万英镑</td>
+<td>1000万英镑（取上限）</td>
+</tr>
+<tr>
+<td>3亿英镑</td>
+<td>1200万英镑</td>
+<td>1200万英镑</td>
+</tr>
+<tr>
+<td>10亿英镑</td>
+<td>4000万英镑</td>
+<td>4000万英镑</td>
+</tr>
+</tbody></table>
+<h3 id="6-4-罚款决定因素"><a href="#6-4-罚款决定因素" class="headerlink" title="6.4 罚款决定因素"></a>6.4 罚款决定因素</h3><p>根据 Section 37，罚款金额需考虑：</p>
+<table>
+<thead>
+<tr>
+<th>因素</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>违规性质</td>
+<td>违规的严重程度</td>
+</tr>
+<tr>
+<td>违规影响</td>
+<td>对消费者和市场的实际影响</td>
+</tr>
+<tr>
+<td>整改措施</td>
+<td>是否采取补救措施</td>
+</tr>
+<tr>
+<td>配合程度</td>
+<td>配合调查的态度</td>
+</tr>
+<tr>
+<td>过往记录</td>
+<td>是否有违规前科</td>
+</tr>
+</tbody></table>
+<h3 id="6-5-加重与减轻因素"><a href="#6-5-加重与减轻因素" class="headerlink" title="6.5 加重与减轻因素"></a>6.5 加重与减轻因素</h3><p><strong>加重因素</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>因素</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>故意违规</td>
+<td>明知故犯</td>
+</tr>
+<tr>
+<td>隐瞒违规</td>
+<td>试图掩盖违规行为</td>
+</tr>
+<tr>
+<td>长期违规</td>
+<td>长时间未整改</td>
+</tr>
+<tr>
+<td>拒不配合</td>
+<td>拒绝配合调查</td>
+</tr>
+<tr>
+<td>再次违规</td>
+<td>有违规前科</td>
+</tr>
+</tbody></table>
+<p><strong>减轻因素</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>因素</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>及时报告</td>
+<td>主动报告违规</td>
+</tr>
+<tr>
+<td>积极整改</td>
+<td>迅速采取整改措施</td>
+</tr>
+<tr>
+<td>配合调查</td>
+<td>全力配合执法机构</td>
+</tr>
+<tr>
+<td>初次违规</td>
+<td>无违规记录</td>
+</tr>
+<tr>
+<td>外部原因</td>
+<td>因不可抗力导致</td>
+</tr>
+</tbody></table>
+<h3 id="6-6-罚款程序"><a href="#6-6-罚款程序" class="headerlink" title="6.6 罚款程序"></a>6.6 罚款程序</h3><table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>要求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>事前通知</td>
+<td>必须通知当事人</td>
+</tr>
+<tr>
+<td>说明意图</td>
+<td>说明拟罚款的意图和金额</td>
+</tr>
+<tr>
+<td>陈述机会</td>
+<td>给予陈述意见的机会</td>
+</tr>
+<tr>
+<td>缴款期限</td>
+<td>不少于28日</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="七、刑事处罚"><a href="#七、刑事处罚" class="headerlink" title="七、刑事处罚"></a>七、刑事处罚</h2><h3 id="7-1-不遵守执法通知"><a href="#7-1-不遵守执法通知" class="headerlink" title="7.1 不遵守执法通知"></a>7.1 不遵守执法通知</h3><p><strong>法律依据</strong>：Section 32</p>
+<p><strong>罪名</strong>：不遵守执法通知罪</p>
+<p><strong>处罚</strong>：罚款</p>
+<p><strong>抗辩理由</strong>：</p>
+<ul>
+<li>已采取一切合理步骤遵守通知</li>
+<li>无法合理预见或避免违规</li>
+</ul>
+<h3 id="7-2-冒充执法人员"><a href="#7-2-冒充执法人员" class="headerlink" title="7.2 冒充执法人员"></a>7.2 冒充执法人员</h3><p><strong>法律依据</strong>：Section 49</p>
+<p><strong>处罚</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>法院</th>
+<th>最高处罚</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>England &amp; Wales</td>
+<td>51周监禁或罚款，或两者并罚</td>
+</tr>
+<tr>
+<td>Scotland</td>
+<td>12个月监禁或罚款，或两者并罚</td>
+</tr>
+<tr>
+<td>Northern Ireland</td>
+<td>6个月监禁或罚款，或两者并罚</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="八、上诉机制"><a href="#八、上诉机制" class="headerlink" title="八、上诉机制"></a>八、上诉机制</h2><h3 id="8-1-上诉机构"><a href="#8-1-上诉机构" class="headerlink" title="8.1 上诉机构"></a>8.1 上诉机构</h3><p><strong>第一审裁判所</strong>（First-tier Tribunal）</p>
+<h3 id="8-2-可上诉的决定"><a href="#8-2-可上诉的决定" class="headerlink" title="8.2 可上诉的决定"></a>8.2 可上诉的决定</h3><table>
+<thead>
+<tr>
+<th>决定类型</th>
+<th>上诉期限</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>执法通知</td>
+<td>收到通知后28日内</td>
+</tr>
+<tr>
+<td>货币罚款</td>
+<td>收到罚款通知后28日内</td>
+</tr>
+</tbody></table>
+<h3 id="8-3-上诉期间效力"><a href="#8-3-上诉期间效力" class="headerlink" title="8.3 上诉期间效力"></a>8.3 上诉期间效力</h3><p><strong>暂停执行</strong>（Section 33(8)）：</p>
+<ul>
+<li>上诉期间，执法通知暂停执行</li>
+<li>裁判所可另行决定</li>
+</ul>
+<h3 id="8-4-裁判所权力"><a href="#8-4-裁判所权力" class="headerlink" title="8.4 裁判所权力"></a>8.4 裁判所权力</h3><table>
+<thead>
+<tr>
+<th>权力</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>确认决定</td>
+<td>维持原决定</td>
+</tr>
+<tr>
+<td>变更决定</td>
+<td>修改原决定</td>
+</tr>
+<tr>
+<td>撤销决定</td>
+<td>取消原决定</td>
+</tr>
+<tr>
+<td>发回重审</td>
+<td>要求执法机构重新考虑</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="九、ETSI-EN-303-645-标准框架"><a href="#九、ETSI-EN-303-645-标准框架" class="headerlink" title="九、ETSI EN 303 645 标准框架"></a>九、ETSI EN 303 645 标准框架</h2><h3 id="9-1-标准背景"><a href="#9-1-标准背景" class="headerlink" title="9.1 标准背景"></a>9.1 标准背景</h3><p><strong>ETSI</strong>（European Telecommunications Standards Institute）欧洲电信标准化协会：</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>性质</td>
+<td>欧洲标准化组织</td>
+</tr>
+<tr>
+<td>总部</td>
+<td>法国索菲亚安蒂波利斯</td>
+</tr>
+<tr>
+<td>成立</td>
+<td>1988年</td>
+</tr>
+</tbody></table>
+<h3 id="9-2-标准结构"><a href="#9-2-标准结构" class="headerlink" title="9.2 标准结构"></a>9.2 标准结构</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">ETSI EN 303 645 V2.1.1</span><br><span class="line">├── 5. Provisions for IoT devices（IoT设备条款）</span><br><span class="line">│   ├── 5.1 No universal default passwords ← PSTI强制</span><br><span class="line">│   ├── 5.2 Implement a vulnerability disclosure policy ← PSTI强制</span><br><span class="line">│   ├── 5.3 Keep software updated ← PSTI强制</span><br><span class="line">│   ├── 5.4 Securely store sensitive security parameters</span><br><span class="line">│   ├── 5.5 Communicate securely</span><br><span class="line">│   ├── 5.6 Minimize exposed attack surfaces</span><br><span class="line">│   ├── 5.7 Ensure software integrity</span><br><span class="line">│   ├── 5.8 Ensure that personal data is secure</span><br><span class="line">│   ├── 5.9 Make systems resilient to outages</span><br><span class="line">│   ├── 5.10 Examine system telemetry data</span><br><span class="line">│   ├── 5.11 Make it easy for users to delete user data</span><br><span class="line">│   ├── 5.12 Make installation and maintenance easy</span><br><span class="line">│   └── 5.13 Validate input data</span><br><span class="line">│</span><br><span class="line">└── 6. Provisions for IoT services（IoT服务条款）</span><br><span class="line">    ├── 6.1 Keep user data secure</span><br><span class="line">    ├── 6.2 Control access to services</span><br><span class="line">    ├── 6.3 Keep service software updated</span><br><span class="line">    ├── 6.4 Protect services from outages</span><br><span class="line">    ├── 6.5 Protect telemetry data</span><br><span class="line">    ├── 6.6 Delete user data</span><br><span class="line">    └── 6.7 Make service easy to use</span><br></pre></td></tr></table></figure>
+
+<h3 id="9-3-设备安全条款一览"><a href="#9-3-设备安全条款一览" class="headerlink" title="9.3 设备安全条款一览"></a>9.3 设备安全条款一览</h3><table>
+<thead>
+<tr>
+<th>条款</th>
+<th>标题</th>
+<th>中文</th>
+<th>PSTI要求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>5.1</td>
+<td>No universal default passwords</td>
+<td>禁止通用默认密码</td>
+<td>✅ 强制</td>
+</tr>
+<tr>
+<td>5.2</td>
+<td>Implement a vulnerability disclosure policy</td>
+<td>实施漏洞披露政策</td>
+<td>✅ 强制</td>
+</tr>
+<tr>
+<td>5.3</td>
+<td>Keep software updated</td>
+<td>保持软件更新</td>
+<td>✅ 强制</td>
+</tr>
+<tr>
+<td>5.4</td>
+<td>Securely store sensitive security parameters</td>
+<td>安全存储敏感安全参数</td>
+<td>推荐</td>
+</tr>
+<tr>
+<td>5.5</td>
+<td>Communicate securely</td>
+<td>安全通信</td>
+<td>推荐</td>
+</tr>
+<tr>
+<td>5.6</td>
+<td>Minimize exposed attack surfaces</td>
+<td>最小化暴露攻击面</td>
+<td>推荐</td>
+</tr>
+<tr>
+<td>5.7</td>
+<td>Ensure software integrity</td>
+<td>确保软件完整性</td>
+<td>推荐</td>
+</tr>
+<tr>
+<td>5.8</td>
+<td>Ensure that personal data is secure</td>
+<td>确保个人数据安全</td>
+<td>推荐</td>
+</tr>
+<tr>
+<td>5.9</td>
+<td>Make systems resilient to outages</td>
+<td>使系统具有抗中断能力</td>
+<td>推荐</td>
+</tr>
+<tr>
+<td>5.10</td>
+<td>Examine system telemetry data</td>
+<td>检查系统遥测数据</td>
+<td>推荐</td>
+</tr>
+<tr>
+<td>5.11</td>
+<td>Make it easy for users to delete user data</td>
+<td>便于用户删除数据</td>
+<td>推荐</td>
+</tr>
+<tr>
+<td>5.12</td>
+<td>Make installation and maintenance easy</td>
+<td>使安装和维护简单</td>
+<td>推荐</td>
+</tr>
+<tr>
+<td>5.13</td>
+<td>Validate input data</td>
+<td>验证输入数据</td>
+<td>推荐</td>
+</tr>
+</tbody></table>
+<h3 id="9-4-合规建议"><a href="#9-4-合规建议" class="headerlink" title="9.4 合规建议"></a>9.4 合规建议</h3><table>
+<thead>
+<tr>
+<th>建议</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>优先合规</td>
+<td>先确保条款5.1-5.3合规</td>
+</tr>
+<tr>
+<td>渐进实施</td>
+<td>逐步实现其他条款</td>
+</tr>
+<tr>
+<td>全面参考</td>
+<td>参考完整标准提升安全性</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="十、收到执法通知的应对"><a href="#十、收到执法通知的应对" class="headerlink" title="十、收到执法通知的应对"></a>十、收到执法通知的应对</h2><h3 id="10-1-一般应对流程"><a href="#10-1-一般应对流程" class="headerlink" title="10.1 一般应对流程"></a>10.1 一般应对流程</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">收到执法通知应对流程：</span><br><span class="line"></span><br><span class="line">1. 收到通知</span><br><span class="line">   │</span><br><span class="line">   ▼</span><br><span class="line">2. 仔细阅读通知内容</span><br><span class="line">   │</span><br><span class="line">   ▼</span><br><span class="line">3. 评估违规事实</span><br><span class="line">   │</span><br><span class="line">   ├── 同意违规事实 ──→ 5</span><br><span class="line">   │</span><br><span class="line">   └── 不同意违规事实 ──→ 4</span><br><span class="line">       │</span><br><span class="line">       ▼</span><br><span class="line">   4. 准备申诉材料</span><br><span class="line">       │</span><br><span class="line">       ▼</span><br><span class="line">   5. 制定整改方案</span><br><span class="line">       │</span><br><span class="line">       ▼</span><br><span class="line">   6. 执行整改</span><br><span class="line">       │</span><br><span class="line">       ▼</span><br><span class="line">   7. 向执法机构报告</span><br><span class="line">       │</span><br><span class="line">       ▼</span><br><span class="line">   8. 通知相关方</span><br></pre></td></tr></table></figure>
+
+<h3 id="10-2-各类通知应对要点"><a href="#10-2-各类通知应对要点" class="headerlink" title="10.2 各类通知应对要点"></a>10.2 各类通知应对要点</h3><h4 id="合规通知"><a href="#合规通知" class="headerlink" title="合规通知"></a>合规通知</h4><table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>行动</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>确认违规事实</td>
+</tr>
+<tr>
+<td>2</td>
+<td>制定整改计划</td>
+</tr>
+<tr>
+<td>3</td>
+<td>分配责任和资源</td>
+</tr>
+<tr>
+<td>4</td>
+<td>执行整改</td>
+</tr>
+<tr>
+<td>5</td>
+<td>验证整改效果</td>
+</tr>
+<tr>
+<td>6</td>
+<td>向执法机构报告</td>
+</tr>
+<tr>
+<td>7</td>
+<td>必要时提起申诉</td>
+</tr>
+</tbody></table>
+<h4 id="停止通知"><a href="#停止通知" class="headerlink" title="停止通知"></a>停止通知</h4><table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>行动</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>立即停止销售</td>
+</tr>
+<tr>
+<td>2</td>
+<td>通知销售渠道</td>
+</tr>
+<tr>
+<td>3</td>
+<td>评估风险程度</td>
+</tr>
+<tr>
+<td>4</td>
+<td>制定应对方案</td>
+</tr>
+<tr>
+<td>5</td>
+<td>通知受影响客户</td>
+</tr>
+<tr>
+<td>6</td>
+<td>向执法机构报告</td>
+</tr>
+</tbody></table>
+<h4 id="召回通知"><a href="#召回通知" class="headerlink" title="召回通知"></a>召回通知</h4><table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>行动</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>立即启动召回程序</td>
+</tr>
+<tr>
+<td>2</td>
+<td>通知所有已知客户</td>
+</tr>
+<tr>
+<td>3</td>
+<td>公开召回公告</td>
+</tr>
+<tr>
+<td>4</td>
+<td>建立退货渠道</td>
+</tr>
+<tr>
+<td>5</td>
+<td>处理退款&#x2F;换货</td>
+</tr>
+<tr>
+<td>6</td>
+<td>定期向执法机构报告</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="十一、常见问题解答"><a href="#十一、常见问题解答" class="headerlink" title="十一、常见问题解答"></a>十一、常见问题解答</h2><h3 id="Q1-哪些产品在-PSTI-范围内？"><a href="#Q1-哪些产品在-PSTI-范围内？" class="headerlink" title="Q1: 哪些产品在 PSTI 范围内？"></a>Q1: 哪些产品在 PSTI 范围内？</h3><p><strong>答</strong>：满足以下三个条件的产品在 PSTI 范围内：</p>
+<table>
+<thead>
+<tr>
+<th>条件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1. 可连接互联网</td>
+<td>直接或间接连接互联网</td>
+</tr>
+<tr>
+<td>2. 可传输数字数据</td>
+<td>能发送和接收数字数据</td>
+</tr>
+<tr>
+<td>3. 面向消费者</td>
+<td>消费级产品，非工业&#x2F;企业专用</td>
+</tr>
+</tbody></table>
+<h3 id="Q2-通过网关连接的设备是否在范围内？"><a href="#Q2-通过网关连接的设备是否在范围内？" class="headerlink" title="Q2: 通过网关连接的设备是否在范围内？"></a>Q2: 通过网关连接的设备是否在范围内？</h3><p><strong>答</strong>：是的。例如 Zigbee&#x2F;Z-Wave 设备通过网关连接互联网，属于”间接连接互联网”，在 PSTI 范围内。</p>
+<h3 id="Q3-如何实现”禁止默认密码”？"><a href="#Q3-如何实现”禁止默认密码”？" class="headerlink" title="Q3: 如何实现”禁止默认密码”？"></a>Q3: 如何实现”禁止默认密码”？</h3><p><strong>答</strong>：以下方案任选其一：</p>
+<table>
+<thead>
+<tr>
+<th>方案</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>出厂唯一密码</td>
+<td>每台设备出厂时预置唯一随机密码</td>
+</tr>
+<tr>
+<td>首次设置</td>
+<td>设备无密码，首次使用时强制设置</td>
+</tr>
+<tr>
+<td>硬件绑定</td>
+<td>基于硬件ID生成唯一密码</td>
+</tr>
+</tbody></table>
+<h3 id="Q4-安全更新支持期限最少多久？"><a href="#Q4-安全更新支持期限最少多久？" class="headerlink" title="Q4: 安全更新支持期限最少多久？"></a>Q4: 安全更新支持期限最少多久？</h3><p><strong>答</strong>：法规未规定最短期限，但建议：</p>
+<table>
+<thead>
+<tr>
+<th>产品类型</th>
+<th>建议期限</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>普通智能家居</td>
+<td>3-5年</td>
+</tr>
+<tr>
+<td>智能安防设备</td>
+<td>5年以上</td>
+</tr>
+<tr>
+<td>智能门锁</td>
+<td>5年以上</td>
+</tr>
+</tbody></table>
+<h3 id="Q5-合规声明必须用英文吗？"><a href="#Q5-合规声明必须用英文吗？" class="headerlink" title="Q5: 合规声明必须用英文吗？"></a>Q5: 合规声明必须用英文吗？</h3><p><strong>答</strong>：是的，必须使用英语。其他语言可作为补充。</p>
+<h3 id="Q6-合规声明可以只提供电子版吗？"><a href="#Q6-合规声明可以只提供电子版吗？" class="headerlink" title="Q6: 合规声明可以只提供电子版吗？"></a>Q6: 合规声明可以只提供电子版吗？</h3><p><strong>答</strong>：可以，但必须确保消费者可以方便获取：</p>
+<ul>
+<li>通过二维码链接</li>
+<li>通过网址链接</li>
+<li>产品包装上说明获取方式</li>
+</ul>
+<h3 id="Q7-需要第三方认证吗？"><a href="#Q7-需要第三方认证吗？" class="headerlink" title="Q7: 需要第三方认证吗？"></a>Q7: 需要第三方认证吗？</h3><p><strong>答</strong>：PSTI 法规 <strong>不强制</strong> 要求第三方认证，但企业可选择：</p>
+<ul>
+<li>自我声明合规</li>
+<li>第三方测试认证（增强可信度）</li>
+</ul>
+<h3 id="Q8-违规会有什么处罚？"><a href="#Q8-违规会有什么处罚？" class="headerlink" title="Q8: 违规会有什么处罚？"></a>Q8: 违规会有什么处罚？</h3><p><strong>答</strong>：可能的处罚包括：</p>
+<table>
+<thead>
+<tr>
+<th>措施</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>合规通知</td>
+<td>要求限期整改</td>
+</tr>
+<tr>
+<td>停止通知</td>
+<td>要求停止销售</td>
+</tr>
+<tr>
+<td>召回通知</td>
+<td>要求召回产品</td>
+</tr>
+<tr>
+<td>货币罚款</td>
+<td>最高1000万英镑或全球营业额4%</td>
+</tr>
+<tr>
+<td>刑事处罚</td>
+<td>不遵守通知可能构成犯罪</td>
+</tr>
+</tbody></table>
+<h3 id="Q9-可以申诉吗？"><a href="#Q9-可以申诉吗？" class="headerlink" title="Q9: 可以申诉吗？"></a>Q9: 可以申诉吗？</h3><p><strong>答</strong>：可以。在收到通知后 <strong>28日内</strong> 向第一审裁判所（First-tier Tribunal）提起申诉。</p>
+<h3 id="Q10-合规准备需要多长时间？"><a href="#Q10-合规准备需要多长时间？" class="headerlink" title="Q10: 合规准备需要多长时间？"></a>Q10: 合规准备需要多长时间？</h3><p><strong>答</strong>：建议至少提前 6 个月启动合规准备：</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>时间</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>评估规划</td>
+<td>第1-2月</td>
+<td>确定范围、差距分析</td>
+</tr>
+<tr>
+<td>产品整改</td>
+<td>第3-4月</td>
+<td>技术整改、文档准备</td>
+</tr>
+<tr>
+<td>验证发布</td>
+<td>第5-6月</td>
+<td>测试验证、正式发布</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="十二、合规验证要点"><a href="#十二、合规验证要点" class="headerlink" title="十二、合规验证要点"></a>十二、合规验证要点</h2><h3 id="12-1-功能测试"><a href="#12-1-功能测试" class="headerlink" title="12.1 功能测试"></a>12.1 功能测试</h3><table>
+<thead>
+<tr>
+<th>测试项</th>
+<th>测试方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>默认密码唯一性</td>
+<td>检查多台设备密码是否不同</td>
+</tr>
+<tr>
+<td>默认密码强制修改</td>
+<td>首次登录测试</td>
+</tr>
+<tr>
+<td>密码复杂度验证</td>
+<td>尝试简单密码</td>
+</tr>
+<tr>
+<td>漏洞报告接收</td>
+<td>发送测试邮件</td>
+</tr>
+<tr>
+<td>响应时效验证</td>
+<td>记录响应时间</td>
+</tr>
+<tr>
+<td>更新推送验证</td>
+<td>模拟更新推送</td>
+</tr>
+</tbody></table>
+<h3 id="12-2-文档验证"><a href="#12-2-文档验证" class="headerlink" title="12.2 文档验证"></a>12.2 文档验证</h3><table>
+<thead>
+<tr>
+<th>验证项</th>
+<th>验证内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>合规声明完整性</td>
+<td>检查所有必需内容</td>
+</tr>
+<tr>
+<td>合规声明可获取性</td>
+<td>验证消费者可获取</td>
+</tr>
+<tr>
+<td>安全联系方式公开性</td>
+<td>检查官网&#x2F;包装</td>
+</tr>
+<tr>
+<td>支持期限声明</td>
+<td>检查文档一致性</td>
+</tr>
+</tbody></table>
+<h3 id="12-3-记录保存"><a href="#12-3-记录保存" class="headerlink" title="12.3 记录保存"></a>12.3 记录保存</h3><table>
+<thead>
+<tr>
+<th>记录类型</th>
+<th>保存期限</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>合规声明</td>
+<td>产品生命周期+10年</td>
+</tr>
+<tr>
+<td>合规失败记录</td>
+<td>发现后10年</td>
+</tr>
+<tr>
+<td>调查记录</td>
+<td>调查完成后10年</td>
+</tr>
+<tr>
+<td>漏洞报告</td>
+<td>报告后10年</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>PSTI 执法机制与合规验证要点：</p>
+<ol>
+<li><strong>执法机构</strong>：国务大臣（DCMS）拥有广泛调查权</li>
+<li><strong>三类通知</strong>：合规通知 → 停止通知 → 召回通知（逐级升级）</li>
+<li><strong>货币罚款</strong>：最高1000万英镑或全球营业额4%</li>
+<li><strong>申诉权利</strong>：28日内向裁判所申诉</li>
+<li><strong>ETSI标准</strong>：13项设备安全条款，PSTI强制前三项</li>
+<li><strong>预防为主</strong>：建立合规体系，避免触犯法规</li>
+</ol>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.legislation.gov.uk/ukpga/2022/46/part/1/chapter/3">PSTI Act 2022, Chapter 3: Enforcement</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.legislation.gov.uk/ukpga/2015/15/schedule/5">Consumer Rights Act 2015, Schedule 5</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.etsi.org/deliver/etsi_en/303600_303699/303645/02.01.01_60/en_303645v020101p.pdf">ETSI EN 303 645</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.gov.uk/government/publications/product-security-and-telecommunications-infrastructure-act-2022">UK Government PSTI Guidance</a></li>
+</ul>
+<hr>
+<p><em>本文是 PSTI法案解读系列 的第三篇文章。上一篇：<a href="./02-psti-supplier-compliance-duties.md">供应商合规义务详解</a>。</em></p>
+
+  <p><a class="classtest-link" href="/tags/ETSI-EN-303-645/" rel="tag">ETSI EN 303 645</a>, <a class="classtest-link" href="/tags/PSTI/" rel="tag">PSTI</a>, <a class="classtest-link" href="/tags/%E5%90%88%E8%A7%84%E9%AA%8C%E8%AF%81/" rel="tag">合规验证</a>, <a class="classtest-link" href="/tags/%E6%89%A7%E6%B3%95%E6%9C%BA%E5%88%B6/" rel="tag">执法机制</a> — 2026年3月22日</p>
+  
+  
+  <p id="busuanzi_page" style="color: #888; font-size: 0.9rem;">
+    <span id="busuanzi_container_page_pv">
+      本文阅读量 <span id="busuanzi_value_page_pv"></span> 次
+    </span>
+  </p>
+  
+  
+  
+
+
+  <hr>
+  <section id="comments" class="mt-2 mb-3">
+    <h3>评论</h3>
+    <script src="https://giscus.app/client.js"
+      data-repo="bokidoki/bokidoki.github.io"
+      data-repo-id="MDEwOlJlcG9zaXRvcnkzODA4NzAyODg="
+      data-category="Announcements"
+      data-category-id="DIC_kwDOFrOekM4C4W5W"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="light"
+      data-lang="zh-CN"
+      data-loading="lazy"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </section>
+
+
+
+        </div>
+        <div class="row mt-2">
+  <h3>Search</h3>
+  <div><input id="search-text" title="search" class="search-text" type="text" placeholder="search......"></div>
+  <div style="margin-top: 1.5rem;">
+    <ul id="result"></ul>
+  </div>
+</div>
+        <div class="row mt-2">
+  
+    <div class="eight columns">
+      <p id="madewith">Made with ❤ and
+        <a class="footer-link icon" href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer" aria-label="Hexo.io">
+        <svg class="hexo svg-hov" width="14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
+        </a>
+        
+        at <a href="https://bokidoki.github.io" target="_blank" rel="noreferrer">Lynd</a> · 280327097@qq.com.</p>
+        
+      <!-- Busuanzi Visitor Count -->
+      
+      <p id="busuanzi">
+        <span id="busuanzi_container_site_pv">
+          本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+        </span>
+        <span style="margin: 0 0.5rem;">|</span>
+        <span id="busuanzi_container_site_uv">
+          访客数 <span id="busuanzi_value_site_uv"></span> 人次
+        </span>
+      </p>
+      
+    </div>
+
+    <!-- Sepcial thanks to https://simpleicons.org/ for the icons -->
+    <div class="four columns mb-3 posisi" >
+      
+
+      
+
+      
+
+      
+
+      
+
+    </div>
+  
+</div>
+
+<!-- Busuanzi JS -->
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+      </div>
+
+    </div>
+
+  </div>
+  <script src="/js/nanobar.min.js"></script>
+
+  <script>
+    var options = {
+      classname: 'nanobar',
+      id: 'myNanobar'
+    };
+    var nanobar = new Nanobar(options);
+    nanobar.go(30);
+    nanobar.go(76);
+    nanobar.go(100);
+  </script>
+
+</body>
+
+</html>
