@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+  <!-- Minima -->
+  <!-- Hexo theme created by @adisaktijrs -->
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+
+  
+  <title>替代争议解决机制详解：PSTI Section 69解读</title>
+  
+  <link rel="sitemap" href="https://bokidoki.github.iositemap.xml,sitemap.txt" />
+  
+  <link rel="canonical" href="https://bokidoki.github.io/standards/PSTI/05-telecom/alternative-dispute-resolution/">
+  
+  <meta name="description" content="概述PSTI Act 2022 Section 69 在电子通信代码中引入了强制性的替代争议解决（ADR）机制，为电信运营商和土地所有者之间的争议提供了快速、经济的解决途径。本文详细解读 ADR 机制的内容和操作。  一、ADR 概述1.1 什么是 ADRAlternative Dispute Re">
+  
+  
+  <meta name="keywords" content="认证,标准,PCI,EN,网络安全,MPoC">
+  
+  <meta name="author" content="标准研究组">
+  
+  
+  
+  <meta property="og:site_name" content="认证标准解读" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="替代争议解决机制详解：PSTI Section 69解读" />
+  
+  <meta property="og:description" content="概述PSTI Act 2022 Section 69 在电子通信代码中引入了强制性的替代争议解决（ADR）机制，为电信运营商和土地所有者之间的争议提供了快速、经济的解决途径。本文详细解读 ADR 机制的内容和操作。  一、ADR 概述1.1 什么是 ADRAlternative Dispute Re">
+  
+  <meta property="og:url" content="https://bokidoki.github.io/standards/PSTI/05-telecom/alternative-dispute-resolution/" />
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="替代争议解决机制详解：PSTI Section 69解读">
+  
+  <meta name="twitter:description" content="概述PSTI Act 2022 Section 69 在电子通信代码中引入了强制性的替代争议解决（ADR）机制，为电信运营商和土地所有者之间的争议提供了快速、经济的解决途径。本文详细解读 ADR 机制的内容和操作。  一、ADR 概述1.1 什么是 ADRAlternative Dispute Re">
+  
+  
+  
+  
+  <meta name="twitter:url" content="https://bokidoki.github.io/standards/PSTI/05-telecom/alternative-dispute-resolution/" />
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Preload fonts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="preload" href="/fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+<link rel="stylesheet" href="/css/normalize.css">
+
+  
+<link rel="stylesheet" href="/css/skeleton.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+<link rel="stylesheet" href="/css/prism-dark.css">
+
+  
+<link rel="stylesheet" href="/css/prism-line-numbers.css">
+
+  <!-- User css -->
+  
+  
+<link rel="stylesheet" href="/css/user.css">
+
+  
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="专注认证行业标准化研究，解读国内外认证政策与技术规范">
+  <meta name="keywords" content="PSTI, ADR, 替代争议解决">
+  <meta name="author" content="标准研究组">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://bokidoki.github.io/standards/PSTI/05-telecom/alternative-dispute-resolution/index.html">
+  
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+    "@type": "Article",
+    "headline": "替代争议解决机制详解：PSTI Section 69解读",
+    "description": "专注认证行业标准化研究，解读国内外认证政策与技术规范",
+    "author": {
+      "@type": "Person",
+      "name": "标准研究组"
+    },
+    "datePublished": "2026-03-20",
+    
+    "dateModified": "2026-03-20",
+    
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://bokidoki.github.io/standards/PSTI/05-telecom/alternative-dispute-resolution/index.html"
+    },
+    
+    "keywords": "PSTI, ADR, 替代争议解决",
+    
+    
+    "publisher": {
+      "@type": "Organization",
+      "name": "认证标准解读",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://bokidoki.github.io/images/favicon.svg"
+      }
+    },
+    "url": "https://bokidoki.github.io/standards/PSTI/05-telecom/alternative-dispute-resolution/index.html"
+  }
+  </script>
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bokidoki.github.io/standards/PSTI/05-telecom/alternative-dispute-resolution/index.html">
+  <meta property="og:title" content="替代争议解决机制详解：PSTI Section 69解读">
+  <meta property="og:description" content="专注认证行业标准化研究，解读国内外认证政策与技术规范">
+  <meta property="og:site_name" content="认证标准解读">
+  <meta property="og:locale" content="zh_CN">
+  
+  <meta property="og:image" content="https://bokidoki.github.io/images/thumbnail.jpg">
+  
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="替代争议解决机制详解：PSTI Section 69解读">
+  <meta name="twitter:description" content="专注认证行业标准化研究，解读国内外认证政策与技术规范">
+  
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+
+  <!-- Custom Theme Color Style
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <style>
+  a:not(.icon) {
+    text-decoration-color: #0FA0CE;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 50%,
+      #0FA0CE 50%
+    );
+  }
+  blockquote {
+    border-left: 8px solid #0FA0CE;
+  }
+  .nanobar .bar {
+    background: #0FA0CE;
+  }
+  .button.button-primary:hover,
+  button.button-primary:hover,
+  input[type="submit"].button-primary:hover,
+  input[type="reset"].button-primary:hover,
+  input[type="button"].button-primary:hover,
+  .button.button-primary:focus,
+  button.button-primary:focus,
+  input[type="submit"].button-primary:focus,
+  input[type="reset"].button-primary:focus,
+  input[type="button"].button-primary:focus {
+    background-color: #0FA0CE;
+    border-color: #0FA0CE;
+  }
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  input[type="search"]:focus,
+  input[type="text"]:focus,
+  input[type="tel"]:focus,
+  input[type="url"]:focus,
+  input[type="password"]:focus,
+  textarea:focus,
+  select:focus {
+    border: 1px solid #0FA0CE;
+  }
+</style>
+
+  <!-- Google Analytics (With Privacy Settings On)
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+
+  
+  <script src="/js/pic.min.js" defer></script>
+  
+
+  
+
+<meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="认证标准解读" type="application/atom+xml">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div>
+
+        <div class="row">
+  <div class="two columns" style="max-width: 50px">
+    <h1 class="mt-2 mode">
+      <a href="/" style="text-decoration: none;">
+        <img src="/images/favicon.svg" alt="Logo" style="width: 32px; height: 32px;">
+      </a>
+    </h1>
+  </div>
+
+  <div class="six columns ml-1">
+    <h1 class="mt-2">
+      认证标准解读
+    </h1>
+  </div>
+
+  <div class="twelve columns">
+    <div class="row">
+      <div class="nine columns left">
+        <a href="/">Home</a>
+        
+          
+          <a href="/" class="ml">首页</a>
+          
+        
+          
+          <a href="/archives" class="ml">归档</a>
+          
+        
+          
+          <a href="/tags" class="ml">标签</a>
+          
+        
+        
+          
+            <a href="mailto:280327097@qq.com" target="_blank" class="ml">Email</a>
+          
+        
+      </div>
+    </div>
+    <hr style="margin-bottom: 2.6rem">
+  </div>
+</div>
+
+        <div class="trans">
+            <h2>替代争议解决机制详解：PSTI Section 69解读</h2>
+
+  <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>PSTI Act 2022 Section 69 在电子通信代码中引入了强制性的替代争议解决（ADR）机制，为电信运营商和土地所有者之间的争议提供了快速、经济的解决途径。本文详细解读 ADR 机制的内容和操作。</p>
+<hr>
+<h2 id="一、ADR-概述"><a href="#一、ADR-概述" class="headerlink" title="一、ADR 概述"></a>一、ADR 概述</h2><h3 id="1-1-什么是-ADR"><a href="#1-1-什么是-ADR" class="headerlink" title="1.1 什么是 ADR"></a>1.1 什么是 ADR</h3><p><strong>Alternative Dispute Resolution（替代争议解决）</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>特点</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>替代性</td>
+<td>替代传统法院诉讼</td>
+</tr>
+<tr>
+<td>快速性</td>
+<td>比诉讼更快解决</td>
+</tr>
+<tr>
+<td>经济性</td>
+<td>成本更低</td>
+</tr>
+<tr>
+<td>专业性</td>
+<td>裁决人员具有专业知识</td>
+</tr>
+</tbody></table>
+<h3 id="1-2-ADR-类型"><a href="#1-2-ADR-类型" class="headerlink" title="1.2 ADR 类型"></a>1.2 ADR 类型</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+<th>PSTI适用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>仲裁</td>
+<td>由仲裁员作出裁决</td>
+<td>✅ 主要方式</td>
+</tr>
+<tr>
+<td>调解</td>
+<td>由调解员协助达成和解</td>
+<td>✅ 可选方式</td>
+</tr>
+<tr>
+<td>专家裁决</td>
+<td>由专家作出技术裁决</td>
+<td>✅ 可选方式</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="二、Section-69-核心规定"><a href="#二、Section-69-核心规定" class="headerlink" title="二、Section 69 核心规定"></a>二、Section 69 核心规定</h2><h3 id="2-1-适用范围"><a href="#2-1-适用范围" class="headerlink" title="2.1 适用范围"></a>2.1 适用范围</h3><p>ADR 适用于以下争议：</p>
+<table>
+<thead>
+<tr>
+<th>争议类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>租金争议</td>
+<td>设施使用租金的确定</td>
+</tr>
+<tr>
+<td>共享争议</td>
+<td>设施共享条件和费用</td>
+</tr>
+<tr>
+<td>升级争议</td>
+<td>设备升级的条件和限制</td>
+</tr>
+<tr>
+<td>代码解释</td>
+<td>ECC 条款的解释争议</td>
+</tr>
+<tr>
+<td>其他争议</td>
+<td>与 ECC 相关的其他争议</td>
+</tr>
+</tbody></table>
+<h3 id="2-2-强制参与"><a href="#2-2-强制参与" class="headerlink" title="2.2 强制参与"></a>2.2 强制参与</h3><table>
+<thead>
+<tr>
+<th>要素</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>运营商义务</td>
+<td>运营商必须参与ADR</td>
+</tr>
+<tr>
+<td>土地所有者义务</td>
+<td>土地所有者必须参与ADR</td>
+</tr>
+<tr>
+<td>选择权</td>
+<td>无单方面选择法院的权利</td>
+</tr>
+</tbody></table>
+<h3 id="2-3-约束力"><a href="#2-3-约束力" class="headerlink" title="2.3 约束力"></a>2.3 约束力</h3><table>
+<thead>
+<tr>
+<th>效力</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>裁决约束力</td>
+<td>ADR裁决具有法律约束力</td>
+</tr>
+<tr>
+<td>执行力</td>
+<td>可申请法院强制执行</td>
+</tr>
+<tr>
+<td>上诉限制</td>
+<td>仅在特定情形下可上诉</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="三、ADR-程序"><a href="#三、ADR-程序" class="headerlink" title="三、ADR 程序"></a>三、ADR 程序</h2><h3 id="3-1-启动程序"><a href="#3-1-启动程序" class="headerlink" title="3.1 启动程序"></a>3.1 启动程序</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">ADR启动程序：</span><br><span class="line"></span><br><span class="line">1. 争议发生</span><br><span class="line">   │</span><br><span class="line">   ▼</span><br><span class="line">2. 协商尝试（至少28天）</span><br><span class="line">   │</span><br><span class="line">   ├── 达成一致 → 争议解决</span><br><span class="line">   │</span><br><span class="line">   └── 协商失败 → 继续</span><br><span class="line">       │</span><br><span class="line">       ▼</span><br><span class="line">   3. 提交ADR申请</span><br><span class="line">       │</span><br><span class="line">       ▼</span><br><span class="line">   4. ADR机构受理</span><br><span class="line">       │</span><br><span class="line">       ▼</span><br><span class="line">   5. ADR程序启动</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-申请要求"><a href="#3-2-申请要求" class="headerlink" title="3.2 申请要求"></a>3.2 申请要求</h3><p>ADR 申请应包含：</p>
+<table>
+<thead>
+<tr>
+<th>内容</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>当事人信息</td>
+<td>双方名称和联系方式</td>
+</tr>
+<tr>
+<td>争议描述</td>
+<td>争议的事实和问题</td>
+</tr>
+<tr>
+<td>诉求说明</td>
+<td>申请人的诉求</td>
+</tr>
+<tr>
+<td>协商记录</td>
+<td>前期协商的记录</td>
+</tr>
+<tr>
+<td>相关文件</td>
+<td>支持申请的文件</td>
+</tr>
+</tbody></table>
+<h3 id="3-3-程序时间线"><a href="#3-3-程序时间线" class="headerlink" title="3.3 程序时间线"></a>3.3 程序时间线</h3><table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>时间</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>受理</td>
+<td>5个工作日</td>
+<td>ADR机构决定是否受理</td>
+</tr>
+<tr>
+<td>通知</td>
+<td>5个工作日</td>
+<td>通知被申请人</td>
+</tr>
+<tr>
+<td>答辩</td>
+<td>21天</td>
+<td>被申请人提交答辩</td>
+</tr>
+<tr>
+<td>证据</td>
+<td>14天</td>
+<td>双方提交证据</td>
+</tr>
+<tr>
+<td>听证</td>
+<td>视情况</td>
+<td>必要时举行听证</td>
+</tr>
+<tr>
+<td>裁决</td>
+<td>28天</td>
+<td>作出裁决</td>
+</tr>
+</tbody></table>
+<p><strong>总时长</strong>：约 2-3 个月（比法院诉讼快得多）</p>
+<h3 id="3-4-裁决形式"><a href="#3-4-裁决形式" class="headerlink" title="3.4 裁决形式"></a>3.4 裁决形式</h3><table>
+<thead>
+<tr>
+<th>形式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>书面裁决</td>
+<td>书面形式的裁决书</td>
+</tr>
+<tr>
+<td>理由说明</td>
+<td>裁决必须说明理由</td>
+</tr>
+<tr>
+<td>费用裁定</td>
+<td>裁定费用分担</td>
+</tr>
+<tr>
+<td>执行指引</td>
+<td>如何执行裁决</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="四、ADR-机构"><a href="#四、ADR-机构" class="headerlink" title="四、ADR 机构"></a>四、ADR 机构</h2><h3 id="4-1-认证机构"><a href="#4-1-认证机构" class="headerlink" title="4.1 认证机构"></a>4.1 认证机构</h3><p>ADR 机构需满足：</p>
+<table>
+<thead>
+<tr>
+<th>条件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>独立性</td>
+<td>独立于当事人</td>
+</tr>
+<tr>
+<td>专业性</td>
+<td>具有专业知识和经验</td>
+</tr>
+<tr>
+<td>公正性</td>
+<td>能够公正裁决</td>
+</tr>
+<tr>
+<td>资源充足</td>
+<td>具备足够资源处理争议</td>
+</tr>
+</tbody></table>
+<h3 id="4-2-裁决人员"><a href="#4-2-裁决人员" class="headerlink" title="4.2 裁决人员"></a>4.2 裁决人员</h3><table>
+<thead>
+<tr>
+<th>要求</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>资格</td>
+<td>具有法律或技术背景</td>
+</tr>
+<tr>
+<td>培训</td>
+<td>接受过ADR培训</td>
+</tr>
+<tr>
+<td>经验</td>
+<td>具有相关争议处理经验</td>
+</tr>
+<tr>
+<td>独立性</td>
+<td>与当事人无利益冲突</td>
+</tr>
+</tbody></table>
+<h3 id="4-3-裁决人员选择"><a href="#4-3-裁决人员选择" class="headerlink" title="4.3 裁决人员选择"></a>4.3 裁决人员选择</h3><table>
+<thead>
+<tr>
+<th>方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>机构指定</td>
+<td>由ADR机构指定</td>
+</tr>
+<tr>
+<td>双方同意</td>
+<td>双方同意选择</td>
+</tr>
+<tr>
+<td>名册选择</td>
+<td>从认可名册中选择</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="五、费用"><a href="#五、费用" class="headerlink" title="五、费用"></a>五、费用</h2><h3 id="5-1-费用类型"><a href="#5-1-费用类型" class="headerlink" title="5.1 费用类型"></a>5.1 费用类型</h3><table>
+<thead>
+<tr>
+<th>费用</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>申请费</td>
+<td>提交ADR申请的费用</td>
+</tr>
+<tr>
+<td>管理费</td>
+<td>ADR机构的管理费用</td>
+</tr>
+<tr>
+<td>裁决费</td>
+<td>裁决人员的费用</td>
+</tr>
+<tr>
+<td>律师费</td>
+<td>当事人的律师费用</td>
+</tr>
+</tbody></table>
+<h3 id="5-2-费用分担"><a href="#5-2-费用分担" class="headerlink" title="5.2 费用分担"></a>5.2 费用分担</h3><table>
+<thead>
+<tr>
+<th>原则</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>一般原则</td>
+<td>败诉方承担</td>
+</tr>
+<tr>
+<td>按比例</td>
+<td>根据胜负比例分担</td>
+</tr>
+<tr>
+<td>特殊情况</td>
+<td>特殊情况可调整</td>
+</tr>
+</tbody></table>
+<h3 id="5-3-费用预估"><a href="#5-3-费用预估" class="headerlink" title="5.3 费用预估"></a>5.3 费用预估</h3><table>
+<thead>
+<tr>
+<th>争议金额</th>
+<th>预估费用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>小额争议</td>
+<td>£5,000 - £15,000</td>
+</tr>
+<tr>
+<td>中等争议</td>
+<td>£15,000 - £50,000</td>
+</tr>
+<tr>
+<td>大额争议</td>
+<td>£50,000 - £100,000+</td>
+</tr>
+</tbody></table>
+<p><strong>对比法院诉讼</strong>：ADR费用通常比法院诉讼低 50% 以上。</p>
+<hr>
+<h2 id="六、ADR-vs-法院诉讼"><a href="#六、ADR-vs-法院诉讼" class="headerlink" title="六、ADR vs 法院诉讼"></a>六、ADR vs 法院诉讼</h2><h3 id="6-1-对比"><a href="#6-1-对比" class="headerlink" title="6.1 对比"></a>6.1 对比</h3><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>ADR</th>
+<th>法院诉讼</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>时间</td>
+<td>2-3个月</td>
+<td>1-2年</td>
+</tr>
+<tr>
+<td>费用</td>
+<td>较低</td>
+<td>较高</td>
+</tr>
+<tr>
+<td>专业性</td>
+<td>高</td>
+<td>一般</td>
+</tr>
+<tr>
+<td>程序</td>
+<td>灵活</td>
+<td>严格</td>
+</tr>
+<tr>
+<td>公开性</td>
+<td>保密</td>
+<td>公开</td>
+</tr>
+<tr>
+<td>上诉</td>
+<td>有限</td>
+<td>可以上诉</td>
+</tr>
+</tbody></table>
+<h3 id="6-2-选择建议"><a href="#6-2-选择建议" class="headerlink" title="6.2 选择建议"></a>6.2 选择建议</h3><table>
+<thead>
+<tr>
+<th>情形</th>
+<th>建议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>需要快速解决</td>
+<td>ADR</td>
+</tr>
+<tr>
+<td>预算有限</td>
+<td>ADR</td>
+</tr>
+<tr>
+<td>需要专业裁决</td>
+<td>ADR</td>
+</tr>
+<tr>
+<td>需要设立先例</td>
+<td>法院诉讼</td>
+</tr>
+<tr>
+<td>需要上诉权利</td>
+<td>法院诉讼</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="七、执行"><a href="#七、执行" class="headerlink" title="七、执行"></a>七、执行</h2><h3 id="7-1-执行方式"><a href="#7-1-执行方式" class="headerlink" title="7.1 执行方式"></a>7.1 执行方式</h3><table>
+<thead>
+<tr>
+<th>方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>自愿履行</td>
+<td>当事人自愿履行裁决</td>
+</tr>
+<tr>
+<td>法院执行</td>
+<td>申请法院强制执行</td>
+</tr>
+<tr>
+<td>其他方式</td>
+<td>协议约定的其他方式</td>
+</tr>
+</tbody></table>
+<h3 id="7-2-执行程序"><a href="#7-2-执行程序" class="headerlink" title="7.2 执行程序"></a>7.2 执行程序</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">裁决执行程序：</span><br><span class="line"></span><br><span class="line">裁决作出</span><br><span class="line">    │</span><br><span class="line">    ├── 自愿履行 → 结束</span><br><span class="line">    │</span><br><span class="line">    └── 拒不履行</span><br><span class="line">        │</span><br><span class="line">        ▼</span><br><span class="line">    申请法院执行</span><br><span class="line">        │</span><br><span class="line">        ▼</span><br><span class="line">    法院审查</span><br><span class="line">        │</span><br><span class="line">        ▼</span><br><span class="line">    执行令</span><br><span class="line">        │</span><br><span class="line">        ▼</span><br><span class="line">    强制执行</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="八、实务建议"><a href="#八、实务建议" class="headerlink" title="八、实务建议"></a>八、实务建议</h2><h3 id="8-1-争议前准备"><a href="#8-1-争议前准备" class="headerlink" title="8.1 争议前准备"></a>8.1 争议前准备</h3><table>
+<thead>
+<tr>
+<th>准备</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>合同条款</td>
+<td>合同中约定ADR条款</td>
+</tr>
+<tr>
+<td>记录保存</td>
+<td>保存相关文件和通信</td>
+</tr>
+<tr>
+<td>协商机制</td>
+<td>建立内部协商机制</td>
+</tr>
+</tbody></table>
+<h3 id="8-2-ADR-参与建议"><a href="#8-2-ADR-参与建议" class="headerlink" title="8.2 ADR 参与建议"></a>8.2 ADR 参与建议</h3><table>
+<thead>
+<tr>
+<th>建议</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>充分准备</td>
+<td>准备充分的证据和材料</td>
+</tr>
+<tr>
+<td>专业支持</td>
+<td>获得专业法律支持</td>
+</tr>
+<tr>
+<td>积极参与</td>
+<td>积极参与ADR程序</td>
+</tr>
+<tr>
+<td>开放态度</td>
+<td>保持开放和务实的态度</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>ADR 机制要点：</p>
+<ol>
+<li><strong>强制参与</strong>：争议双方必须参与ADR</li>
+<li><strong>约束力</strong>：ADR裁决具有法律约束力</li>
+<li><strong>快速经济</strong>：比法院诉讼更快更经济</li>
+<li><strong>专业性</strong>：裁决人员具有专业知识</li>
+<li><strong>可执行</strong>：可申请法院强制执行</li>
+</ol>
+<hr>
+<p><em>本文是 PSTI法案解读系列 的电信篇。</em></p>
+
+  <p><a class="classtest-link" href="/tags/ADR/" rel="tag">ADR</a>, <a class="classtest-link" href="/tags/PSTI/" rel="tag">PSTI</a>, <a class="classtest-link" href="/tags/%E6%9B%BF%E4%BB%A3%E4%BA%89%E8%AE%AE%E8%A7%A3%E5%86%B3/" rel="tag">替代争议解决</a> — 2026年3月20日</p>
+  
+  
+  <p id="busuanzi_page" style="color: #888; font-size: 0.9rem;">
+    <span id="busuanzi_container_page_pv">
+      本文阅读量 <span id="busuanzi_value_page_pv"></span> 次
+    </span>
+  </p>
+  
+  
+  
+
+
+  <hr>
+  <section id="comments" class="mt-2 mb-3">
+    <h3>评论</h3>
+    <script src="https://giscus.app/client.js"
+      data-repo="bokidoki/bokidoki.github.io"
+      data-repo-id="MDEwOlJlcG9zaXRvcnkzODA4NzAyODg="
+      data-category="Announcements"
+      data-category-id="DIC_kwDOFrOekM4C4W5W"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="light"
+      data-lang="zh-CN"
+      data-loading="lazy"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </section>
+
+
+
+        </div>
+        <div class="row mt-2">
+  <h3>Search</h3>
+  <div><input id="search-text" title="search" class="search-text" type="text" placeholder="search......"></div>
+  <div style="margin-top: 1.5rem;">
+    <ul id="result"></ul>
+  </div>
+</div>
+        <div class="row mt-2">
+  
+    <div class="eight columns">
+      <p id="madewith">Made with ❤ and
+        <a class="footer-link icon" href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer" aria-label="Hexo.io">
+        <svg class="hexo svg-hov" width="14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
+        </a>
+        
+        at <a href="https://bokidoki.github.io" target="_blank" rel="noreferrer">Lynd</a> · 280327097@qq.com.</p>
+        
+      <!-- Busuanzi Visitor Count -->
+      
+      <p id="busuanzi">
+        <span id="busuanzi_container_site_pv">
+          本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+        </span>
+        <span style="margin: 0 0.5rem;">|</span>
+        <span id="busuanzi_container_site_uv">
+          访客数 <span id="busuanzi_value_site_uv"></span> 人次
+        </span>
+      </p>
+      
+    </div>
+
+    <!-- Sepcial thanks to https://simpleicons.org/ for the icons -->
+    <div class="four columns mb-3 posisi" >
+      
+
+      
+
+      
+
+      
+
+      
+
+    </div>
+  
+</div>
+
+<!-- Busuanzi JS -->
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+      </div>
+
+    </div>
+
+  </div>
+  <script src="/js/nanobar.min.js"></script>
+
+  <script>
+    var options = {
+      classname: 'nanobar',
+      id: 'myNanobar'
+    };
+    var nanobar = new Nanobar(options);
+    nanobar.go(30);
+    nanobar.go(76);
+    nanobar.go(100);
+  </script>
+
+</body>
+
+</html>

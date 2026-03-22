@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+  <!-- Minima -->
+  <!-- Hexo theme created by @adisaktijrs -->
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+
+  
+  <title>软件更新透明度要求详解</title>
+  
+  <link rel="sitemap" href="https://bokidoki.github.iositemap.xml,sitemap.txt" />
+  
+  <link rel="canonical" href="https://bokidoki.github.io/standards/PSTI/04-technical/software-update-transparency/">
+  
+  <meta name="description" content="概述软件更新透明度是 PSTI 法规三项核心安全要求之一。制造商必须向消费者明确声明产品安全更新的支持期限。本文详细解读 ETSI EN 303 645 条款 5.3 的技术要求及合规实现。  一、法规要求1.1 ETSI EN 303 645 条款 5.3原文：  When software up">
+  
+  
+  <meta name="keywords" content="认证,标准,PCI,EN,网络安全,MPoC">
+  
+  <meta name="author" content="标准研究组">
+  
+  
+  
+  <meta property="og:site_name" content="认证标准解读" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="软件更新透明度要求详解" />
+  
+  <meta property="og:description" content="概述软件更新透明度是 PSTI 法规三项核心安全要求之一。制造商必须向消费者明确声明产品安全更新的支持期限。本文详细解读 ETSI EN 303 645 条款 5.3 的技术要求及合规实现。  一、法规要求1.1 ETSI EN 303 645 条款 5.3原文：  When software up">
+  
+  <meta property="og:url" content="https://bokidoki.github.io/standards/PSTI/04-technical/software-update-transparency/" />
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="软件更新透明度要求详解">
+  
+  <meta name="twitter:description" content="概述软件更新透明度是 PSTI 法规三项核心安全要求之一。制造商必须向消费者明确声明产品安全更新的支持期限。本文详细解读 ETSI EN 303 645 条款 5.3 的技术要求及合规实现。  一、法规要求1.1 ETSI EN 303 645 条款 5.3原文：  When software up">
+  
+  
+  
+  
+  <meta name="twitter:url" content="https://bokidoki.github.io/standards/PSTI/04-technical/software-update-transparency/" />
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Preload fonts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="preload" href="/fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+<link rel="stylesheet" href="/css/normalize.css">
+
+  
+<link rel="stylesheet" href="/css/skeleton.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+<link rel="stylesheet" href="/css/prism-dark.css">
+
+  
+<link rel="stylesheet" href="/css/prism-line-numbers.css">
+
+  <!-- User css -->
+  
+  
+<link rel="stylesheet" href="/css/user.css">
+
+  
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="专注认证行业标准化研究，解读国内外认证政策与技术规范">
+  <meta name="keywords" content="PSTI, ETSI, 软件更新, 安全更新">
+  <meta name="author" content="标准研究组">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://bokidoki.github.io/standards/PSTI/04-technical/software-update-transparency/index.html">
+  
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+    "@type": "Article",
+    "headline": "软件更新透明度要求详解",
+    "description": "专注认证行业标准化研究，解读国内外认证政策与技术规范",
+    "author": {
+      "@type": "Person",
+      "name": "标准研究组"
+    },
+    "datePublished": "2026-03-20",
+    
+    "dateModified": "2026-03-20",
+    
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://bokidoki.github.io/standards/PSTI/04-technical/software-update-transparency/index.html"
+    },
+    
+    "keywords": "PSTI, ETSI, 软件更新, 安全更新",
+    
+    
+    "publisher": {
+      "@type": "Organization",
+      "name": "认证标准解读",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://bokidoki.github.io/images/favicon.svg"
+      }
+    },
+    "url": "https://bokidoki.github.io/standards/PSTI/04-technical/software-update-transparency/index.html"
+  }
+  </script>
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bokidoki.github.io/standards/PSTI/04-technical/software-update-transparency/index.html">
+  <meta property="og:title" content="软件更新透明度要求详解">
+  <meta property="og:description" content="专注认证行业标准化研究，解读国内外认证政策与技术规范">
+  <meta property="og:site_name" content="认证标准解读">
+  <meta property="og:locale" content="zh_CN">
+  
+  <meta property="og:image" content="https://bokidoki.github.io/images/thumbnail.jpg">
+  
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="软件更新透明度要求详解">
+  <meta name="twitter:description" content="专注认证行业标准化研究，解读国内外认证政策与技术规范">
+  
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+
+  <!-- Custom Theme Color Style
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <style>
+  a:not(.icon) {
+    text-decoration-color: #0FA0CE;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 50%,
+      #0FA0CE 50%
+    );
+  }
+  blockquote {
+    border-left: 8px solid #0FA0CE;
+  }
+  .nanobar .bar {
+    background: #0FA0CE;
+  }
+  .button.button-primary:hover,
+  button.button-primary:hover,
+  input[type="submit"].button-primary:hover,
+  input[type="reset"].button-primary:hover,
+  input[type="button"].button-primary:hover,
+  .button.button-primary:focus,
+  button.button-primary:focus,
+  input[type="submit"].button-primary:focus,
+  input[type="reset"].button-primary:focus,
+  input[type="button"].button-primary:focus {
+    background-color: #0FA0CE;
+    border-color: #0FA0CE;
+  }
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  input[type="search"]:focus,
+  input[type="text"]:focus,
+  input[type="tel"]:focus,
+  input[type="url"]:focus,
+  input[type="password"]:focus,
+  textarea:focus,
+  select:focus {
+    border: 1px solid #0FA0CE;
+  }
+</style>
+
+  <!-- Google Analytics (With Privacy Settings On)
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+
+  
+  <script src="/js/pic.min.js" defer></script>
+  
+
+  
+
+<meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="认证标准解读" type="application/atom+xml">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div>
+
+        <div class="row">
+  <div class="two columns" style="max-width: 50px">
+    <h1 class="mt-2 mode">
+      <a href="/" style="text-decoration: none;">
+        <img src="/images/favicon.svg" alt="Logo" style="width: 32px; height: 32px;">
+      </a>
+    </h1>
+  </div>
+
+  <div class="six columns ml-1">
+    <h1 class="mt-2">
+      认证标准解读
+    </h1>
+  </div>
+
+  <div class="twelve columns">
+    <div class="row">
+      <div class="nine columns left">
+        <a href="/">Home</a>
+        
+          
+          <a href="/" class="ml">首页</a>
+          
+        
+          
+          <a href="/archives" class="ml">归档</a>
+          
+        
+          
+          <a href="/tags" class="ml">标签</a>
+          
+        
+        
+          
+            <a href="mailto:280327097@qq.com" target="_blank" class="ml">Email</a>
+          
+        
+      </div>
+    </div>
+    <hr style="margin-bottom: 2.6rem">
+  </div>
+</div>
+
+        <div class="trans">
+            <h2>软件更新透明度要求详解</h2>
+
+  <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>软件更新透明度是 PSTI 法规三项核心安全要求之一。制造商必须向消费者明确声明产品安全更新的支持期限。本文详细解读 ETSI EN 303 645 条款 5.3 的技术要求及合规实现。</p>
+<hr>
+<h2 id="一、法规要求"><a href="#一、法规要求" class="headerlink" title="一、法规要求"></a>一、法规要求</h2><h3 id="1-1-ETSI-EN-303-645-条款-5-3"><a href="#1-1-ETSI-EN-303-645-条款-5-3" class="headerlink" title="1.1 ETSI EN 303 645 条款 5.3"></a>1.1 ETSI EN 303 645 条款 5.3</h3><p><strong>原文</strong>：</p>
+<blockquote>
+<p>When software updates are made available to consumers, they should be informed about the security implications of the update, and the update should be easy to install.</p>
+</blockquote>
+<p><strong>核心要点</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>要点</th>
+<th>要求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>信息告知</td>
+<td>通知用户更新的安全意义</td>
+</tr>
+<tr>
+<td>安装便捷</td>
+<td>更新应当易于安装</td>
+</tr>
+</tbody></table>
+<h3 id="1-2-PSTI-Regulations-2023-具体要求"><a href="#1-2-PSTI-Regulations-2023-具体要求" class="headerlink" title="1.2 PSTI Regulations 2023 具体要求"></a>1.2 PSTI Regulations 2023 具体要求</h3><p>制造商必须公开声明：</p>
+<table>
+<thead>
+<tr>
+<th>内容</th>
+<th>要求</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>支持期限</td>
+<td>明确安全更新支持的截止日期</td>
+</tr>
+<tr>
+<td>获取方式</td>
+<td>说明如何获取安全更新</td>
+</tr>
+<tr>
+<td>通知方式</td>
+<td>说明如何通知用户</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="二、安全更新支持期限声明"><a href="#二、安全更新支持期限声明" class="headerlink" title="二、安全更新支持期限声明"></a>二、安全更新支持期限声明</h2><h3 id="2-1-期限确定因素"><a href="#2-1-期限确定因素" class="headerlink" title="2.1 期限确定因素"></a>2.1 期限确定因素</h3><table>
+<thead>
+<tr>
+<th>因素</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>产品生命周期</td>
+<td>产品预期的市场生命周期</td>
+</tr>
+<tr>
+<td>技术可行性</td>
+<td>维护更新的技术能力</td>
+</tr>
+<tr>
+<td>商业策略</td>
+<td>企业产品迭代计划</td>
+</tr>
+<tr>
+<td>行业惯例</td>
+<td>同类产品的支持期限</td>
+</tr>
+</tbody></table>
+<h3 id="2-2-建议期限"><a href="#2-2-建议期限" class="headerlink" title="2.2 建议期限"></a>2.2 建议期限</h3><table>
+<thead>
+<tr>
+<th>产品类型</th>
+<th>建议支持期限</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>智能手机</td>
+<td>3-5年</td>
+</tr>
+<tr>
+<td>智能家居设备</td>
+<td>3-5年</td>
+</tr>
+<tr>
+<td>智能安防设备</td>
+<td>5年以上</td>
+</tr>
+<tr>
+<td>智能门锁</td>
+<td>5年以上</td>
+</tr>
+</tbody></table>
+<h3 id="2-3-声明示例"><a href="#2-3-声明示例" class="headerlink" title="2.3 声明示例"></a>2.3 声明示例</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## 安全更新支持声明</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**产品名称**</span>：Smart Camera SHC-2024</span><br><span class="line"></span><br><span class="line"><span class="strong">**支持期限**</span>：自产品首次销售之日起提供 <span class="strong">**5年**</span> 安全更新支持</span><br><span class="line"></span><br><span class="line"><span class="strong">**支持截止日期**</span>：2029年12月31日</span><br><span class="line"></span><br><span class="line"><span class="strong">**更新内容范围**</span>：</span><br><span class="line"><span class="bullet">-</span> 安全漏洞修复</span><br><span class="line"><span class="bullet">-</span> 关键安全补丁</span><br><span class="line"><span class="bullet">-</span> 加密算法更新</span><br><span class="line"></span><br><span class="line"><span class="strong">**不包含**</span>：</span><br><span class="line"><span class="bullet">-</span> 新功能添加</span><br><span class="line"><span class="bullet">-</span> 界面优化</span><br><span class="line"><span class="bullet">-</span> 性能提升</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="三、更新获取方式"><a href="#三、更新获取方式" class="headerlink" title="三、更新获取方式"></a>三、更新获取方式</h2><h3 id="3-1-推荐方式"><a href="#3-1-推荐方式" class="headerlink" title="3.1 推荐方式"></a>3.1 推荐方式</h3><table>
+<thead>
+<tr>
+<th>方式</th>
+<th>适用场景</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>自动推送</td>
+<td>联网设备</td>
+<td>及时、无需用户操作</td>
+<td>可能影响网络</td>
+</tr>
+<tr>
+<td>手动下载</td>
+<td>所有设备</td>
+<td>用户可控</td>
+<td>用户可能忽略</td>
+</tr>
+<tr>
+<td>App更新</td>
+<td>有配套App</td>
+<td>便捷、可通知</td>
+<td>需安装App</td>
+</tr>
+</tbody></table>
+<h3 id="3-2-实现方案"><a href="#3-2-实现方案" class="headerlink" title="3.2 实现方案"></a>3.2 实现方案</h3><h4 id="方案一：自动更新"><a href="#方案一：自动更新" class="headerlink" title="方案一：自动更新"></a>方案一：自动更新</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">自动更新流程：</span><br><span class="line"></span><br><span class="line">1. 设备定期连接服务器检查更新</span><br><span class="line">   ↓</span><br><span class="line">2. 发现新版本后下载更新包</span><br><span class="line">   ↓</span><br><span class="line">3. 验证更新包完整性</span><br><span class="line">   ↓</span><br><span class="line">4. 安装更新</span><br><span class="line">   ↓</span><br><span class="line">5. 重启设备（如需要）</span><br><span class="line">   ↓</span><br><span class="line">6. 向用户通知更新完成</span><br></pre></td></tr></table></figure>
+
+<h4 id="方案二：手动更新"><a href="#方案二：手动更新" class="headerlink" title="方案二：手动更新"></a>方案二：手动更新</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">手动更新流程：</span><br><span class="line"></span><br><span class="line">1. 用户收到更新通知</span><br><span class="line">   ↓</span><br><span class="line">2. 访问官网或App下载更新</span><br><span class="line">   ↓</span><br><span class="line">3. 手动安装更新</span><br><span class="line">   ↓</span><br><span class="line">4. 验证更新成功</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-更新说明要求"><a href="#3-3-更新说明要求" class="headerlink" title="3.3 更新说明要求"></a>3.3 更新说明要求</h3><table>
+<thead>
+<tr>
+<th>要素</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>版本号</td>
+<td>更新版本标识</td>
+</tr>
+<tr>
+<td>发布日期</td>
+<td>更新发布时间</td>
+</tr>
+<tr>
+<td>安全影响</td>
+<td>更新修复的安全问题</td>
+</tr>
+<tr>
+<td>安装说明</td>
+<td>如何安装更新</td>
+</tr>
+</tbody></table>
+<p><strong>更新说明示例</strong>：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## 固件更新 v2.1.0</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**发布日期**</span>：2026年3月20日</span><br><span class="line"></span><br><span class="line"><span class="strong">**安全更新内容**</span>：</span><br><span class="line"><span class="bullet">-</span> 修复登录认证漏洞（CVE-2026-1234）</span><br><span class="line"><span class="bullet">-</span> 更新加密库至最新版本</span><br><span class="line"><span class="bullet">-</span> 修复远程访问安全漏洞</span><br><span class="line"></span><br><span class="line"><span class="strong">**安装说明**</span>：</span><br><span class="line"><span class="bullet">1.</span> 进入设备设置 → 系统更新</span><br><span class="line"><span class="bullet">2.</span> 点击&quot;检查更新&quot;</span><br><span class="line"><span class="bullet">3.</span> 下载并安装更新</span><br><span class="line"><span class="bullet">4.</span> 设备将自动重启</span><br><span class="line"></span><br><span class="line"><span class="strong">**更新大小**</span>：15MB</span><br><span class="line"><span class="strong">**预计时间**</span>：5分钟</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="四、用户通知机制"><a href="#四、用户通知机制" class="headerlink" title="四、用户通知机制"></a>四、用户通知机制</h2><h3 id="4-1-通知方式"><a href="#4-1-通知方式" class="headerlink" title="4.1 通知方式"></a>4.1 通知方式</h3><table>
+<thead>
+<tr>
+<th>方式</th>
+<th>说明</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>设备推送</td>
+<td>设备端弹窗通知</td>
+<td>联网设备</td>
+</tr>
+<tr>
+<td>邮件通知</td>
+<td>发送邮件</td>
+<td>已注册用户</td>
+</tr>
+<tr>
+<td>App通知</td>
+<td>推送通知</td>
+<td>有配套App</td>
+</tr>
+<tr>
+<td>官网公告</td>
+<td>网站发布</td>
+<td>所有用户</td>
+</tr>
+<tr>
+<td>社交媒体</td>
+<td>社交平台发布</td>
+<td>大范围通知</td>
+</tr>
+</tbody></table>
+<h3 id="4-2-通知内容"><a href="#4-2-通知内容" class="headerlink" title="4.2 通知内容"></a>4.2 通知内容</h3><table>
+<thead>
+<tr>
+<th>要素</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>更新摘要</td>
+<td>更新内容概述</td>
+</tr>
+<tr>
+<td>安全影响</td>
+<td>更新的安全意义</td>
+</tr>
+<tr>
+<td>操作指引</td>
+<td>如何获取和安装</td>
+</tr>
+<tr>
+<td>截止日期</td>
+<td>建议更新时间</td>
+</tr>
+</tbody></table>
+<h3 id="4-3-通知示例"><a href="#4-3-通知示例" class="headerlink" title="4.3 通知示例"></a>4.3 通知示例</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## 安全更新通知</span></span><br><span class="line"></span><br><span class="line">尊敬的用户：</span><br><span class="line"></span><br><span class="line">我们发现 Smart Camera SHC-2024 存在一个安全漏洞，</span><br><span class="line">现已发布修复更新。</span><br><span class="line"></span><br><span class="line"><span class="strong">**漏洞说明**</span>：</span><br><span class="line">远程访问模块存在认证绕过风险，攻击者可能</span><br><span class="line">未经授权访问设备。</span><br><span class="line"></span><br><span class="line"><span class="strong">**影响范围**</span>：</span><br><span class="line">固件版本 v2.0.x 的所有设备</span><br><span class="line"></span><br><span class="line"><span class="strong">**建议措施**</span>：</span><br><span class="line">请尽快将设备固件更新至 v2.1.0 或更高版本。</span><br><span class="line"></span><br><span class="line"><span class="strong">**更新方式**</span>：</span><br><span class="line"><span class="bullet">-</span> 设备设置 → 系统更新 → 检查更新</span><br><span class="line"><span class="bullet">-</span> 或访问：www.abctech.com/support</span><br><span class="line"></span><br><span class="line">如有疑问，请联系：support@abctech.com</span><br><span class="line"></span><br><span class="line">ABC Technology 安全团队</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="五、支持结束处理"><a href="#五、支持结束处理" class="headerlink" title="五、支持结束处理"></a>五、支持结束处理</h2><h3 id="5-1-提前通知"><a href="#5-1-提前通知" class="headerlink" title="5.1 提前通知"></a>5.1 提前通知</h3><p>在支持结束前，应提前通知用户：</p>
+<table>
+<thead>
+<tr>
+<th>时间点</th>
+<th>行动</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>结束前6个月</td>
+<td>发送首次通知</td>
+</tr>
+<tr>
+<td>结束前3个月</td>
+<td>发送提醒通知</td>
+</tr>
+<tr>
+<td>结束前1个月</td>
+<td>发送最终通知</td>
+</tr>
+</tbody></table>
+<h3 id="5-2-结束后建议"><a href="#5-2-结束后建议" class="headerlink" title="5.2 结束后建议"></a>5.2 结束后建议</h3><table>
+<thead>
+<tr>
+<th>建议</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>升级换代</td>
+<td>建议购买新型号</td>
+</tr>
+<tr>
+<td>停用敏感功能</td>
+<td>停止使用敏感网络功能</td>
+</tr>
+<tr>
+<td>网络隔离</td>
+<td>将设备隔离在不安全网络</td>
+</tr>
+</tbody></table>
+<h3 id="5-3-结束通知示例"><a href="#5-3-结束通知示例" class="headerlink" title="5.3 结束通知示例"></a>5.3 结束通知示例</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## 安全更新支持结束通知</span></span><br><span class="line"></span><br><span class="line">尊敬的用户：</span><br><span class="line"></span><br><span class="line">Smart Camera SHC-2024 的安全更新支持将于</span><br><span class="line">2029年12月31日结束。</span><br><span class="line"></span><br><span class="line"><span class="strong">**这意味着**</span>：</span><br><span class="line">此后，我们将不再发布该产品的安全更新。</span><br><span class="line"></span><br><span class="line"><span class="strong">**建议措施**</span>：</span><br><span class="line"><span class="bullet">1.</span> 升级至新型号 Smart Camera SHC-2029</span><br><span class="line"><span class="bullet">2.</span> 停止将设备暴露在公网</span><br><span class="line"><span class="bullet">3.</span> 考虑停用远程访问功能</span><br><span class="line"></span><br><span class="line"><span class="strong">**新型号优惠**</span>：</span><br><span class="line">作为老用户，您可享受新产品 20% 折扣优惠。</span><br><span class="line">优惠码：UPGRADE2029</span><br><span class="line"></span><br><span class="line">感谢您多年的支持！</span><br><span class="line"></span><br><span class="line">ABC Technology</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="六、合规检查清单"><a href="#六、合规检查清单" class="headerlink" title="六、合规检查清单"></a>六、合规检查清单</h2><h3 id="6-1-声明准备"><a href="#6-1-声明准备" class="headerlink" title="6.1 声明准备"></a>6.1 声明准备</h3><ul>
+<li><input disabled="" type="checkbox"> 确定安全更新支持期限</li>
+<li><input disabled="" type="checkbox"> 编写支持期限声明</li>
+<li><input disabled="" type="checkbox"> 说明更新获取方式</li>
+<li><input disabled="" type="checkbox"> 说明用户通知方式</li>
+<li><input disabled="" type="checkbox"> 在合规声明中包含上述信息</li>
+</ul>
+<h3 id="6-2-更新机制"><a href="#6-2-更新机制" class="headerlink" title="6.2 更新机制"></a>6.2 更新机制</h3><ul>
+<li><input disabled="" type="checkbox"> 建立更新发布流程</li>
+<li><input disabled="" type="checkbox"> 建立更新通知机制</li>
+<li><input disabled="" type="checkbox"> 建立更新安装验证</li>
+<li><input disabled="" type="checkbox"> 建立更新问题处理流程</li>
+</ul>
+<h3 id="6-3-用户沟通"><a href="#6-3-用户沟通" class="headerlink" title="6.3 用户沟通"></a>6.3 用户沟通</h3><ul>
+<li><input disabled="" type="checkbox"> 建立用户通知渠道</li>
+<li><input disabled="" type="checkbox"> 准备更新说明模板</li>
+<li><input disabled="" type="checkbox"> 准备安全公告模板</li>
+<li><input disabled="" type="checkbox"> 建立客服培训</li>
+</ul>
+<hr>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>软件更新透明度要求核心要点：</p>
+<ol>
+<li><strong>明确期限</strong>：声明安全更新支持截止日期</li>
+<li><strong>说明方式</strong>：告知用户如何获取更新</li>
+<li><strong>及时通知</strong>：建立用户通知机制</li>
+<li><strong>结束告知</strong>：提前告知支持结束</li>
+</ol>
+<hr>
+<p><em>本文是 PSTI法案解读系列 的技术篇。</em></p>
+
+  <p><a class="classtest-link" href="/tags/ETSI/" rel="tag">ETSI</a>, <a class="classtest-link" href="/tags/PSTI/" rel="tag">PSTI</a>, <a class="classtest-link" href="/tags/%E5%AE%89%E5%85%A8%E6%9B%B4%E6%96%B0/" rel="tag">安全更新</a>, <a class="classtest-link" href="/tags/%E8%BD%AF%E4%BB%B6%E6%9B%B4%E6%96%B0/" rel="tag">软件更新</a> — 2026年3月20日</p>
+  
+  
+  <p id="busuanzi_page" style="color: #888; font-size: 0.9rem;">
+    <span id="busuanzi_container_page_pv">
+      本文阅读量 <span id="busuanzi_value_page_pv"></span> 次
+    </span>
+  </p>
+  
+  
+  
+
+
+  <hr>
+  <section id="comments" class="mt-2 mb-3">
+    <h3>评论</h3>
+    <script src="https://giscus.app/client.js"
+      data-repo="bokidoki/bokidoki.github.io"
+      data-repo-id="MDEwOlJlcG9zaXRvcnkzODA4NzAyODg="
+      data-category="Announcements"
+      data-category-id="DIC_kwDOFrOekM4C4W5W"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="light"
+      data-lang="zh-CN"
+      data-loading="lazy"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </section>
+
+
+
+        </div>
+        <div class="row mt-2">
+  <h3>Search</h3>
+  <div><input id="search-text" title="search" class="search-text" type="text" placeholder="search......"></div>
+  <div style="margin-top: 1.5rem;">
+    <ul id="result"></ul>
+  </div>
+</div>
+        <div class="row mt-2">
+  
+    <div class="eight columns">
+      <p id="madewith">Made with ❤ and
+        <a class="footer-link icon" href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer" aria-label="Hexo.io">
+        <svg class="hexo svg-hov" width="14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
+        </a>
+        
+        at <a href="https://bokidoki.github.io" target="_blank" rel="noreferrer">Lynd</a> · 280327097@qq.com.</p>
+        
+      <!-- Busuanzi Visitor Count -->
+      
+      <p id="busuanzi">
+        <span id="busuanzi_container_site_pv">
+          本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+        </span>
+        <span style="margin: 0 0.5rem;">|</span>
+        <span id="busuanzi_container_site_uv">
+          访客数 <span id="busuanzi_value_site_uv"></span> 人次
+        </span>
+      </p>
+      
+    </div>
+
+    <!-- Sepcial thanks to https://simpleicons.org/ for the icons -->
+    <div class="four columns mb-3 posisi" >
+      
+
+      
+
+      
+
+      
+
+      
+
+    </div>
+  
+</div>
+
+<!-- Busuanzi JS -->
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+      </div>
+
+    </div>
+
+  </div>
+  <script src="/js/nanobar.min.js"></script>
+
+  <script>
+    var options = {
+      classname: 'nanobar',
+      id: 'myNanobar'
+    };
+    var nanobar = new Nanobar(options);
+    nanobar.go(30);
+    nanobar.go(76);
+    nanobar.go(100);
+  </script>
+
+</body>
+
+</html>

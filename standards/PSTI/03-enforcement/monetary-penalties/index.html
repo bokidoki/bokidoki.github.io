@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+  <!-- Minima -->
+  <!-- Hexo theme created by @adisaktijrs -->
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+
+  
+  <title>货币罚款详解：PSTI最高处罚机制</title>
+  
+  <link rel="sitemap" href="https://bokidoki.github.iositemap.xml,sitemap.txt" />
+  
+  <link rel="canonical" href="https://bokidoki.github.io/standards/PSTI/03-enforcement/monetary-penalties/">
+  
+  <meta name="description" content="概述货币罚款（Monetary Penalties）是 PSTI 法案最具威慑力的执法手段。罚款金额最高可达 1000 万英镑或全球营业额的 4%。本文详细解读 PSTI Act 2022 Section 36-41 关于货币罚款的规定。  一、罚款法律依据1.1 Section 36：罚款权力核心">
+  
+  
+  <meta name="keywords" content="认证,标准,PCI,EN,网络安全,MPoC">
+  
+  <meta name="author" content="标准研究组">
+  
+  
+  
+  <meta property="og:site_name" content="认证标准解读" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="货币罚款详解：PSTI最高处罚机制" />
+  
+  <meta property="og:description" content="概述货币罚款（Monetary Penalties）是 PSTI 法案最具威慑力的执法手段。罚款金额最高可达 1000 万英镑或全球营业额的 4%。本文详细解读 PSTI Act 2022 Section 36-41 关于货币罚款的规定。  一、罚款法律依据1.1 Section 36：罚款权力核心">
+  
+  <meta property="og:url" content="https://bokidoki.github.io/standards/PSTI/03-enforcement/monetary-penalties/" />
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="货币罚款详解：PSTI最高处罚机制">
+  
+  <meta name="twitter:description" content="概述货币罚款（Monetary Penalties）是 PSTI 法案最具威慑力的执法手段。罚款金额最高可达 1000 万英镑或全球营业额的 4%。本文详细解读 PSTI Act 2022 Section 36-41 关于货币罚款的规定。  一、罚款法律依据1.1 Section 36：罚款权力核心">
+  
+  
+  
+  
+  <meta name="twitter:url" content="https://bokidoki.github.io/standards/PSTI/03-enforcement/monetary-penalties/" />
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Preload fonts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="preload" href="/fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+<link rel="stylesheet" href="/css/normalize.css">
+
+  
+<link rel="stylesheet" href="/css/skeleton.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+<link rel="stylesheet" href="/css/prism-dark.css">
+
+  
+<link rel="stylesheet" href="/css/prism-line-numbers.css">
+
+  <!-- User css -->
+  
+  
+<link rel="stylesheet" href="/css/user.css">
+
+  
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="专注认证行业标准化研究，解读国内外认证政策与技术规范">
+  <meta name="keywords" content="PSTI, 货币罚款, Monetary Penalties">
+  <meta name="author" content="标准研究组">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://bokidoki.github.io/standards/PSTI/03-enforcement/monetary-penalties/index.html">
+  
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+    "@type": "Article",
+    "headline": "货币罚款详解：PSTI最高处罚机制",
+    "description": "专注认证行业标准化研究，解读国内外认证政策与技术规范",
+    "author": {
+      "@type": "Person",
+      "name": "标准研究组"
+    },
+    "datePublished": "2026-03-20",
+    
+    "dateModified": "2026-03-20",
+    
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://bokidoki.github.io/standards/PSTI/03-enforcement/monetary-penalties/index.html"
+    },
+    
+    "keywords": "PSTI, 货币罚款, Monetary Penalties",
+    
+    
+    "publisher": {
+      "@type": "Organization",
+      "name": "认证标准解读",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://bokidoki.github.io/images/favicon.svg"
+      }
+    },
+    "url": "https://bokidoki.github.io/standards/PSTI/03-enforcement/monetary-penalties/index.html"
+  }
+  </script>
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bokidoki.github.io/standards/PSTI/03-enforcement/monetary-penalties/index.html">
+  <meta property="og:title" content="货币罚款详解：PSTI最高处罚机制">
+  <meta property="og:description" content="专注认证行业标准化研究，解读国内外认证政策与技术规范">
+  <meta property="og:site_name" content="认证标准解读">
+  <meta property="og:locale" content="zh_CN">
+  
+  <meta property="og:image" content="https://bokidoki.github.io/images/thumbnail.jpg">
+  
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="货币罚款详解：PSTI最高处罚机制">
+  <meta name="twitter:description" content="专注认证行业标准化研究，解读国内外认证政策与技术规范">
+  
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+
+  <!-- Custom Theme Color Style
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <style>
+  a:not(.icon) {
+    text-decoration-color: #0FA0CE;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 50%,
+      #0FA0CE 50%
+    );
+  }
+  blockquote {
+    border-left: 8px solid #0FA0CE;
+  }
+  .nanobar .bar {
+    background: #0FA0CE;
+  }
+  .button.button-primary:hover,
+  button.button-primary:hover,
+  input[type="submit"].button-primary:hover,
+  input[type="reset"].button-primary:hover,
+  input[type="button"].button-primary:hover,
+  .button.button-primary:focus,
+  button.button-primary:focus,
+  input[type="submit"].button-primary:focus,
+  input[type="reset"].button-primary:focus,
+  input[type="button"].button-primary:focus {
+    background-color: #0FA0CE;
+    border-color: #0FA0CE;
+  }
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  input[type="search"]:focus,
+  input[type="text"]:focus,
+  input[type="tel"]:focus,
+  input[type="url"]:focus,
+  input[type="password"]:focus,
+  textarea:focus,
+  select:focus {
+    border: 1px solid #0FA0CE;
+  }
+</style>
+
+  <!-- Google Analytics (With Privacy Settings On)
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+
+  
+  <script src="/js/pic.min.js" defer></script>
+  
+
+  
+
+<meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="认证标准解读" type="application/atom+xml">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div>
+
+        <div class="row">
+  <div class="two columns" style="max-width: 50px">
+    <h1 class="mt-2 mode">
+      <a href="/" style="text-decoration: none;">
+        <img src="/images/favicon.svg" alt="Logo" style="width: 32px; height: 32px;">
+      </a>
+    </h1>
+  </div>
+
+  <div class="six columns ml-1">
+    <h1 class="mt-2">
+      认证标准解读
+    </h1>
+  </div>
+
+  <div class="twelve columns">
+    <div class="row">
+      <div class="nine columns left">
+        <a href="/">Home</a>
+        
+          
+          <a href="/" class="ml">首页</a>
+          
+        
+          
+          <a href="/archives" class="ml">归档</a>
+          
+        
+          
+          <a href="/tags" class="ml">标签</a>
+          
+        
+        
+          
+            <a href="mailto:280327097@qq.com" target="_blank" class="ml">Email</a>
+          
+        
+      </div>
+    </div>
+    <hr style="margin-bottom: 2.6rem">
+  </div>
+</div>
+
+        <div class="trans">
+            <h2>货币罚款详解：PSTI最高处罚机制</h2>
+
+  <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>货币罚款（Monetary Penalties）是 PSTI 法案最具威慑力的执法手段。罚款金额最高可达 1000 万英镑或全球营业额的 4%。本文详细解读 PSTI Act 2022 Section 36-41 关于货币罚款的规定。</p>
+<hr>
+<h2 id="一、罚款法律依据"><a href="#一、罚款法律依据" class="headerlink" title="一、罚款法律依据"></a>一、罚款法律依据</h2><h3 id="1-1-Section-36：罚款权力"><a href="#1-1-Section-36：罚款权力" class="headerlink" title="1.1 Section 36：罚款权力"></a>1.1 Section 36：罚款权力</h3><p><strong>核心规定</strong>：</p>
+<blockquote>
+<p>The Secretary of State may give a monetary penalty notice to a person if the Secretary of State has reasonable grounds to believe that a compliance failure has occurred.</p>
+</blockquote>
+<p><strong>要点</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>要素</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>执法主体</td>
+<td>Secretary of State (DCMS)</td>
+</tr>
+<tr>
+<td>触发条件</td>
+<td>有合理理由认为存在合规失败</td>
+</tr>
+<tr>
+<td>措施</td>
+<td>发出货币罚款通知</td>
+</tr>
+</tbody></table>
+<h3 id="1-2-罚款与其他措施的关系"><a href="#1-2-罚款与其他措施的关系" class="headerlink" title="1.2 罚款与其他措施的关系"></a>1.2 罚款与其他措施的关系</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">执法措施选择：</span><br><span class="line"></span><br><span class="line">合规失败存在</span><br><span class="line">    │</span><br><span class="line">    ├── 可整改 → 合规通知</span><br><span class="line">    │</span><br><span class="line">    ├── 需停止销售 → 停止通知</span><br><span class="line">    │</span><br><span class="line">    ├── 需召回 → 召回通知</span><br><span class="line">    │</span><br><span class="line">    └── 严重违规/拒不整改 → 货币罚款</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="二、罚款金额上限"><a href="#二、罚款金额上限" class="headerlink" title="二、罚款金额上限"></a>二、罚款金额上限</h2><h3 id="2-1-Section-38-规定"><a href="#2-1-Section-38-规定" class="headerlink" title="2.1 Section 38 规定"></a>2.1 Section 38 规定</h3><p><strong>罚款上限</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>情形</th>
+<th>罚款上限</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>一般违规</strong></td>
+<td>1000万英镑 或 全球营业额4%（取较高者）</td>
+</tr>
+<tr>
+<td><strong>持续违规</strong></td>
+<td>每日最高2万英镑</td>
+</tr>
+</tbody></table>
+<h3 id="2-2-营业额计算"><a href="#2-2-营业额计算" class="headerlink" title="2.2 营业额计算"></a>2.2 营业额计算</h3><table>
+<thead>
+<tr>
+<th>要素</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>计算基准</td>
+<td>最近完整会计年度的全球营业额</td>
+</tr>
+<tr>
+<td>企业集团</td>
+<td>可合并计算集团营业额</td>
+</tr>
+<tr>
+<td>具体方式</td>
+<td>由法规进一步规定</td>
+</tr>
+</tbody></table>
+<h3 id="2-3-罚款金额示例"><a href="#2-3-罚款金额示例" class="headerlink" title="2.3 罚款金额示例"></a>2.3 罚款金额示例</h3><table>
+<thead>
+<tr>
+<th>企业全球营业额</th>
+<th>4%计算</th>
+<th>实际罚款上限</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>5000万英镑</td>
+<td>200万英镑</td>
+<td>1000万英镑（取上限）</td>
+</tr>
+<tr>
+<td>3亿英镑</td>
+<td>1200万英镑</td>
+<td>1200万英镑</td>
+</tr>
+<tr>
+<td>10亿英镑</td>
+<td>4000万英镑</td>
+<td>4000万英镑</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="三、罚款决定因素"><a href="#三、罚款决定因素" class="headerlink" title="三、罚款决定因素"></a>三、罚款决定因素</h2><h3 id="3-1-Section-37-规定"><a href="#3-1-Section-37-规定" class="headerlink" title="3.1 Section 37 规定"></a>3.1 Section 37 规定</h3><p>执法机构确定罚款金额时需考虑：</p>
+<table>
+<thead>
+<tr>
+<th>因素</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>违规性质</td>
+<td>违规的严重程度</td>
+</tr>
+<tr>
+<td>违规影响</td>
+<td>对消费者和市场的实际影响</td>
+</tr>
+<tr>
+<td>整改措施</td>
+<td>是否采取补救措施</td>
+</tr>
+<tr>
+<td>配合程度</td>
+<td>配合调查的态度</td>
+</tr>
+<tr>
+<td>过往记录</td>
+<td>是否有违规前科</td>
+</tr>
+<tr>
+<td>减轻因素</td>
+<td>是否存在减轻情节</td>
+</tr>
+</tbody></table>
+<h3 id="3-2-加重因素"><a href="#3-2-加重因素" class="headerlink" title="3.2 加重因素"></a>3.2 加重因素</h3><table>
+<thead>
+<tr>
+<th>因素</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>故意违规</td>
+<td>明知故犯</td>
+</tr>
+<tr>
+<td>隐瞒违规</td>
+<td>试图掩盖违规行为</td>
+</tr>
+<tr>
+<td>长期违规</td>
+<td>长时间未整改</td>
+</tr>
+<tr>
+<td>拒不配合</td>
+<td>拒绝配合调查</td>
+</tr>
+<tr>
+<td>再次违规</td>
+<td>有违规前科</td>
+</tr>
+</tbody></table>
+<h3 id="3-3-减轻因素"><a href="#3-3-减轻因素" class="headerlink" title="3.3 减轻因素"></a>3.3 减轻因素</h3><table>
+<thead>
+<tr>
+<th>因素</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>及时报告</td>
+<td>主动报告违规</td>
+</tr>
+<tr>
+<td>积极整改</td>
+<td>迅速采取整改措施</td>
+</tr>
+<tr>
+<td>配合调查</td>
+<td>全力配合执法机构</td>
+</tr>
+<tr>
+<td>初次违规</td>
+<td>无违规记录</td>
+</tr>
+<tr>
+<td>外部原因</td>
+<td>因不可抗力导致</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="四、罚款程序"><a href="#四、罚款程序" class="headerlink" title="四、罚款程序"></a>四、罚款程序</h2><h3 id="4-1-发出前通知"><a href="#4-1-发出前通知" class="headerlink" title="4.1 发出前通知"></a>4.1 发出前通知</h3><p><strong>Section 39</strong> 规定罚款通知发出前：</p>
+<table>
+<thead>
+<tr>
+<th>要求</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>事前通知</td>
+<td>必须通知当事人</td>
+</tr>
+<tr>
+<td>说明意图</td>
+<td>说明拟罚款的意图</td>
+</tr>
+<tr>
+<td>说明金额</td>
+<td>说明拟罚款金额</td>
+</tr>
+<tr>
+<td>陈述机会</td>
+<td>给予陈述意见的机会</td>
+</tr>
+</tbody></table>
+<h3 id="4-2-罚款通知内容"><a href="#4-2-罚款通知内容" class="headerlink" title="4.2 罚款通知内容"></a>4.2 罚款通知内容</h3><table>
+<thead>
+<tr>
+<th>要素</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>违规说明</td>
+<td>合规失败的详细说明</td>
+</tr>
+<tr>
+<td>罚款金额</td>
+<td>确定的罚款金额</td>
+</tr>
+<tr>
+<td>缴款期限</td>
+<td>缴纳罚款的期限（不少于28日）</td>
+</tr>
+<tr>
+<td>缴款方式</td>
+<td>如何缴纳罚款</td>
+</tr>
+<tr>
+<td>申诉权利</td>
+<td>申诉途径和期限</td>
+</tr>
+</tbody></table>
+<h3 id="4-3-罚款通知示例"><a href="#4-3-罚款通知示例" class="headerlink" title="4.3 罚款通知示例"></a>4.3 罚款通知示例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">─────────────────────────────────────────────────────────</span><br><span class="line">               MONETARY PENALTY NOTICE</span><br><span class="line">         Product Security and Telecommunications</span><br><span class="line">                    Infrastructure Act 2022</span><br><span class="line">─────────────────────────────────────────────────────────</span><br><span class="line"></span><br><span class="line">To: ABC Technology Co., Ltd.</span><br><span class="line">    123 Innovation Park, Shenzhen, China</span><br><span class="line"></span><br><span class="line">From: Secretary of State, DCMS</span><br><span class="line"></span><br><span class="line">Date: 20 March 2026</span><br><span class="line"></span><br><span class="line">Reference: PSTI-MPN-2026-001</span><br><span class="line"></span><br><span class="line">1. MONETARY PENALTY</span><br><span class="line"></span><br><span class="line">   A monetary penalty of £2,500,000 (two million five hundred </span><br><span class="line">   thousand pounds) is imposed on ABC Technology Co., Ltd.</span><br><span class="line"></span><br><span class="line">2. GROUNDS FOR PENALTY</span><br><span class="line"></span><br><span class="line">   The Secretary of State has reasonable grounds to believe </span><br><span class="line">   that a compliance failure has occurred:</span><br><span class="line">   </span><br><span class="line">   a) Product: Smart Camera SHC-2024</span><br><span class="line">   b) Nature of failure: Universal default password</span><br><span class="line">   c) Period of non-compliance: 1 January 2024 - 15 March 2026</span><br><span class="line">   d) Number of affected products: 50,000 units</span><br><span class="line">   </span><br><span class="line">   This constitutes a breach of PSTI Regulations 2023, </span><br><span class="line">   Security Requirement 1 (no universal default passwords).</span><br><span class="line"></span><br><span class="line">3. FACTORS CONSIDERED</span><br><span class="line"></span><br><span class="line">   Aggravating factors:</span><br><span class="line">   - Failure to respond to compliance notice</span><br><span class="line">   - Products remained on market after being informed</span><br><span class="line">   </span><br><span class="line">   Mitigating factors:</span><br><span class="line">   - First time violation</span><br><span class="line">   - Cooperation with investigation</span><br><span class="line"></span><br><span class="line">4. PENALTY AMOUNT</span><br><span class="line"></span><br><span class="line">   Base penalty: £3,000,000</span><br><span class="line">   Reduction for mitigating factors: £500,000</span><br><span class="line">   </span><br><span class="line">   Final penalty: £2,500,000</span><br><span class="line"></span><br><span class="line">5. PAYMENT</span><br><span class="line"></span><br><span class="line">   Payment due: 19 April 2026 (30 days from notice)</span><br><span class="line">   </span><br><span class="line">   Payment method:</span><br><span class="line">   Bank transfer to:</span><br><span class="line">   Account Name: DCMS PSTI Penalties</span><br><span class="line">   Sort Code: XX-XX-XX</span><br><span class="line">   Account Number: XXXXXXXX</span><br><span class="line">   Reference: PSTI-MPN-2026-001</span><br><span class="line"></span><br><span class="line">6. RIGHT OF APPEAL</span><br><span class="line"></span><br><span class="line">   You may appeal this notice to the First-tier Tribunal </span><br><span class="line">   within 28 days of receiving this notice.</span><br><span class="line"></span><br><span class="line">─────────────────────────────────────────────────────────</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="五、申诉机制"><a href="#五、申诉机制" class="headerlink" title="五、申诉机制"></a>五、申诉机制</h2><h3 id="5-1-申诉机构"><a href="#5-1-申诉机构" class="headerlink" title="5.1 申诉机构"></a>5.1 申诉机构</h3><p><strong>第一审裁判所</strong>（First-tier Tribunal）</p>
+<h3 id="5-2-申诉期限"><a href="#5-2-申诉期限" class="headerlink" title="5.2 申诉期限"></a>5.2 申诉期限</h3><p><strong>28日</strong>内提起申诉</p>
+<h3 id="5-3-申诉期间"><a href="#5-3-申诉期间" class="headerlink" title="5.3 申诉期间"></a>5.3 申诉期间</h3><table>
+<thead>
+<tr>
+<th>情形</th>
+<th>罚款执行</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>申诉期间</td>
+<td>暂缓缴纳</td>
+</tr>
+<tr>
+<td>申诉失败</td>
+<td>需缴纳罚款</td>
+</tr>
+<tr>
+<td>申诉成功</td>
+<td>罚款取消或减少</td>
+</tr>
+</tbody></table>
+<h3 id="5-4-裁判所权力"><a href="#5-4-裁判所权力" class="headerlink" title="5.4 裁判所权力"></a>5.4 裁判所权力</h3><table>
+<thead>
+<tr>
+<th>权力</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>确认罚款</td>
+<td>维持原罚款决定</td>
+</tr>
+<tr>
+<td>变更金额</td>
+<td>增加或减少罚款</td>
+</tr>
+<tr>
+<td>取消罚款</td>
+<td>取消罚款决定</td>
+</tr>
+<tr>
+<td>发回重审</td>
+<td>要求执法机构重新考虑</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="六、不缴纳罚款的后果"><a href="#六、不缴纳罚款的后果" class="headerlink" title="六、不缴纳罚款的后果"></a>六、不缴纳罚款的后果</h2><h3 id="6-1-逾期后果"><a href="#6-1-逾期后果" class="headerlink" title="6.1 逾期后果"></a>6.1 逾期后果</h3><table>
+<thead>
+<tr>
+<th>后果</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>利息</td>
+<td>逾期部分按法定利率计息</td>
+</tr>
+<tr>
+<td>追讨</td>
+<td>作为民事债务追讨</td>
+</tr>
+<tr>
+<td>法院执行</td>
+<td>通过法院强制执行</td>
+</tr>
+</tbody></table>
+<h3 id="6-2-影响信用"><a href="#6-2-影响信用" class="headerlink" title="6.2 影响信用"></a>6.2 影响信用</h3><p>未缴纳罚款可能影响企业在英国的信用记录。</p>
+<hr>
+<h2 id="七、罚款案例分析"><a href="#七、罚款案例分析" class="headerlink" title="七、罚款案例分析"></a>七、罚款案例分析</h2><h3 id="7-1-案例一：默认密码违规"><a href="#7-1-案例一：默认密码违规" class="headerlink" title="7.1 案例一：默认密码违规"></a>7.1 案例一：默认密码违规</h3><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>企业</td>
+<td>某智能摄像头制造商</td>
+</tr>
+<tr>
+<td>违规</td>
+<td>使用通用默认密码”admin”</td>
+</tr>
+<tr>
+<td>影响范围</td>
+<td>10万台设备</td>
+</tr>
+<tr>
+<td>整改态度</td>
+<td>收到合规通知后未及时整改</td>
+</tr>
+<tr>
+<td>罚款金额</td>
+<td>150万英镑</td>
+</tr>
+</tbody></table>
+<h3 id="7-2-案例二：无漏洞披露政策"><a href="#7-2-案例二：无漏洞披露政策" class="headerlink" title="7.2 案例二：无漏洞披露政策"></a>7.2 案例二：无漏洞披露政策</h3><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>企业</td>
+<td>某智能家居设备进口商</td>
+</tr>
+<tr>
+<td>违规</td>
+<td>未公开安全联系方式</td>
+</tr>
+<tr>
+<td>影响范围</td>
+<td>5000台设备</td>
+</tr>
+<tr>
+<td>整改态度</td>
+<td>收到通知后立即整改</td>
+</tr>
+<tr>
+<td>罚款金额</td>
+<td>5万英镑（因配合整改减轻处罚）</td>
+</tr>
+</tbody></table>
+<h3 id="7-3-案例三：拒绝配合调查"><a href="#7-3-案例三：拒绝配合调查" class="headerlink" title="7.3 案例三：拒绝配合调查"></a>7.3 案例三：拒绝配合调查</h3><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>企业</td>
+<td>某可穿戴设备制造商</td>
+</tr>
+<tr>
+<td>违规</td>
+<td>拒绝提供合规声明副本</td>
+</tr>
+<tr>
+<td>影响范围</td>
+<td>未知</td>
+</tr>
+<tr>
+<td>整改态度</td>
+<td>拒不配合执法机构</td>
+</tr>
+<tr>
+<td>罚款金额</td>
+<td>50万英镑</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="八、应对策略"><a href="#八、应对策略" class="headerlink" title="八、应对策略"></a>八、应对策略</h2><h3 id="8-1-收到罚款通知前"><a href="#8-1-收到罚款通知前" class="headerlink" title="8.1 收到罚款通知前"></a>8.1 收到罚款通知前</h3><table>
+<thead>
+<tr>
+<th>策略</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>积极合规</td>
+<td>建立完善的合规体系</td>
+</tr>
+<tr>
+<td>及时响应</td>
+<td>收到合规通知后及时整改</td>
+</tr>
+<tr>
+<td>主动报告</td>
+<td>发现违规后主动报告</td>
+</tr>
+</tbody></table>
+<h3 id="8-2-收到罚款意向通知"><a href="#8-2-收到罚款意向通知" class="headerlink" title="8.2 收到罚款意向通知"></a>8.2 收到罚款意向通知</h3><table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>行动</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>仔细阅读通知内容</td>
+</tr>
+<tr>
+<td>2</td>
+<td>评估违规事实</td>
+</tr>
+<tr>
+<td>3</td>
+<td>准备陈述材料</td>
+</tr>
+<tr>
+<td>4</td>
+<td>提出减轻处罚的理由</td>
+</tr>
+<tr>
+<td>5</td>
+<td>寻求法律建议</td>
+</tr>
+</tbody></table>
+<h3 id="8-3-收到正式罚款通知"><a href="#8-3-收到正式罚款通知" class="headerlink" title="8.3 收到正式罚款通知"></a>8.3 收到正式罚款通知</h3><table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>行动</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>评估是否申诉</td>
+</tr>
+<tr>
+<td>2</td>
+<td>准备申诉材料</td>
+</tr>
+<tr>
+<td>3</td>
+<td>按时缴纳或申诉</td>
+</tr>
+<tr>
+<td>4</td>
+<td>记录罚款支出</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="九、合规建议"><a href="#九、合规建议" class="headerlink" title="九、合规建议"></a>九、合规建议</h2><h3 id="9-1-风险评估"><a href="#9-1-风险评估" class="headerlink" title="9.1 风险评估"></a>9.1 风险评估</h3><table>
+<thead>
+<tr>
+<th>风险等级</th>
+<th>说明</th>
+<th>建议措施</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>高</td>
+<td>明知违规且拒不整改</td>
+<td>立即整改</td>
+</tr>
+<tr>
+<td>中</td>
+<td>存在合规漏洞</td>
+<td>尽快修复</td>
+</tr>
+<tr>
+<td>低</td>
+<td>潜在合规风险</td>
+<td>监控改进</td>
+</tr>
+</tbody></table>
+<h3 id="9-2-预防措施"><a href="#9-2-预防措施" class="headerlink" title="9.2 预防措施"></a>9.2 预防措施</h3><table>
+<thead>
+<tr>
+<th>措施</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>合规体系</td>
+<td>建立完善的合规管理体系</td>
+</tr>
+<tr>
+<td>内部审计</td>
+<td>定期进行合规审计</td>
+</tr>
+<tr>
+<td>员工培训</td>
+<td>培训员工合规意识</td>
+</tr>
+<tr>
+<td>应急预案</td>
+<td>建立违规应急响应机制</td>
+</tr>
+<tr>
+<td>法律顾问</td>
+<td>保留专业法律支持</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>货币罚款要点：</p>
+<ol>
+<li><strong>罚款上限</strong>：1000万英镑或全球营业额4%</li>
+<li><strong>决定因素</strong>：违规性质、影响、整改态度、配合程度</li>
+<li><strong>程序保障</strong>：事前通知、陈述机会、申诉权利</li>
+<li><strong>申诉期限</strong>：28日内向裁判所申诉</li>
+<li><strong>预防为主</strong>：建立合规体系，避免违规</li>
+</ol>
+<hr>
+<p><em>本文是 PSTI法案解读系列 的执法篇。</em></p>
+
+  <p><a class="classtest-link" href="/tags/Monetary-Penalties/" rel="tag">Monetary Penalties</a>, <a class="classtest-link" href="/tags/PSTI/" rel="tag">PSTI</a>, <a class="classtest-link" href="/tags/%E8%B4%A7%E5%B8%81%E7%BD%9A%E6%AC%BE/" rel="tag">货币罚款</a> — 2026年3月20日</p>
+  
+  
+  <p id="busuanzi_page" style="color: #888; font-size: 0.9rem;">
+    <span id="busuanzi_container_page_pv">
+      本文阅读量 <span id="busuanzi_value_page_pv"></span> 次
+    </span>
+  </p>
+  
+  
+  
+
+
+  <hr>
+  <section id="comments" class="mt-2 mb-3">
+    <h3>评论</h3>
+    <script src="https://giscus.app/client.js"
+      data-repo="bokidoki/bokidoki.github.io"
+      data-repo-id="MDEwOlJlcG9zaXRvcnkzODA4NzAyODg="
+      data-category="Announcements"
+      data-category-id="DIC_kwDOFrOekM4C4W5W"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="light"
+      data-lang="zh-CN"
+      data-loading="lazy"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </section>
+
+
+
+        </div>
+        <div class="row mt-2">
+  <h3>Search</h3>
+  <div><input id="search-text" title="search" class="search-text" type="text" placeholder="search......"></div>
+  <div style="margin-top: 1.5rem;">
+    <ul id="result"></ul>
+  </div>
+</div>
+        <div class="row mt-2">
+  
+    <div class="eight columns">
+      <p id="madewith">Made with ❤ and
+        <a class="footer-link icon" href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer" aria-label="Hexo.io">
+        <svg class="hexo svg-hov" width="14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
+        </a>
+        
+        at <a href="https://bokidoki.github.io" target="_blank" rel="noreferrer">Lynd</a> · 280327097@qq.com.</p>
+        
+      <!-- Busuanzi Visitor Count -->
+      
+      <p id="busuanzi">
+        <span id="busuanzi_container_site_pv">
+          本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+        </span>
+        <span style="margin: 0 0.5rem;">|</span>
+        <span id="busuanzi_container_site_uv">
+          访客数 <span id="busuanzi_value_site_uv"></span> 人次
+        </span>
+      </p>
+      
+    </div>
+
+    <!-- Sepcial thanks to https://simpleicons.org/ for the icons -->
+    <div class="four columns mb-3 posisi" >
+      
+
+      
+
+      
+
+      
+
+      
+
+    </div>
+  
+</div>
+
+<!-- Busuanzi JS -->
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+      </div>
+
+    </div>
+
+  </div>
+  <script src="/js/nanobar.min.js"></script>
+
+  <script>
+    var options = {
+      classname: 'nanobar',
+      id: 'myNanobar'
+    };
+    var nanobar = new Nanobar(options);
+    nanobar.go(30);
+    nanobar.go(76);
+    nanobar.go(100);
+  </script>
+
+</body>
+
+</html>
